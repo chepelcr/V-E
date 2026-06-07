@@ -58,8 +58,20 @@ export const MarbleBackground: React.FC = () => {
     }
     handleRef.current = handle;
 
-    const setSize = () => handle.resize(window.innerWidth, window.innerHeight);
-    setSize();
+    // Size to the viewport, but IGNORE height-only changes from the mobile
+    // address bar showing/hiding on scroll (those caused the background to
+    // reflow/zoom). Only re-size when the width changes (incl. orientation).
+    let lastW = window.innerWidth;
+    let lastH = window.innerHeight;
+    const setSize = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      if (w === lastW && Math.abs(h - lastH) < 220) return;
+      lastW = w;
+      lastH = h;
+      handle.resize(w, h);
+    };
+    handle.resize(lastW, lastH);
     handle.start();
 
     const onPointer = (e: PointerEvent) => {

@@ -126,8 +126,14 @@ export function createMarbleScene(
     alpha: true,
     powerPreference: "high-performance",
   });
-  // Procedural noise is fill-rate bound; cap DPR a little tighter than usual.
-  const dprCap = 1.5;
+  // Procedural noise is fill-rate bound; cap DPR (tighter on mobile/touch).
+  const isMobile =
+    window.matchMedia("(pointer: coarse)").matches ||
+    Math.min(window.innerWidth, window.innerHeight) < 768;
+  const dprCap = isMobile ? 1.0 : 1.5;
+  // On mobile we also render the slow ambient marble at ~30fps to ease the GPU.
+  const renderEvery = isMobile ? 2 : 1;
+  let frameCount = 0;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = opts.dark ? 1.0 : 1.4;
@@ -238,7 +244,8 @@ export function createMarbleScene(
     renderer.toneMappingExposure +=
       (exposureTarget - renderer.toneMappingExposure) * 0.05;
 
-    renderer.render(scene, camera);
+    // throttle rendering on mobile (the motion is slow; skipping frames is fine)
+    if (frameCount++ % renderEvery === 0) renderer.render(scene, camera);
     raf = requestAnimationFrame(frame);
   }
 
