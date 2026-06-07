@@ -219,7 +219,7 @@
   }
 }
 
-/* Marble texture is handled by MarbleBackground.tsx (SVG feTurbulence) */
+/* Marble/gold background is handled by MarbleBackground.tsx (Three.js PBR WebGL) */
 
 /**
  * Using the elevate system.
