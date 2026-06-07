@@ -102,17 +102,19 @@ void computeMarble(vec2 uv, out vec3 albedo, out float metal, out float rough, o
   // --- base: near-black (dark) / ivory (light), gold stays gold ---
   float mott = fieldA * 0.5 + 0.5;
   vec3 darkBase  = mix(vec3(0.010, 0.010, 0.014), vec3(0.030, 0.030, 0.038), mott);
-  vec3 lightBase = mix(vec3(0.855, 0.835, 0.80), vec3(0.955, 0.945, 0.915), mott);
+  vec3 lightBase = mix(vec3(0.80, 0.78, 0.74),   vec3(0.92, 0.905, 0.875), mott);
   vec3 base = mix(darkBase, lightBase, uLight);
 
-  vec3 hairCol = mix(vec3(0.40, 0.40, 0.44), vec3(0.55, 0.52, 0.46), uLight);
+  // hairline cracks: light-grey on black, darker grey on cream (so they show)
+  vec3 hairCol = mix(vec3(0.42, 0.42, 0.46), vec3(0.50, 0.46, 0.38), uLight);
   base = mix(base, hairCol, hair * (1.0 - gold));
 
-  vec3 goldCol = vec3(1.0, 0.76, 0.32);
+  // gold: bright on black, deep antique gold on cream (high contrast either way)
+  vec3 goldCol = mix(vec3(1.0, 0.76, 0.32), vec3(0.60, 0.42, 0.10), uLight);
   albedo = mix(base, goldCol, gold);
   metal  = gold;                       // ONLY the veins are metallic
   rough  = mix(0.88, 0.18, gold);      // base is matte; gold is polished
-  glow   = pow(gold, 1.6) * 0.16;
+  glow   = pow(gold, 1.6) * 0.16 * (1.0 - uLight); // glow only reads on dark
 }
 `;
 
@@ -269,6 +271,8 @@ export function createMarbleScene(
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      // Vein density grows with viewport width; keep desktop calmer than mobile.
+      uniforms.uScale.value = isMobile ? 3.0 : 1.8;
       fitPlane();
       if (!running) renderOnce();
     },
