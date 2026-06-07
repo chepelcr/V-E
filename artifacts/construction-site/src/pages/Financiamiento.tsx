@@ -121,7 +121,7 @@ export default function Financiamiento() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 data-testid={`card-financing-${i}`}
-                className="bg-card/60 border border-border/40 p-6 backdrop-blur-sm flex flex-col gap-4 hover:border-primary/40 transition-colors"
+                className="glass-panel border border-border/40 p-6 backdrop-blur-sm flex flex-col gap-4 hover:border-primary/40 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 border border-primary/30 text-primary">
@@ -163,7 +163,7 @@ export default function Financiamiento() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 data-testid={`card-project-${i}`}
-                className="bg-card/50 border border-border/30 p-5 flex flex-col items-center gap-3 text-center hover:border-primary/40 transition-colors"
+                className="glass-panel border border-border/30 p-5 flex flex-col items-center gap-3 text-center hover:border-primary/40 transition-colors"
               >
                 <Icon size={28} className="text-primary" />
                 <span className="text-sm font-light tracking-wide">
@@ -183,7 +183,7 @@ export default function Financiamiento() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card/60 border border-border/40 p-8"
+          className="glass-panel border border-border/40 p-8"
         >
           <h3 className="font-serif text-2xl text-primary mb-6">
             {es ? 'Servicio Llave en Mano' : 'Turnkey Service'}

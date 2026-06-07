@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* ── Hero ──────────────────────────────────────────────────────── */}
       <section className="min-h-[85vh] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-background/50" />
+        <div className="absolute inset-0 glass-scrim" />
         <motion.div
           className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center"
           initial="hidden"
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* ── Nuestros Servicios ────────────────────────────────────────── */}
-      <section className="py-24 bg-card/30 backdrop-blur-sm border-y border-border/30">
+      <section className="py-24 glass-section backdrop-blur-sm border-y border-border/30">
         <div className="container mx-auto px-6 max-w-5xl">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -178,7 +178,7 @@ export default function Home() {
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }}
               variants={fadeUp(0.1)}
-              className="bg-background/60 border border-border/40 p-8 hover:border-primary/30 transition-colors"
+              className="glass-panel border border-border/40 p-8 hover:border-primary/30 transition-colors"
               data-testid="card-service-financial"
             >
               <div className="flex items-center gap-3 mb-6">
@@ -203,7 +203,7 @@ export default function Home() {
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true }}
               variants={fadeUp(0.2)}
-              className="bg-background/60 border border-border/40 p-8 hover:border-primary/30 transition-colors"
+              className="glass-panel border border-border/40 p-8 hover:border-primary/30 transition-colors"
               data-testid="card-service-construction"
             >
               <div className="flex items-center gap-3 mb-6">

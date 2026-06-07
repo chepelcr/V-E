@@ -76,6 +76,11 @@
   --elevate-1: rgba(201, 168, 76, 0.05);
   --elevate-2: rgba(201, 168, 76, 0.1);
 
+  /* Panel surfaces over the marble bg. Dark mode needs MORE opacity (a black
+     veil over a dark marble reads as nearly transparent otherwise). */
+  --panel-alpha: 0.66;
+  --section-alpha: 0.45;
+
   --background: 0 0% 6%;
   --foreground: 44 15% 96%;
   --border: 45 20% 20%;
@@ -154,6 +159,10 @@
   --elevate-1: rgba(140, 100, 20, 0.05);
   --elevate-2: rgba(140, 100, 20, 0.1);
 
+  /* Light mode needs LESS opacity so the Calacatta marble shows through. */
+  --panel-alpha: 0.55;
+  --section-alpha: 0.32;
+
   --background: 40 30% 95%;
   --foreground: 30 40% 10%;
   --border: 38 25% 75%;
@@ -221,6 +230,21 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Consistent translucent surfaces over the marble background. Opacity is
+     theme-aware (see --panel-alpha / --section-alpha) so the perceived veil
+     matches in both light and dark modes. */
+  .glass-panel {
+    background-color: hsl(var(--card) / var(--panel-alpha));
+  }
+  .glass-section {
+    background-color: hsl(var(--card) / var(--section-alpha));
+  }
+  .glass-scrim {
+    background-color: hsl(var(--background) / var(--section-alpha));
   }
 }
 
