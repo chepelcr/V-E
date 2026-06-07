@@ -85,36 +85,40 @@ void computeMarble(vec2 uv, out vec3 albedo, out float metal, out float rough, o
   float fieldB = fbm(p * 1.9 + 2.2 * w + 3.0);      // finer branching
   // appear only in broad bands so the surface stays mostly black
   float band = smoothstep(0.45, 0.95, snoise(p * 0.35 + 12.0) * 0.5 + 0.5);
-  float gold = veinLine(fieldA, 0.05) * mix(0.35, 1.0, band);
-  gold = max(gold, veinLine(fieldB, 0.03) * 0.7 * band);
+  // veins are a touch bolder in light (Calacatta has prominent veining)
+  float gold = veinLine(fieldA, mix(0.05, 0.07, uLight)) * mix(0.35, 1.0, band);
+  gold = max(gold, veinLine(fieldB, mix(0.03, 0.042, uLight)) * 0.7 * band);
   gold = clamp(gold, 0.0, 1.0);
 
   // --- neutral grey/white hairline crackle: denser, very thin, subtle ---
   float fieldH = fbm(p * 3.4 + 1.5 * w + 20.0);
   float hair = veinLine(fieldH, 0.02) * 0.45;
 
-  // calm the very centre so hero text stays readable
+  // calm the centre so hero text stays readable (less aggressive in light)
   vec2 c = uv - 0.5; c.x *= uAspect;
   float centre = smoothstep(0.0, 0.5, length(c));
-  gold *= mix(0.45, 1.0, centre);
+  gold *= mix(mix(0.45, 1.0, centre), mix(0.7, 1.0, centre), uLight);
   hair *= mix(0.5, 1.0, centre);
 
-  // --- base: near-black (dark) / ivory (light), gold stays gold ---
+  // --- base: near-black (dark) / Calacatta warm white (light) ---
   float mott = fieldA * 0.5 + 0.5;
   vec3 darkBase  = mix(vec3(0.010, 0.010, 0.014), vec3(0.030, 0.030, 0.038), mott);
-  vec3 lightBase = mix(vec3(0.80, 0.78, 0.74),   vec3(0.92, 0.905, 0.875), mott);
+  vec3 lightBase = mix(vec3(0.935, 0.925, 0.90), vec3(0.975, 0.97, 0.95), mott);
   vec3 base = mix(darkBase, lightBase, uLight);
 
-  // hairline cracks: light-grey on black, darker grey on cream (so they show)
-  vec3 hairCol = mix(vec3(0.42, 0.42, 0.46), vec3(0.50, 0.46, 0.38), uLight);
+  // hairline cracks: light-grey on black, soft warm-grey on white
+  vec3 hairCol = mix(vec3(0.42, 0.42, 0.46), vec3(0.64, 0.60, 0.52), uLight);
   base = mix(base, hairCol, hair * (1.0 - gold));
 
-  // gold: bright on black, deep antique gold on cream (high contrast either way)
-  vec3 goldCol = mix(vec3(1.0, 0.76, 0.32), vec3(0.60, 0.42, 0.10), uLight);
+  // gold veins: bright warm gold (dark) / rich Calacatta gold (light)
+  vec3 goldCol = mix(vec3(1.0, 0.76, 0.32), vec3(1.0, 0.833, 0.224), uLight);
   albedo = mix(base, goldCol, gold);
-  metal  = gold;                       // ONLY the veins are metallic
-  rough  = mix(0.88, 0.18, gold);      // base is matte; gold is polished
-  glow   = pow(gold, 1.6) * 0.16 * (1.0 - uLight); // glow only reads on dark
+
+  // PBR: dielectric substrate (metal 0), conductor veins (metal 1).
+  // Base roughness: matte black (dark) vs polished marble ~0.35 (light); gold ~0.15.
+  metal  = gold;
+  rough  = mix(mix(0.88, 0.35, uLight), 0.15, gold);
+  glow   = pow(gold, 1.6) * 0.16 * (1.0 - uLight); // emissive glow only reads on dark
 }
 `;
 

@@ -77,7 +77,7 @@
   --elevate-2: rgba(201, 168, 76, 0.1);
 
   --background: 0 0% 6%;
-  --foreground: 45 40% 90%;
+  --foreground: 44 15% 96%;
   --border: 45 20% 20%;
 
   --card: 0 0% 8%;
@@ -104,7 +104,7 @@
   --secondary-foreground: 45 55% 54%;
 
   --muted: 0 0% 12%;
-  --muted-foreground: 45 20% 60%;
+  --muted-foreground: 44 14% 82%;
 
   --accent: 45 20% 15%;
   --accent-foreground: 45 55% 54%;
@@ -212,6 +212,11 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    /* Gentle global type scale-up (was 16px) for more legible body text. */
+    font-size: 17.5px;
   }
 
   body {

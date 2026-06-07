@@ -50,15 +50,15 @@ export const Navbar = () => {
           <img
             src="/logo.jpg"
             alt={siteData.config.companyName}
-            className="h-12 w-12 object-cover"
+            className="h-16 w-16 object-cover"
             data-testid="img-logo"
           />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-serif text-xl tracking-widest text-foreground uppercase font-semibold" data-testid="text-logo">
+            <span className="font-serif text-2xl tracking-widest text-foreground uppercase font-semibold" data-testid="text-logo">
               V<span className="text-primary">&</span>E
             </span>
-            <span className="text-[10px] tracking-[0.2em] text-primary uppercase font-light">
-              Asesores en Construcción
+            <span className="text-xs tracking-[0.2em] text-primary uppercase font-light">
+              Asesores
             </span>
           </div>
         </Link>
