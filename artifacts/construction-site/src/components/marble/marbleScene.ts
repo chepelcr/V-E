@@ -180,7 +180,7 @@ export function createMarbleScene(
     color: 0xffffff,
     metalness: 1.0,
     roughness: 1.0,
-    envMapIntensity: 1.25,
+    envMapIntensity: 1.6,
     emissive: 0xffffff,
     emissiveIntensity: 0.0,
   });
@@ -200,10 +200,10 @@ export function createMarbleScene(
       "#include <map_fragment>",
       /* glsl */ `
       #ifdef USE_MAP
-        float nx = snoise(vMapUv * 2.2 + vec2(uTime * 0.025, -uTime * 0.02));
-        float ny = snoise(vMapUv * 2.2 + vec2(7.3 - uTime * 0.018, 2.1));
-        vec2 drift = vec2(nx, ny) * 0.0035;
-        vec2 par = uPointer * 0.012;
+        float nx = snoise(vMapUv * 2.2 + vec2(uTime * 0.045, -uTime * 0.035));
+        float ny = snoise(vMapUv * 2.2 + vec2(7.3 - uTime * 0.032, 2.1));
+        vec2 drift = vec2(nx, ny) * 0.007;
+        vec2 par = uPointer * 0.018;
         vec4 sampledDiffuseColor = texture2D( map, vMapUv + drift + par );
         diffuseColor *= sampledDiffuseColor;
       #endif
@@ -283,14 +283,23 @@ export function createMarbleScene(
 
     // ease pointer + theme uniforms
     uniforms.uPointer.value.lerp(pointerTarget, 0.06);
-    camera.position.x += (pointerTarget.x * 0.18 - camera.position.x) * 0.05;
-    camera.position.y += (pointerTarget.y * 0.12 - camera.position.y) * 0.05;
+
+    // Always-on idle motion (a slow orbit) so the gold reflections shimmer even
+    // with no mouse input / on touch devices, plus the pointer parallax on top.
+    const tt = uniforms.uTime.value;
+    const idleX = Math.sin(tt * 0.28) * 0.16;
+    const idleY = Math.cos(tt * 0.21) * 0.1;
+    const targetX = pointerTarget.x * 0.22 + idleX;
+    const targetY = pointerTarget.y * 0.16 + idleY;
+    camera.position.x += (targetX - camera.position.x) * 0.04;
+    camera.position.y += (targetY - camera.position.y) * 0.04;
     camera.lookAt(0, 0, 0);
+
     uniforms.uLight.value += (lightTarget - uniforms.uLight.value) * 0.05;
     renderer.toneMappingExposure +=
       (exposureTarget - renderer.toneMappingExposure) * 0.05;
 
-    material.emissiveIntensity = 0.12 + 0.04 * Math.sin(uniforms.uTime.value * 0.8);
+    material.emissiveIntensity = 0.14 + 0.06 * Math.sin(tt * 0.8);
 
     renderer.render(scene, camera);
     raf = requestAnimationFrame(frame);
