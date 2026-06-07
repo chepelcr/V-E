@@ -103,21 +103,13 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/40">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3" data-testid="link-home-logo">
+        <Link href="/" className="flex items-center" data-testid="link-home-logo">
           <img
-            src="/logo.jpg"
+            src={`${import.meta.env.BASE_URL}${theme === 'dark' ? 'nav-dark.png' : 'nav-light.png'}`}
             alt={siteData.config.companyName}
-            className="h-16 w-16 object-cover"
+            className="h-11 sm:h-14 w-auto object-contain"
             data-testid="img-logo"
           />
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-serif text-2xl tracking-widest text-foreground uppercase font-semibold" data-testid="text-logo">
-              V<span className="text-primary">&</span>E
-            </span>
-            <span className="text-xs tracking-[0.2em] text-primary uppercase font-light">
-              Asesores
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Nav */}
