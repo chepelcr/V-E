@@ -14,6 +14,7 @@ import Lots from "@/pages/Lots";
 import Providers from "@/pages/Providers";
 import Contact from "@/pages/Contact";
 import Admin from "@/pages/Admin";
+import Financiamiento from "@/pages/Financiamiento";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/providers" component={Providers} />
         <Route path="/contact" component={Contact} />
         <Route path="/admin" component={Admin} />
+        <Route path="/financiamiento" component={Financiamiento} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

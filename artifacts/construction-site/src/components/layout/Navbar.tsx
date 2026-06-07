@@ -38,6 +38,7 @@ export const Navbar = () => {
     '/': t.nav.home,
     '/catalog': t.nav.catalog,
     '/lots': t.nav.lots,
+    '/financiamiento': t.nav.financing,
     '/providers': t.nav.providers,
     '/contact': t.nav.contact,
   };
@@ -45,10 +46,21 @@ export const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/40">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-2xl tracking-widest text-primary uppercase" data-testid="text-logo">
-            {siteData.config.companyName}
-          </span>
+        <Link href="/" className="flex items-center gap-3" data-testid="link-home-logo">
+          <img
+            src="/logo.jpg"
+            alt={siteData.config.companyName}
+            className="h-12 w-12 object-cover"
+            data-testid="img-logo"
+          />
+          <div className="hidden sm:flex flex-col leading-tight">
+            <span className="font-serif text-xl tracking-widest text-foreground uppercase font-semibold" data-testid="text-logo">
+              V<span className="text-primary">&</span>E
+            </span>
+            <span className="text-[10px] tracking-[0.2em] text-primary uppercase font-light">
+              Asesores en Construcción
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}

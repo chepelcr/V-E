@@ -73,21 +73,22 @@ export interface SiteData {
 
 export const initialSiteData: SiteData = {
   config: {
-    companyName: "AUREA",
-    tagline: "Architecture & Construction",
+    companyName: "V&E Asesores",
+    tagline: "Asesores en Construcción",
     measurementUnit: "m²"
   },
   corporate: {
-    mission: "To craft spaces that endure through time, combining unparalleled craftsmanship with uncompromising integrity.",
-    vision: "Redefining the standard of luxury living through architectural excellence and meticulous attention to detail.",
-    about: "Founded on the principles of classic design and modern engineering, AUREA has been building Costa Rica's most prestigious residences for over two decades. We believe a home is more than a structure; it is a legacy."
+    mission: "Brindar asesoramiento financiero y constructivo de excelencia para acompañar a cada familia en el proceso de adquisición o construcción de su hogar, de manera segura, clara y eficiente.",
+    vision: "Ser el aliado estratégico más confiable de Costa Rica en construcción y financiamiento habitacional, haciendo posible el sueño de la casa propia para más familias.",
+    about: "V&E Asesores en Construcción es una empresa especializada en brindar asesoramiento financiero y constructivo integral. Contamos con Ingeniero Civil, Electricista Certificada, Asesoría Legal y Contable para que tu proyecto esté en las mejores manos. Desde el diseño, los planos y la tramitología, hasta la entrega final con nuestro servicio Llave en Mano 100% personalizado."
   },
   navigation: [
-    { label: "Home", path: "/" },
-    { label: "Catalog", path: "/catalog" },
-    { label: "Lots", path: "/lots" },
-    { label: "Providers", path: "/providers" },
-    { label: "Contact", path: "/contact" }
+    { label: "Inicio", path: "/" },
+    { label: "Catálogo", path: "/catalog" },
+    { label: "Lotes", path: "/lots" },
+    { label: "Financiamiento", path: "/financiamiento" },
+    { label: "Proveedores", path: "/providers" },
+    { label: "Contacto", path: "/contact" }
   ],
   houseModels: [
     {

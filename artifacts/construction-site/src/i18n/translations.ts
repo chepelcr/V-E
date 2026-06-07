@@ -5,6 +5,7 @@ export interface Translations {
     home: string;
     catalog: string;
     lots: string;
+    financing: string;
     providers: string;
     contact: string;
   };
@@ -130,6 +131,7 @@ const en: Translations = {
     home: "Home",
     catalog: "Catalog",
     lots: "Lots",
+    financing: "Financing",
     providers: "Providers",
     contact: "Contact",
   },
@@ -260,6 +262,7 @@ const es: Translations = {
     home: "Inicio",
     catalog: "Catálogo",
     lots: "Lotes",
+    financing: "Financiamiento",
     providers: "Proveedores",
     contact: "Contacto",
   },
