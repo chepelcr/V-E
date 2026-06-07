@@ -3,8 +3,65 @@ import { Link, useLocation } from 'wouter';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+type NavLink = { path: string; label: string };
+
+/** Desktop "Catálogo" dropdown grouping Casas (/catalog) and Lotes (/lots). */
+const CatalogDropdown = ({
+  label,
+  items,
+  active,
+  currentPath,
+}: {
+  label: string;
+  items: NavLink[];
+  active: boolean;
+  currentPath: string;
+}) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        className={`flex items-center gap-1 text-sm tracking-widest uppercase transition-colors hover:text-primary ${active ? 'text-primary' : 'text-muted-foreground'}`}
+        onClick={() => setOpen((o) => !o)}
+        data-testid="nav-catalog-dropdown"
+      >
+        {label}
+        <ChevronDown size={14} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18 }}
+            className="absolute left-0 top-full pt-3 min-w-[160px]"
+          >
+            <div className="bg-background/95 backdrop-blur-md border border-border/40 py-2 flex flex-col">
+              {items.map((it) => (
+                <Link
+                  key={it.path}
+                  href={it.path}
+                  className={`px-4 py-2 text-sm tracking-widest uppercase transition-colors hover:text-primary hover:bg-primary/5 ${currentPath === it.path ? 'text-primary' : 'text-muted-foreground'}`}
+                  data-testid={`nav-catalog-item-${it.path.slice(1)}`}
+                >
+                  {it.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const FlagCR = () => (
   <svg width="22" height="16" viewBox="0 0 22 16" aria-label="Español">
@@ -65,16 +122,34 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {siteData.navigation.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
-              data-testid={`link-nav-${item.label.toLowerCase()}`}
-            >
-              {navLabels[item.path] ?? item.label}
-            </Link>
-          ))}
+          {siteData.navigation.map((item) => {
+            // Lotes is grouped inside the Catálogo dropdown.
+            if (item.path === '/lots') return null;
+            if (item.path === '/catalog') {
+              return (
+                <CatalogDropdown
+                  key="catalog-dropdown"
+                  label={t.nav.catalog}
+                  active={location === '/catalog' || location === '/lots'}
+                  currentPath={location}
+                  items={[
+                    { path: '/catalog', label: t.nav.casas },
+                    { path: '/lots', label: t.nav.lots },
+                  ]}
+                />
+              );
+            }
+            return (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
+                data-testid={`link-nav-${item.label.toLowerCase()}`}
+              >
+                {navLabels[item.path] ?? item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Controls */}
@@ -122,16 +197,41 @@ export const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden absolute top-20 left-0 right-0 bg-background border-b border-border/40 py-4 flex flex-col px-6 gap-4"
           >
-            {siteData.navigation.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
-              >
-                {navLabels[item.path] ?? item.label}
-              </Link>
-            ))}
+            {siteData.navigation.map((item) => {
+              if (item.path === '/lots') return null;
+              if (item.path === '/catalog') {
+                return (
+                  <div key="catalog-group" className="flex flex-col gap-3">
+                    <span className="text-sm tracking-widest uppercase text-primary/80">
+                      {t.nav.catalog}
+                    </span>
+                    {[
+                      { path: '/catalog', label: t.nav.casas },
+                      { path: '/lots', label: t.nav.lots },
+                    ].map((it) => (
+                      <Link
+                        key={it.path}
+                        href={it.path}
+                        onClick={() => setIsOpen(false)}
+                        className={`pl-4 text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === it.path ? 'text-primary' : 'text-muted-foreground'}`}
+                      >
+                        {it.label}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
+                >
+                  {navLabels[item.path] ?? item.label}
+                </Link>
+              );
+            })}
           </motion.nav>
         )}
       </AnimatePresence>

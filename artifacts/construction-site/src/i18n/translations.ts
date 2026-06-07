@@ -4,6 +4,7 @@ export interface Translations {
   nav: {
     home: string;
     catalog: string;
+    casas: string;
     lots: string;
     financing: string;
     providers: string;
@@ -130,6 +131,7 @@ const en: Translations = {
   nav: {
     home: "Home",
     catalog: "Catalog",
+    casas: "Houses",
     lots: "Lots",
     financing: "Financing",
     providers: "Providers",
@@ -261,6 +263,7 @@ const es: Translations = {
   nav: {
     home: "Inicio",
     catalog: "Catálogo",
+    casas: "Casas",
     lots: "Lotes",
     financing: "Financiamiento",
     providers: "Proveedores",
