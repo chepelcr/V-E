@@ -68,13 +68,13 @@ export default function Home() {
           variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.2 } } }}
         >
           <motion.h1
-            className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-widest text-primary uppercase mb-4"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide sm:tracking-widest text-primary uppercase mb-4 break-words"
             variants={fadeUp(0)}
           >
             {siteData.config.companyName}
           </motion.h1>
           <motion.p
-            className="text-base md:text-lg text-muted-foreground font-light tracking-[0.25em] uppercase max-w-xl mb-6"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground font-light tracking-[0.12em] sm:tracking-[0.25em] uppercase max-w-xl mb-6"
             variants={fadeUp(0.1)}
           >
             {es
@@ -230,7 +230,7 @@ export default function Home() {
       {/* ── Valores ───────────────────────────────────────────────────── */}
       <section className="py-20">
         <div className="container mx-auto px-6 max-w-3xl">
-          <div className="grid grid-cols-3 gap-6 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6 text-center">
             {values.map((v, i) => {
               const Icon = v.icon;
               return (

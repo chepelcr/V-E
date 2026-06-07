@@ -120,7 +120,7 @@ export const MarbleBackground: React.FC = () => {
           ...containerStyle,
           background: dark
             ? "radial-gradient(ellipse at 50% 38%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 45%, rgba(0,0,0,0.18) 100%)"
-            : "radial-gradient(ellipse at 50% 38%, rgba(247,243,235,0.4) 0%, rgba(247,243,235,0.22) 45%, rgba(247,243,235,0.1) 100%)",
+            : "radial-gradient(ellipse at 50% 38%, rgba(247,243,235,0.22) 0%, rgba(247,243,235,0.12) 45%, rgba(247,243,235,0.04) 100%)",
         }}
       />
     </>

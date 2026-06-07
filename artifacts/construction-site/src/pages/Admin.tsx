@@ -62,7 +62,7 @@ export default function Admin() {
       </div>
 
       <Tabs defaultValue="config" className="w-full">
-        <TabsList className="bg-transparent border-b border-white/10 rounded-none w-full justify-start h-auto p-0 mb-8">
+        <TabsList className="bg-transparent border-b border-white/10 rounded-none w-full justify-start h-auto p-0 mb-8 overflow-x-auto flex-nowrap">
           <TabsTrigger value="config" className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2">Global Config</TabsTrigger>
           <TabsTrigger value="models" className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2">House Models</TabsTrigger>
           <TabsTrigger value="lots" className="data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2">Lots</TabsTrigger>

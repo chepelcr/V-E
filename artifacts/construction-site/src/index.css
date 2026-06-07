@@ -160,8 +160,8 @@
   --elevate-2: rgba(140, 100, 20, 0.1);
 
   /* Light mode needs LESS opacity so the Calacatta marble shows through. */
-  --panel-alpha: 0.55;
-  --section-alpha: 0.32;
+  --panel-alpha: 0.42;
+  --section-alpha: 0.18;
 
   --background: 40 30% 95%;
   --foreground: 30 40% 10%;

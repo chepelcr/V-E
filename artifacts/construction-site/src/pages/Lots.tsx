@@ -54,7 +54,7 @@ export default function Lots() {
           Discover exclusive locations for your future home. Filter by region and size to find the perfect canvas.
         </p>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-12 p-6 bg-card border border-white/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12 p-6 bg-card border border-white/5">
           <div className="space-y-2">
             <label className="text-xs uppercase tracking-widest text-muted-foreground">Province</label>
             <Select value={province} onValueChange={(v) => { setProvince(v); setCanton("all"); setDistrict("all"); }}>
