@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { useSiteData } from '@/contexts/SiteDataContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Phone, Mail } from 'lucide-react';
+import { ADMIN_ENABLED } from '@/lib/admin-enabled';
 
 const FacebookIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook">
@@ -110,13 +111,15 @@ export const Footer = () => {
               <span>{siteData.contact.social.instagram}</span>
             </a>
           </div>
-          <Link
-            href="/admin"
-            className="text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors tracking-widest uppercase"
-            data-testid="link-admin"
-          >
-            {es ? 'Panel Admin' : 'Admin Panel'}
-          </Link>
+          {ADMIN_ENABLED && (
+            <Link
+              href="/admin/dashboard"
+              className="text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors tracking-widest uppercase"
+              data-testid="link-admin"
+            >
+              {es ? 'Panel Admin' : 'Admin Panel'}
+            </Link>
+          )}
         </div>
       </div>
 

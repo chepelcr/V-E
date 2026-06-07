@@ -1,0 +1,15 @@
+[
+  {
+    "id": "ve-gold",
+    "name": "V&E Gold",
+    "isActive": true,
+    "colors": {
+      "primary": "#C9A84C",
+      "accent": "#8C6414",
+      "background": "#F2EFE9"
+    },
+    "panelAlpha": 0.42,
+    "sectionAlpha": 0.18,
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
+]

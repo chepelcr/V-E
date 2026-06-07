@@ -1,59 +1,29 @@
-import React from 'react';
 import { Link } from 'wouter';
-import { useSiteData } from '@/contexts/SiteDataContext';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, HardHat, ShieldCheck, Handshake, Star, Phone, Mail, ArrowRight } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useT } from '@/lib/admin-i18n';
+import { fadeUp } from '@/lib/motion';
+import { getBranding } from '@/repositories/branding.repository';
+import { getHomeView } from '@/services/home.service';
 
-const fadeUp = (delay = 0) => ({
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: 'easeOut' as const } },
-});
-
-const financialServices = {
-  es: [
-    'Análisis financiero personalizado',
-    'Evaluación de capacidad de crédito',
-    'Orientación en trámites bancarios',
-    'Asesoría en subsidios y bonos habitacionales',
-    'Planificación financiera para tu inversión',
-  ],
-  en: [
-    'Personalised financial analysis',
-    'Credit capacity assessment',
-    'Banking procedures guidance',
-    'Housing subsidy and bond advisory',
-    'Financial planning for your investment',
-  ],
-};
-
-const constructionServices = {
-  es: [
-    'Evaluación y revisión de planos',
-    'Asesoría en costos y presupuestos',
-    'Supervisión y seguimiento de obra',
-    'Recomendaciones técnicas para construcciones seguras y de calidad',
-    'Acompañamiento en cada etapa del proceso constructivo',
-  ],
-  en: [
-    'Blueprint evaluation and review',
-    'Cost and budget advisory',
-    'Construction site supervision and tracking',
-    'Technical recommendations for safe, quality builds',
-    'Guidance at every stage of the construction process',
-  ],
-};
-
-const values = [
-  { icon: ShieldCheck, es: 'Confianza', en: 'Trust' },
-  { icon: Handshake,   es: 'Compromiso', en: 'Commitment' },
-  { icon: Star,        es: 'Experiencia', en: 'Experience' },
-];
-
+/**
+ * Public Home page. All copy comes from `home.json` (resolved through
+ * `home.service.ts` → repository + tolerant `resolveLocalized` + the icon
+ * registry); fixed UI chrome (CTA verbs) comes from `t("chrome.*")`; the company
+ * name comes from the branding entity. No bilingual ternaries, no module-level
+ * `{es,en}` arrays, no hardcoded user-visible text. The marble background, glass
+ * scrims/panels/sections, classes and reveal animations are unchanged.
+ */
 export default function Home() {
-  const { siteData } = useSiteData();
   const { language } = useLanguage();
-  const es = language === 'es';
+  const { t } = useT();
+  const home = getHomeView(language);
+  const branding = getBranding();
+
+  const HeroPrimaryIcon = home.hero.PrimaryIcon;
+  const BulletIcon = home.services.BulletIcon;
+  const WhatsappIcon = home.cta.WhatsappIcon;
 
   return (
     <div className="flex flex-col">
@@ -71,30 +41,28 @@ export default function Home() {
             className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide sm:tracking-widest text-primary uppercase mb-4 break-words"
             variants={fadeUp(0)}
           >
-            {siteData.config.companyName}
+            {branding.companyName}
           </motion.h1>
           <motion.p
             className="text-sm sm:text-base md:text-lg text-muted-foreground font-light tracking-[0.12em] sm:tracking-[0.25em] uppercase max-w-xl mb-6"
             variants={fadeUp(0.1)}
           >
-            {es
-              ? 'Tu aliado estratégico en cada etapa del proceso para obtener tu casa de bono.'
-              : 'Your strategic partner at every step of the process to get your housing bond home.'}
+            {home.hero.subtitle}
           </motion.p>
           <motion.div variants={fadeUp(0.2)} className="flex flex-col sm:flex-row gap-4 mt-4">
             <Link
-              href="/financiamiento"
+              href={home.hero.primaryCtaHref}
               data-testid="button-hero-financing"
               className="px-8 py-3 bg-primary text-primary-foreground text-xs tracking-widest uppercase font-light hover:bg-primary/90 transition-colors flex items-center gap-2"
             >
-              {es ? 'Ver Financiamiento' : 'View Financing'} <ArrowRight size={14} />
+              {t('chrome.actions.viewFinancing')} <HeroPrimaryIcon size={14} />
             </Link>
             <Link
-              href="/contact"
+              href={home.hero.secondaryCtaHref}
               data-testid="button-hero-contact"
               className="px-8 py-3 border border-primary/40 text-primary text-xs tracking-widest uppercase font-light hover:border-primary transition-colors"
             >
-              {es ? 'Contactar Ahora' : 'Contact Now'}
+              {t('chrome.actions.contactNow')}
             </Link>
           </motion.div>
           <motion.div variants={fadeUp(0.3)} className="mt-14">
@@ -112,28 +80,28 @@ export default function Home() {
               variants={fadeUp(0)}
             >
               <p className="text-xs text-primary tracking-[0.3em] uppercase mb-3 font-light">
-                {es ? '¿Quiénes Somos?' : 'Who We Are'}
+                {home.about.eyebrow}
               </p>
               <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
-                {es ? 'Especialistas en tu hogar propio' : 'Specialists in home ownership'}
+                {home.about.heading}
               </h2>
               <p className="text-muted-foreground leading-relaxed font-light text-lg mb-8">
-                {siteData.corporate.about}
+                {home.about.body}
               </p>
               <div className="flex flex-col gap-3">
-                {siteData.contact.phones.map((p, i) => (
-                  <a key={i} href={`tel:+506${p.replace(/-/g,'')}`}
+                {home.contact.phones.map((p, i) => (
+                  <a key={i} href={`tel:+506${p.replace(/-/g, '')}`}
                     className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light"
                     data-testid={`link-phone-home-${i}`}>
                     <Phone size={15} className="text-primary shrink-0" />
                     <span className="tracking-wider">{p}</span>
                   </a>
                 ))}
-                <a href={`mailto:${siteData.contact.email}`}
+                <a href={`mailto:${home.contact.email}`}
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light"
                   data-testid="link-email-home">
                   <Mail size={15} className="text-primary shrink-0" />
-                  <span>{siteData.contact.email}</span>
+                  <span>{home.contact.email}</span>
                 </a>
               </div>
             </motion.div>
@@ -141,16 +109,16 @@ export default function Home() {
             <div className="space-y-8">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp(0.1)}>
                 <p className="text-xs text-primary/70 tracking-widest uppercase mb-2 font-light">
-                  {es ? 'Misión' : 'Mission'}
+                  {t('chrome.corporate.mission')}
                 </p>
-                <p className="text-foreground leading-relaxed font-light">{siteData.corporate.mission}</p>
+                <p className="text-foreground leading-relaxed font-light">{home.about.mission}</p>
               </motion.div>
               <div className="h-px bg-border/30" />
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp(0.2)}>
                 <p className="text-xs text-primary/70 tracking-widest uppercase mb-2 font-light">
-                  {es ? 'Visión' : 'Vision'}
+                  {t('chrome.corporate.vision')}
                 </p>
-                <p className="text-foreground leading-relaxed font-light">{siteData.corporate.vision}</p>
+                <p className="text-foreground leading-relaxed font-light">{home.about.vision}</p>
               </motion.div>
             </div>
           </div>
@@ -166,63 +134,43 @@ export default function Home() {
             className="text-center mb-14"
           >
             <p className="text-xs text-primary tracking-[0.3em] uppercase mb-3 font-light">
-              {es ? 'Nuestros Servicios' : 'Our Services'}
+              {home.services.eyebrow}
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-foreground">
-              {es ? 'Asesoramiento integral para tu proyecto' : 'Comprehensive advisory for your project'}
+              {home.services.heading}
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Asesoramiento Financiero */}
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true }}
-              variants={fadeUp(0.1)}
-              className="glass-panel border border-border/40 p-8 hover:border-primary/30 transition-colors"
-              data-testid="card-service-financial"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 border border-primary/30 text-primary">
-                  <TrendingUp size={20} />
-                </div>
-                <h3 className="font-serif text-xl">
-                  {es ? 'Asesoramiento Financiero' : 'Financial Advisory'}
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {(es ? financialServices.es : financialServices.en).map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 size={15} className="text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm font-light text-muted-foreground leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Asesoramiento Constructivo */}
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true }}
-              variants={fadeUp(0.2)}
-              className="glass-panel border border-border/40 p-8 hover:border-primary/30 transition-colors"
-              data-testid="card-service-construction"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 border border-primary/30 text-primary">
-                  <HardHat size={20} />
-                </div>
-                <h3 className="font-serif text-xl">
-                  {es ? 'Asesoramiento Constructivo' : 'Construction Advisory'}
-                </h3>
-              </div>
-              <ul className="space-y-3">
-                {(es ? constructionServices.es : constructionServices.en).map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 size={15} className="text-primary mt-0.5 shrink-0" />
-                    <span className="text-sm font-light text-muted-foreground leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            {home.services.cards.map((card, idx) => {
+              const CardIcon = card.Icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  variants={fadeUp(0.1 * (idx + 1))}
+                  className="glass-panel border border-border/40 p-8 hover:border-primary/30 transition-colors"
+                  data-testid={idx === 0 ? 'card-service-financial' : 'card-service-construction'}
+                >
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="p-2.5 border border-primary/30 text-primary">
+                      <CardIcon size={20} />
+                    </div>
+                    <h3 className="font-serif text-xl">
+                      {card.title}
+                    </h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {card.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <BulletIcon size={15} className="text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm font-light text-muted-foreground leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -231,8 +179,8 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6 text-center">
-            {values.map((v, i) => {
-              const Icon = v.icon;
+            {home.values.map((v, i) => {
+              const Icon = v.Icon;
               return (
                 <motion.div
                   key={i}
@@ -245,7 +193,7 @@ export default function Home() {
                     <Icon size={24} />
                   </div>
                   <span className="font-serif text-lg tracking-widest text-foreground uppercase">
-                    {es ? v.es : v.en}
+                    {v.label}
                   </span>
                 </motion.div>
               );
@@ -262,32 +210,30 @@ export default function Home() {
             variants={fadeUp(0)}
           >
             <p className="text-xs text-primary tracking-[0.3em] uppercase mb-4 font-light">
-              {es ? 'Hacemos posible tu sueño' : 'We make your dream possible'}
+              {home.cta.eyebrow}
             </p>
             <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
-              {es ? 'Tener Casa Propia' : 'Home Ownership'}
+              {home.cta.heading}
             </h2>
             <p className="text-muted-foreground font-light mb-10 text-lg">
-              {es
-                ? 'Permítenos acompañarte en el camino hacia tu nuevo hogar. Contactanos hoy mismo y recibí asesoría gratuita.'
-                : 'Let us accompany you on the path to your new home. Contact us today and receive free advice.'}
+              {home.cta.body}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`https://wa.me/506${siteData.contact.phones[0].replace(/-/g,'')}`}
+                href={home.contact.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="button-cta-whatsapp"
                 className="px-10 py-4 bg-primary text-primary-foreground text-xs tracking-widest uppercase font-light hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
               >
-                <Phone size={14} /> WhatsApp: {siteData.contact.phones[0]}
+                <WhatsappIcon size={14} /> {home.contact.whatsappLabel}
               </a>
               <Link
-                href="/financiamiento"
+                href={home.cta.financingCtaHref}
                 data-testid="button-cta-financing"
                 className="px-10 py-4 border border-border/50 text-muted-foreground text-xs tracking-widest uppercase font-light hover:border-primary hover:text-primary transition-colors"
               >
-                {es ? 'Ver Financiamiento' : 'View Financing'}
+                {t('chrome.actions.viewFinancing')}
               </Link>
             </div>
           </motion.div>

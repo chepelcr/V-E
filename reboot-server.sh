@@ -7,6 +7,14 @@ GREEN='\033[0;32m'; YELLOW='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
 # Stop Git Bash (MSYS) from rewriting the "/" BASE_PATH into a Windows path.
 export MSYS_NO_PATHCONV=1
 
+# MSYS_NO_PATHCONV breaks the corepack `pnpm` shim (it passes an unconverted
+# /c/... path to Windows node). Use the standalone pnpm in PNPM_HOME instead.
+if [ -n "$PNPM_HOME" ] && [ -x "$PNPM_HOME/pnpm" ]; then
+  export PATH="$PNPM_HOME:$PATH"
+elif [ -x "/e/node-tooling/pnpm-bin/pnpm" ]; then
+  export PATH="/e/node-tooling/pnpm-bin:$PATH"
+fi
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT" || exit 1
 

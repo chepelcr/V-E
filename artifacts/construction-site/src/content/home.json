@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "subtitle": {
+      "es": "Tu aliado estratégico en cada etapa del proceso para obtener tu casa de bono.",
+      "en": "Your strategic partner at every step of the process to get your housing bond home."
+    },
+    "primaryCtaIconName": "arrow-right",
+    "primaryCtaHref": "/financiamiento",
+    "secondaryCtaHref": "/contact"
+  },
+  "about": {
+    "eyebrow": { "es": "¿Quiénes Somos?", "en": "Who We Are" },
+    "heading": {
+      "es": "Especialistas en tu hogar propio",
+      "en": "Specialists in home ownership"
+    },
+    "body": {
+      "es": "Somos una empresa especializada en brindar asesoramiento financiero y constructivo para acompañarte en el proceso de adquisición de tu casa de bono de manera segura, clara y eficiente.",
+      "en": "We are a company specialized in providing financial and construction advisory to accompany you through the process of acquiring your housing-bond home safely, clearly and efficiently."
+    },
+    "mission": {
+      "es": "Brindar asesoramiento financiero y constructivo de excelencia para acompañar a cada familia en el proceso de adquisición o construcción de su hogar, de manera segura, clara y eficiente.",
+      "en": "To provide excellent financial and construction advisory, accompanying each family in the process of acquiring or building their home safely, clearly and efficiently."
+    },
+    "vision": {
+      "es": "Ser el aliado estratégico más confiable de Costa Rica en construcción y financiamiento habitacional, haciendo posible el sueño de la casa propia para más familias.",
+      "en": "To be Costa Rica's most trusted strategic partner in construction and housing finance, making the dream of home ownership possible for more families."
+    }
+  },
+  "services": {
+    "eyebrow": { "es": "Nuestros Servicios", "en": "Our Services" },
+    "heading": {
+      "es": "Asesoramiento integral para tu proyecto",
+      "en": "Comprehensive advisory for your project"
+    },
+    "bulletIconName": "check-circle",
+    "financial": {
+      "iconName": "trending-up",
+      "title": { "es": "Asesoramiento Financiero", "en": "Financial Advisory" },
+      "items": [
+        { "es": "Análisis financiero personalizado", "en": "Personalised financial analysis" },
+        { "es": "Evaluación de capacidad de crédito", "en": "Credit capacity assessment" },
+        { "es": "Orientación en trámites bancarios", "en": "Banking procedures guidance" },
+        { "es": "Asesoría en subsidios y bonos habitacionales", "en": "Housing subsidy and bond advisory" },
+        { "es": "Planificación financiera para tu inversión", "en": "Financial planning for your investment" }
+      ]
+    },
+    "construction": {
+      "iconName": "hard-hat",
+      "title": { "es": "Asesoramiento Constructivo", "en": "Construction Advisory" },
+      "items": [
+        { "es": "Evaluación y revisión de planos", "en": "Blueprint evaluation and review" },
+        { "es": "Asesoría en costos y presupuestos", "en": "Cost and budget advisory" },
+        { "es": "Supervisión y seguimiento de obra", "en": "Construction site supervision and tracking" },
+        { "es": "Recomendaciones técnicas para construcciones seguras y de calidad", "en": "Technical recommendations for safe, quality builds" },
+        { "es": "Acompañamiento en cada etapa del proceso constructivo", "en": "Guidance at every stage of the construction process" }
+      ]
+    }
+  },
+  "values": [
+    { "iconName": "shield-check", "label": { "es": "Confianza", "en": "Trust" } },
+    { "iconName": "handshake", "label": { "es": "Compromiso", "en": "Commitment" } },
+    { "iconName": "star", "label": { "es": "Experiencia", "en": "Experience" } }
+  ],
+  "cta": {
+    "eyebrow": { "es": "Hacemos posible tu sueño", "en": "We make your dream possible" },
+    "heading": { "es": "Tener Casa Propia", "en": "Home Ownership" },
+    "body": {
+      "es": "Permítenos acompañarte en el camino hacia tu nuevo hogar. Contactanos hoy mismo y recibí asesoría gratuita.",
+      "en": "Let us accompany you on the path to your new home. Contact us today and receive free advice."
+    },
+    "whatsappIconName": "phone",
+    "financingCtaHref": "/financiamiento"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "chrome": {
+    "nav": {
+      "home": "Inicio",
+      "catalog": "Catálogo",
+      "casas": "Casas",
+      "lots": "Lotes",
+      "financing": "Financiamiento",
+      "providers": "Proveedores",
+      "contact": "Contacto"
+    },
+    "actions": {
+      "learnMore": "Conocer Más",
+      "viewDetails": "Ver Detalles",
+      "send": "Enviar",
+      "sending": "Enviando...",
+      "clearFilters": "Limpiar Filtros",
+      "close": "Cerrar",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar",
+      "viewFinancing": "Ver Financiamiento",
+      "contactNow": "Contactar Ahora"
+    },
+    "a11y": {
+      "toggleTheme": "Cambiar tema",
+      "toggleLanguage": "Cambiar idioma",
+      "scrollToTop": "Volver arriba",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
+    },
+    "lang": { "es": "ES", "en": "EN" },
+    "footer": {
+      "contactHeading": "Contacto",
+      "socialHeading": "Redes Sociales",
+      "adminPanel": "Panel Admin",
+      "rights": "Todos los derechos reservados.",
+      "tagline": "Construyendo legados, un hogar a la vez."
+    },
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Teléfono",
+      "phoneOptional": "Teléfono (opcional)",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "namePlaceholder": "Juan Pérez",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "phonePlaceholder": "+506 8888-0000",
+      "messagePlaceholder": "Cuéntenos sobre su proyecto...",
+      "subjectPlaceholder": "Seleccione un asunto",
+      "selectModel": "Seleccionar modelo",
+      "selectLot": "Seleccionar lote",
+      "chooseModelPlaceholder": "Elija un modelo",
+      "chooseLotPlaceholder": "Elija un lote"
+    },
+    "subjects": {
+      "general": "Consulta General",
+      "model": "Modelo de Casa",
+      "lot": "Lote Específico"
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "email": "Correo electrónico inválido",
+      "messageMin": "El mensaje es demasiado corto"
+    },
+    "filters": {
+      "province": "Provincia",
+      "canton": "Cantón",
+      "district": "Distrito",
+      "minSize": "Tamaño mínimo",
+      "allProvinces": "Todas las Provincias",
+      "allCantons": "Todos los Cantones",
+      "allDistricts": "Todos los Distritos",
+      "sizePlaceholder": "Tamaño mínimo (m²)"
+    },
+    "fields": {
+      "beds": "Hab.",
+      "baths": "Baños",
+      "gallery": "Galería",
+      "materials": "Materiales",
+      "website": "Sitio Web",
+      "contact": "Contacto",
+      "size": "Tamaño",
+      "location": "Ubicación",
+      "compatibleModels": "Modelos Compatibles",
+      "price": "Precio",
+      "area": "Área",
+      "measurementUnit": "m²"
+    },
+    "gallery": {
+      "all": "Todos",
+      "interior": "Interior",
+      "exterior": "Exterior"
+    },
+    "rooms": {
+      "facade": "Fachada",
+      "gate": "Portón",
+      "garden": "Jardín",
+      "patio": "Patio",
+      "living_room": "Sala",
+      "kitchen": "Cocina",
+      "bedroom": "Cuarto",
+      "bathroom": "Baño"
+    },
+    "status": {
+      "available": "Disponible",
+      "unavailable": "Vendido"
+    },
+    "corporate": {
+      "mission": "Misión",
+      "vision": "Visión"
+    },
+    "common": {
+      "loading": "Cargando...",
+      "error": "Ocurrió un error.",
+      "noResults": "No hay resultados."
+    }
+  },
+  "admin": {
+    "dashboard": "Panel",
+    "home": "Inicio",
+    "catalog": "Catálogo",
+    "lots": "Lotes",
+    "providers": "Proveedores",
+    "contactContent": "Contacto (copia)",
+    "financiamiento": "Financiamiento",
+    "notFound": "404",
+    "messages": "Mensajes",
+    "identity": "Identidad del Sitio",
+    "media": "Medios",
+    "seo": "SEO",
+    "navigation": "Navegación",
+    "translations": "Traducciones",
+    "contentVersions": "Versiones de Contenido",
+    "contentExplorer": "Explorador de Contenido",
+    "inventory": "Inventario",
+    "diagnostics": "Diagnóstico",
+    "groups": {
+      "content": "Contenido",
+      "cms": "CMS",
+      "platform": "Plataforma"
+    },
+    "spanish": "Español",
+    "english": "Inglés",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "saved": "Guardado ✓",
+    "export": "Exportar JSON",
+    "exportAll": "Exportar Todo",
+    "download": "Descargar",
+    "active": "activos",
+    "viewSite": "Ver Sitio",
+    "themeLight": "Modo claro",
+    "themeDark": "Modo oscuro",
+    "publish": "Publicar",
+    "publishing": "Publicando…",
+    "published": "Publicado",
+    "nothingToPublish": "Nada que publicar",
+    "publishError": "Error al publicar",
+    "unsavedTitle": "Cambios sin guardar",
+    "unsavedBody": "Tiene cambios sin guardar en esta página. ¿Qué desea hacer?",
+    "keepEditing": "Seguir editando",
+    "discard": "Descartar",
+    "backHome": "Volver al inicio",
+    "collapse": "Colapsar",
+    "expand": "Expandir",
+    "dashboardSubtitle": "Resumen del estado del contenido del sitio.",
+    "contentVersionsSubtitle": "Exporta el contenido como archivos JSON para guardar en el repositorio.",
+    "file": "Archivo",
+    "description": "Descripción",
+    "comingSoon": "Próximamente en una fase posterior.",
+    "media_title": "Medios",
+    "media_upload": "Subir",
+    "media_library": "Biblioteca",
+    "media_clear": "Quitar",
+    "media_urlPlaceholder": "/media/archivo.png o https://…",
+    "media_uploadUnavailable": "La subida requiere el servidor de desarrollo local.",
+    "media_emptyKinds": "Aún no hay medios. Suba uno o agréguelo en la página de Medios."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "phones": ["8537-2016", "8669-2683"],
+  "email": "empresa@constructoravye.com",
+  "countryCode": "506",
+  "social": {
+    "facebook": "V&E Asesores en Construccion",
+    "instagram": "V&E Asesores en Construccion"
+  },
+  "intro": {
+    "title": { "es": "Consultas", "en": "Inquiries" },
+    "subtitle": {
+      "es": "Comuníquese con nuestro equipo para obtener información detallada sobre modelos, lotes y servicios de construcción a medida.",
+      "en": "Reach out to our team for detailed information about our models, lots, and bespoke construction services."
+    }
+  }
+}

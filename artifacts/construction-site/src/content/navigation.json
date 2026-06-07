@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "path": "/", "labelKey": "chrome.nav.home", "order": 1 },
+    { "path": "/catalog", "labelKey": "chrome.nav.catalog", "order": 2, "group": "catalog" },
+    { "path": "/lots", "labelKey": "chrome.nav.lots", "order": 3, "group": "catalog" },
+    { "path": "/financiamiento", "labelKey": "chrome.nav.financing", "order": 4 },
+    { "path": "/providers", "labelKey": "chrome.nav.providers", "order": 5 },
+    { "path": "/contact", "labelKey": "chrome.nav.contact", "order": 6 }
+  ]
+}

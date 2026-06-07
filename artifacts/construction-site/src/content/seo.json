@@ -1,0 +1,51 @@
+{
+  "siteUrl": "https://v-e.jcampos.dev",
+  "siteTitle": {
+    "es": "V&E Asesores — Asesores en Construcción",
+    "en": "V&E Asesores — Construction Advisors"
+  },
+  "siteDescription": {
+    "es": "Asesoramiento financiero y constructivo para obtener tu casa de bono de manera segura, clara y eficiente.",
+    "en": "Financial and construction advisory to get your housing-bond home safely, clearly and efficiently."
+  },
+  "ogImageUrl": "https://v-e.jcampos.dev/opengraph.jpg",
+  "twitterHandle": null,
+  "googleAnalyticsId": null,
+  "pages": {
+    "/catalog": {
+      "title": { "es": "Modelos de Casas — V&E Asesores", "en": "House Models — V&E Asesores" },
+      "description": {
+        "es": "Explore nuestro portafolio de residencias premium, diseñadas con meticulosa atención al detalle.",
+        "en": "Explore our portfolio of premium residences, designed with meticulous attention to detail."
+      }
+    },
+    "/lots": {
+      "title": { "es": "Inventario de Lotes — V&E Asesores", "en": "Lot Inventory — V&E Asesores" },
+      "description": {
+        "es": "Explore nuestra selección de lotes premium, elegidos por su ubicación, potencial y entorno natural.",
+        "en": "Browse our curated selection of premium lots, chosen for location, potential and surroundings."
+      }
+    },
+    "/financiamiento": {
+      "title": { "es": "Financiamiento — V&E Asesores", "en": "Financing — V&E Asesores" },
+      "description": {
+        "es": "Asesoría en crédito, bonos y financiamiento para tu proyecto de vivienda.",
+        "en": "Credit, housing-bond and financing advisory for your home project."
+      }
+    },
+    "/providers": {
+      "title": { "es": "Proveedores — V&E Asesores", "en": "Providers — V&E Asesores" },
+      "description": {
+        "es": "Trabajamos con los mejores proveedores para garantizar materiales de excelencia.",
+        "en": "We partner with the finest suppliers to ensure materials of excellence."
+      }
+    },
+    "/contact": {
+      "title": { "es": "Contacto — V&E Asesores", "en": "Contact — V&E Asesores" },
+      "description": {
+        "es": "Comuníquese con nuestro equipo sobre modelos, lotes y servicios de construcción.",
+        "en": "Reach out to our team about models, lots and construction services."
+      }
+    }
+  }
+}

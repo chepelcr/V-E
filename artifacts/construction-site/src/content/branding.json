@@ -1,0 +1,12 @@
+{
+  "logoUrl": "/nav-light.png",
+  "logoUrlDark": "/nav-dark.png",
+  "logoMark": "/logo.jpg",
+  "faviconUrl": "/favicon.svg",
+  "companyName": "V&E Asesores",
+  "wordmark": "V&E",
+  "tagline": {
+    "es": "Asesores en Construcción",
+    "en": "Construction Advisors"
+  }
+}

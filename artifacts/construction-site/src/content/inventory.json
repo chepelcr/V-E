@@ -1,0 +1,2085 @@
+{
+  "generatedAt": "2026-06-07T20:22:46.395Z",
+  "counts": {
+    "nodes": 127,
+    "edges": 237
+  },
+  "nodes": [
+    {
+      "id": "App",
+      "label": "App",
+      "type": "lib",
+      "group": "core",
+      "path": "src/App.tsx"
+    },
+    {
+      "id": "components/admin/AdminLayout",
+      "label": "AdminLayout",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/AdminLayout.tsx"
+    },
+    {
+      "id": "components/admin/AdminSidebar",
+      "label": "AdminSidebar",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/AdminSidebar.tsx"
+    },
+    {
+      "id": "components/admin/AdminTopbar",
+      "label": "AdminTopbar",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/AdminTopbar.tsx"
+    },
+    {
+      "id": "components/admin/AdminUI",
+      "label": "AdminUI",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/AdminUI.tsx"
+    },
+    {
+      "id": "components/admin/Hint",
+      "label": "Hint",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/Hint.tsx"
+    },
+    {
+      "id": "components/admin/MediaPicker",
+      "label": "MediaPicker",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/MediaPicker.tsx"
+    },
+    {
+      "id": "components/admin/PageHeader",
+      "label": "PageHeader",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/PageHeader.tsx"
+    },
+    {
+      "id": "components/admin/UnsavedChangesModal",
+      "label": "UnsavedChangesModal",
+      "type": "component",
+      "group": "admin",
+      "path": "src/components/admin/UnsavedChangesModal.tsx"
+    },
+    {
+      "id": "components/layout/Footer",
+      "label": "Footer",
+      "type": "component",
+      "group": "public",
+      "path": "src/components/layout/Footer.tsx"
+    },
+    {
+      "id": "components/layout/Layout",
+      "label": "Layout",
+      "type": "component",
+      "group": "public",
+      "path": "src/components/layout/Layout.tsx"
+    },
+    {
+      "id": "components/layout/Navbar",
+      "label": "Navbar",
+      "type": "component",
+      "group": "public",
+      "path": "src/components/layout/Navbar.tsx"
+    },
+    {
+      "id": "components/marble/marbleScene",
+      "label": "marbleScene",
+      "type": "component",
+      "group": "core",
+      "path": "src/components/marble/marbleScene.ts"
+    },
+    {
+      "id": "components/MarbleBackground",
+      "label": "MarbleBackground",
+      "type": "component",
+      "group": "core",
+      "path": "src/components/MarbleBackground.tsx"
+    },
+    {
+      "id": "components/ScrollToTopButton",
+      "label": "ScrollToTopButton",
+      "type": "component",
+      "group": "core",
+      "path": "src/components/ScrollToTopButton.tsx"
+    },
+    {
+      "id": "components/ui/accordion",
+      "label": "accordion",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/accordion.tsx"
+    },
+    {
+      "id": "components/ui/alert",
+      "label": "alert",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/alert.tsx"
+    },
+    {
+      "id": "components/ui/alert-dialog",
+      "label": "alert-dialog",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/alert-dialog.tsx"
+    },
+    {
+      "id": "components/ui/aspect-ratio",
+      "label": "aspect-ratio",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/aspect-ratio.tsx"
+    },
+    {
+      "id": "components/ui/avatar",
+      "label": "avatar",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/avatar.tsx"
+    },
+    {
+      "id": "components/ui/badge",
+      "label": "badge",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/badge.tsx"
+    },
+    {
+      "id": "components/ui/breadcrumb",
+      "label": "breadcrumb",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/breadcrumb.tsx"
+    },
+    {
+      "id": "components/ui/button",
+      "label": "button",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/button.tsx"
+    },
+    {
+      "id": "components/ui/button-group",
+      "label": "button-group",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/button-group.tsx"
+    },
+    {
+      "id": "components/ui/calendar",
+      "label": "calendar",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/calendar.tsx"
+    },
+    {
+      "id": "components/ui/card",
+      "label": "card",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/card.tsx"
+    },
+    {
+      "id": "components/ui/carousel",
+      "label": "carousel",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/carousel.tsx"
+    },
+    {
+      "id": "components/ui/chart",
+      "label": "chart",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/chart.tsx"
+    },
+    {
+      "id": "components/ui/checkbox",
+      "label": "checkbox",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/checkbox.tsx"
+    },
+    {
+      "id": "components/ui/collapsible",
+      "label": "collapsible",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/collapsible.tsx"
+    },
+    {
+      "id": "components/ui/command",
+      "label": "command",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/command.tsx"
+    },
+    {
+      "id": "components/ui/context-menu",
+      "label": "context-menu",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/context-menu.tsx"
+    },
+    {
+      "id": "components/ui/dialog",
+      "label": "dialog",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/dialog.tsx"
+    },
+    {
+      "id": "components/ui/drawer",
+      "label": "drawer",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/drawer.tsx"
+    },
+    {
+      "id": "components/ui/dropdown-menu",
+      "label": "dropdown-menu",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/dropdown-menu.tsx"
+    },
+    {
+      "id": "components/ui/empty",
+      "label": "empty",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/empty.tsx"
+    },
+    {
+      "id": "components/ui/field",
+      "label": "field",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/field.tsx"
+    },
+    {
+      "id": "components/ui/form",
+      "label": "form",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/form.tsx"
+    },
+    {
+      "id": "components/ui/hover-card",
+      "label": "hover-card",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/hover-card.tsx"
+    },
+    {
+      "id": "components/ui/input",
+      "label": "input",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/input.tsx"
+    },
+    {
+      "id": "components/ui/input-group",
+      "label": "input-group",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/input-group.tsx"
+    },
+    {
+      "id": "components/ui/input-otp",
+      "label": "input-otp",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/input-otp.tsx"
+    },
+    {
+      "id": "components/ui/item",
+      "label": "item",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/item.tsx"
+    },
+    {
+      "id": "components/ui/kbd",
+      "label": "kbd",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/kbd.tsx"
+    },
+    {
+      "id": "components/ui/label",
+      "label": "label",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/label.tsx"
+    },
+    {
+      "id": "components/ui/menubar",
+      "label": "menubar",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/menubar.tsx"
+    },
+    {
+      "id": "components/ui/navigation-menu",
+      "label": "navigation-menu",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/navigation-menu.tsx"
+    },
+    {
+      "id": "components/ui/pagination",
+      "label": "pagination",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/pagination.tsx"
+    },
+    {
+      "id": "components/ui/popover",
+      "label": "popover",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/popover.tsx"
+    },
+    {
+      "id": "components/ui/progress",
+      "label": "progress",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/progress.tsx"
+    },
+    {
+      "id": "components/ui/radio-group",
+      "label": "radio-group",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/radio-group.tsx"
+    },
+    {
+      "id": "components/ui/resizable",
+      "label": "resizable",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/resizable.tsx"
+    },
+    {
+      "id": "components/ui/scroll-area",
+      "label": "scroll-area",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/scroll-area.tsx"
+    },
+    {
+      "id": "components/ui/select",
+      "label": "select",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/select.tsx"
+    },
+    {
+      "id": "components/ui/separator",
+      "label": "separator",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/separator.tsx"
+    },
+    {
+      "id": "components/ui/sheet",
+      "label": "sheet",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/sheet.tsx"
+    },
+    {
+      "id": "components/ui/sidebar",
+      "label": "sidebar",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/sidebar.tsx"
+    },
+    {
+      "id": "components/ui/skeleton",
+      "label": "skeleton",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/skeleton.tsx"
+    },
+    {
+      "id": "components/ui/slider",
+      "label": "slider",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/slider.tsx"
+    },
+    {
+      "id": "components/ui/sonner",
+      "label": "sonner",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/sonner.tsx"
+    },
+    {
+      "id": "components/ui/spinner",
+      "label": "spinner",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/spinner.tsx"
+    },
+    {
+      "id": "components/ui/switch",
+      "label": "switch",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/switch.tsx"
+    },
+    {
+      "id": "components/ui/table",
+      "label": "table",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/table.tsx"
+    },
+    {
+      "id": "components/ui/tabs",
+      "label": "tabs",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/tabs.tsx"
+    },
+    {
+      "id": "components/ui/textarea",
+      "label": "textarea",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/textarea.tsx"
+    },
+    {
+      "id": "components/ui/toast",
+      "label": "toast",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/toast.tsx"
+    },
+    {
+      "id": "components/ui/toaster",
+      "label": "toaster",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/toaster.tsx"
+    },
+    {
+      "id": "components/ui/toggle",
+      "label": "toggle",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/toggle.tsx"
+    },
+    {
+      "id": "components/ui/toggle-group",
+      "label": "toggle-group",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/toggle-group.tsx"
+    },
+    {
+      "id": "components/ui/tooltip",
+      "label": "tooltip",
+      "type": "component",
+      "group": "ui",
+      "path": "src/components/ui/tooltip.tsx"
+    },
+    {
+      "id": "content/branding.json",
+      "label": "branding.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/branding.json"
+    },
+    {
+      "id": "content/contact.json",
+      "label": "contact.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/contact.json"
+    },
+    {
+      "id": "content/home.json",
+      "label": "home.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/home.json"
+    },
+    {
+      "id": "content/inventory.json",
+      "label": "inventory.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/inventory.json"
+    },
+    {
+      "id": "content/media.json",
+      "label": "media.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/media.json"
+    },
+    {
+      "id": "content/navigation.json",
+      "label": "navigation.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/navigation.json"
+    },
+    {
+      "id": "content/seo.json",
+      "label": "seo.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/seo.json"
+    },
+    {
+      "id": "content/themes.json",
+      "label": "themes.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/themes.json"
+    },
+    {
+      "id": "contexts/LanguageContext",
+      "label": "LanguageContext",
+      "type": "context",
+      "group": "core",
+      "path": "src/contexts/LanguageContext.tsx"
+    },
+    {
+      "id": "contexts/SiteDataContext",
+      "label": "SiteDataContext",
+      "type": "context",
+      "group": "core",
+      "path": "src/contexts/SiteDataContext.tsx"
+    },
+    {
+      "id": "contexts/ThemeContext",
+      "label": "ThemeContext",
+      "type": "context",
+      "group": "core",
+      "path": "src/contexts/ThemeContext.tsx"
+    },
+    {
+      "id": "data/siteData",
+      "label": "siteData",
+      "type": "lib",
+      "group": "core",
+      "path": "src/data/siteData.ts"
+    },
+    {
+      "id": "hooks/use-mobile",
+      "label": "use-mobile",
+      "type": "hook",
+      "group": "core",
+      "path": "src/hooks/use-mobile.tsx"
+    },
+    {
+      "id": "hooks/use-toast",
+      "label": "use-toast",
+      "type": "hook",
+      "group": "core",
+      "path": "src/hooks/use-toast.ts"
+    },
+    {
+      "id": "i18n/translations",
+      "label": "translations",
+      "type": "lib",
+      "group": "core",
+      "path": "src/i18n/translations.ts"
+    },
+    {
+      "id": "lib/admin-enabled",
+      "label": "admin-enabled",
+      "type": "lib",
+      "group": "admin",
+      "path": "src/lib/admin-enabled.ts"
+    },
+    {
+      "id": "lib/admin-i18n",
+      "label": "admin-i18n",
+      "type": "lib",
+      "group": "admin",
+      "path": "src/lib/admin-i18n.ts"
+    },
+    {
+      "id": "lib/admin-manifest",
+      "label": "admin-manifest",
+      "type": "lib",
+      "group": "admin",
+      "path": "src/lib/admin-manifest.ts"
+    },
+    {
+      "id": "lib/admin-store",
+      "label": "admin-store",
+      "type": "lib",
+      "group": "admin",
+      "path": "src/lib/admin-store.ts"
+    },
+    {
+      "id": "lib/admin-ui",
+      "label": "admin-ui",
+      "type": "lib",
+      "group": "admin",
+      "path": "src/lib/admin-ui.ts"
+    },
+    {
+      "id": "lib/brand-theme",
+      "label": "brand-theme",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/brand-theme.ts"
+    },
+    {
+      "id": "lib/icons",
+      "label": "icons",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/icons.ts"
+    },
+    {
+      "id": "lib/local-cms",
+      "label": "local-cms",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/local-cms.ts"
+    },
+    {
+      "id": "lib/media",
+      "label": "media",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/media.ts"
+    },
+    {
+      "id": "lib/media-upload",
+      "label": "media-upload",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/media-upload.ts"
+    },
+    {
+      "id": "lib/motion",
+      "label": "motion",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/motion.ts"
+    },
+    {
+      "id": "lib/resolveLocalized",
+      "label": "resolveLocalized",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/resolveLocalized.ts"
+    },
+    {
+      "id": "lib/rich-text",
+      "label": "rich-text",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/rich-text.tsx"
+    },
+    {
+      "id": "lib/utils",
+      "label": "utils",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/utils.ts"
+    },
+    {
+      "id": "main",
+      "label": "main",
+      "type": "lib",
+      "group": "core",
+      "path": "src/main.tsx"
+    },
+    {
+      "id": "pages/admin/AdminRouter",
+      "label": "AdminRouter",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/AdminRouter.tsx"
+    },
+    {
+      "id": "pages/admin/BrandingPage",
+      "label": "BrandingPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/BrandingPage.tsx"
+    },
+    {
+      "id": "pages/admin/ContactInfoPage",
+      "label": "ContactInfoPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/ContactInfoPage.tsx"
+    },
+    {
+      "id": "pages/admin/ContentVersionsPage",
+      "label": "ContentVersionsPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/ContentVersionsPage.tsx"
+    },
+    {
+      "id": "pages/admin/DashboardPage",
+      "label": "DashboardPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/DashboardPage.tsx"
+    },
+    {
+      "id": "pages/admin/HomePage",
+      "label": "HomePage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/HomePage.tsx"
+    },
+    {
+      "id": "pages/admin/MediaPage",
+      "label": "MediaPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/MediaPage.tsx"
+    },
+    {
+      "id": "pages/admin/NavigationPage",
+      "label": "NavigationPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/NavigationPage.tsx"
+    },
+    {
+      "id": "pages/admin/SeoPage",
+      "label": "SeoPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/SeoPage.tsx"
+    },
+    {
+      "id": "pages/admin/StubPage",
+      "label": "StubPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/StubPage.tsx"
+    },
+    {
+      "id": "pages/Catalog",
+      "label": "Catalog",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Catalog.tsx"
+    },
+    {
+      "id": "pages/Contact",
+      "label": "Contact",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Contact.tsx"
+    },
+    {
+      "id": "pages/Financiamiento",
+      "label": "Financiamiento",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Financiamiento.tsx"
+    },
+    {
+      "id": "pages/Home",
+      "label": "Home",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Home.tsx"
+    },
+    {
+      "id": "pages/Lots",
+      "label": "Lots",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Lots.tsx"
+    },
+    {
+      "id": "pages/not-found",
+      "label": "not-found",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/not-found.tsx"
+    },
+    {
+      "id": "pages/Providers",
+      "label": "Providers",
+      "type": "page",
+      "group": "public",
+      "path": "src/pages/Providers.tsx"
+    },
+    {
+      "id": "repositories/branding.repository",
+      "label": "branding.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/branding.repository.ts"
+    },
+    {
+      "id": "repositories/company.repository",
+      "label": "company.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/company.repository.ts"
+    },
+    {
+      "id": "repositories/home.repository",
+      "label": "home.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/home.repository.ts"
+    },
+    {
+      "id": "repositories/inventory.repository",
+      "label": "inventory.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/inventory.repository.ts"
+    },
+    {
+      "id": "repositories/media.repository",
+      "label": "media.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/media.repository.ts"
+    },
+    {
+      "id": "repositories/navigation.repository",
+      "label": "navigation.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/navigation.repository.ts"
+    },
+    {
+      "id": "repositories/seo.repository",
+      "label": "seo.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/seo.repository.ts"
+    },
+    {
+      "id": "repositories/themes.repository",
+      "label": "themes.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/themes.repository.ts"
+    },
+    {
+      "id": "translations/en.json",
+      "label": "en.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/translations/en.json"
+    },
+    {
+      "id": "translations/es.json",
+      "label": "es.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/translations/es.json"
+    }
+  ],
+  "edges": [
+    {
+      "from": "App",
+      "to": "components/layout/Layout",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/ui/toaster",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "components/ui/tooltip",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "lib/admin-enabled",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/admin/AdminRouter",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Catalog",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Contact",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Financiamiento",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Home",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Lots",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/not-found",
+      "kind": "imports"
+    },
+    {
+      "from": "App",
+      "to": "pages/Providers",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/AdminSidebar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/AdminTopbar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "components/admin/UnsavedChangesModal",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminLayout",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "components/admin/Hint",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "lib/admin-manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminSidebar",
+      "to": "repositories/branding.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "components/admin/Hint",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminTopbar",
+      "to": "repositories/branding.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/AdminUI",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/Hint",
+      "to": "components/ui/tooltip",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/MediaPicker",
+      "to": "lib/media-upload",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/PageHeader",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/UnsavedChangesModal",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/UnsavedChangesModal",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "components/admin/UnsavedChangesModal",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Footer",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Footer",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Footer",
+      "to": "lib/admin-enabled",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Layout",
+      "to": "components/layout/Footer",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Layout",
+      "to": "components/layout/Navbar",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Layout",
+      "to": "components/MarbleBackground",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Layout",
+      "to": "components/ScrollToTopButton",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Navbar",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Navbar",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Navbar",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/MarbleBackground",
+      "to": "components/marble/marbleScene",
+      "kind": "imports"
+    },
+    {
+      "from": "components/MarbleBackground",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/accordion",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/alert",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/alert-dialog",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/alert-dialog",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/avatar",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/badge",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/breadcrumb",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/button",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/button-group",
+      "to": "components/ui/separator",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/button-group",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/calendar",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/calendar",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/card",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/carousel",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/carousel",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/chart",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/checkbox",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/command",
+      "to": "components/ui/dialog",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/command",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/context-menu",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/dialog",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/drawer",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/dropdown-menu",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/empty",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/field",
+      "to": "components/ui/label",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/field",
+      "to": "components/ui/separator",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/field",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/form",
+      "to": "components/ui/label",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/form",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/hover-card",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-group",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-group",
+      "to": "components/ui/input",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-group",
+      "to": "components/ui/textarea",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-group",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/input-otp",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/item",
+      "to": "components/ui/separator",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/item",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/kbd",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/label",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/menubar",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/navigation-menu",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/pagination",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/pagination",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/popover",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/progress",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/radio-group",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/resizable",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/scroll-area",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/select",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/separator",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sheet",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/input",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/separator",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/sheet",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/skeleton",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "components/ui/tooltip",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "hooks/use-mobile",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/sidebar",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/skeleton",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/slider",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/spinner",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/switch",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/table",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/tabs",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/textarea",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toast",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toaster",
+      "to": "components/ui/toast",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toaster",
+      "to": "hooks/use-toast",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toggle",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toggle-group",
+      "to": "components/ui/toggle",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/toggle-group",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "components/ui/tooltip",
+      "to": "lib/utils",
+      "kind": "imports"
+    },
+    {
+      "from": "contexts/LanguageContext",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "contexts/SiteDataContext",
+      "to": "data/siteData",
+      "kind": "imports"
+    },
+    {
+      "from": "hooks/use-toast",
+      "to": "components/ui/toast",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-i18n",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-i18n",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-i18n",
+      "to": "translations/en.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-i18n",
+      "to": "translations/es.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/branding.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/contact.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/home.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/inventory.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/media.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/navigation.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/seo.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/themes.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-ui",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "content/branding.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "content/themes.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/brand-theme",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media",
+      "to": "content/seo.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/media-upload",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/resolveLocalized",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "App",
+      "kind": "imports"
+    },
+    {
+      "from": "main",
+      "to": "lib/brand-theme",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "components/admin/AdminLayout",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "lib/admin-enabled",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/BrandingPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/ContactInfoPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/ContentVersionsPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/DashboardPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/HomePage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/MediaPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/NavigationPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/SeoPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/StubPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "components/admin/MediaPicker",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/BrandingPage",
+      "to": "lib/brand-theme",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactInfoPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactInfoPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactInfoPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactInfoPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "lib/admin-manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DashboardPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DashboardPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DashboardPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DashboardPage",
+      "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/HomePage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/HomePage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/HomePage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/HomePage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/HomePage",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MediaPage",
+      "to": "lib/media-upload",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NavigationPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NavigationPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NavigationPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NavigationPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/SeoPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/SeoPage",
+      "to": "components/admin/MediaPicker",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/SeoPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/SeoPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/SeoPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/StubPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/StubPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Catalog",
+      "to": "components/ui/dialog",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Catalog",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Catalog",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Catalog",
+      "to": "data/siteData",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/button",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/form",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/input",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/select",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "components/ui/textarea",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "hooks/use-toast",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "components/ui/input",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "components/ui/select",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/not-found",
+      "to": "components/ui/card",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Providers",
+      "to": "contexts/SiteDataContext",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/branding.repository",
+      "to": "content/branding.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/company.repository",
+      "to": "content/contact.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/home.repository",
+      "to": "content/home.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/inventory.repository",
+      "to": "content/inventory.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/media.repository",
+      "to": "content/media.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/media.repository",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/navigation.repository",
+      "to": "content/navigation.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/seo.repository",
+      "to": "content/seo.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/themes.repository",
+      "to": "content/themes.json",
+      "kind": "imports"
+    }
+  ]
+}

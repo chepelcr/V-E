@@ -1,0 +1,185 @@
+{
+  "chrome": {
+    "nav": {
+      "home": "Home",
+      "catalog": "Catalog",
+      "casas": "Houses",
+      "lots": "Lots",
+      "financing": "Financing",
+      "providers": "Providers",
+      "contact": "Contact"
+    },
+    "actions": {
+      "learnMore": "Learn More",
+      "viewDetails": "View Details",
+      "send": "Send",
+      "sending": "Sending...",
+      "clearFilters": "Clear Filters",
+      "close": "Close",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "viewFinancing": "View Financing",
+      "contactNow": "Contact Now"
+    },
+    "a11y": {
+      "toggleTheme": "Toggle theme",
+      "toggleLanguage": "Toggle language",
+      "scrollToTop": "Scroll to top",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "lang": { "es": "ES", "en": "EN" },
+    "footer": {
+      "contactHeading": "Contact",
+      "socialHeading": "Social Media",
+      "adminPanel": "Admin Panel",
+      "rights": "All rights reserved.",
+      "tagline": "Building legacies, one home at a time."
+    },
+    "social": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "phoneOptional": "Phone (optional)",
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "John Smith",
+      "emailPlaceholder": "john@example.com",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "messagePlaceholder": "Tell us about your project...",
+      "subjectPlaceholder": "Select a subject",
+      "selectModel": "Select a model",
+      "selectLot": "Select a lot",
+      "chooseModelPlaceholder": "Choose a model",
+      "chooseLotPlaceholder": "Choose a lot"
+    },
+    "subjects": {
+      "general": "General Inquiry",
+      "model": "House Model",
+      "lot": "Specific Lot"
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "email": "Invalid email address",
+      "messageMin": "Message is too short"
+    },
+    "filters": {
+      "province": "Province",
+      "canton": "Canton",
+      "district": "District",
+      "minSize": "Min size",
+      "allProvinces": "All Provinces",
+      "allCantons": "All Cantons",
+      "allDistricts": "All Districts",
+      "sizePlaceholder": "Min size (m²)"
+    },
+    "fields": {
+      "beds": "Beds",
+      "baths": "Baths",
+      "gallery": "Gallery",
+      "materials": "Materials",
+      "website": "Website",
+      "contact": "Contact",
+      "size": "Size",
+      "location": "Location",
+      "compatibleModels": "Compatible Models",
+      "price": "Price",
+      "area": "Area",
+      "measurementUnit": "m²"
+    },
+    "gallery": {
+      "all": "All",
+      "interior": "Interior",
+      "exterior": "Exterior"
+    },
+    "rooms": {
+      "facade": "Facade",
+      "gate": "Gate",
+      "garden": "Garden",
+      "patio": "Patio",
+      "living_room": "Living Room",
+      "kitchen": "Kitchen",
+      "bedroom": "Bedroom",
+      "bathroom": "Bathroom"
+    },
+    "status": {
+      "available": "Available",
+      "unavailable": "Sold"
+    },
+    "corporate": {
+      "mission": "Mission",
+      "vision": "Vision"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "An error occurred.",
+      "noResults": "No results."
+    }
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "home": "Home",
+    "catalog": "Catalog",
+    "lots": "Lots",
+    "providers": "Providers",
+    "contactContent": "Contact (copy)",
+    "financiamiento": "Financing",
+    "notFound": "404",
+    "messages": "Messages",
+    "identity": "Site Identity",
+    "media": "Media",
+    "seo": "SEO",
+    "navigation": "Navigation",
+    "translations": "Translations",
+    "contentVersions": "Content Versions",
+    "contentExplorer": "Content Explorer",
+    "inventory": "Inventory",
+    "diagnostics": "Diagnostics",
+    "groups": {
+      "content": "Content",
+      "cms": "CMS",
+      "platform": "Platform"
+    },
+    "spanish": "Spanish",
+    "english": "English",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved ✓",
+    "export": "Export JSON",
+    "exportAll": "Export All",
+    "download": "Download",
+    "active": "active",
+    "viewSite": "View Site",
+    "themeLight": "Light mode",
+    "themeDark": "Dark mode",
+    "publish": "Publish",
+    "publishing": "Publishing…",
+    "published": "Published",
+    "nothingToPublish": "Nothing to publish",
+    "publishError": "Publish error",
+    "unsavedTitle": "Unsaved changes",
+    "unsavedBody": "You have unsaved changes on this page. What would you like to do?",
+    "keepEditing": "Keep editing",
+    "discard": "Discard",
+    "backHome": "Back to site",
+    "collapse": "Collapse",
+    "expand": "Expand",
+    "dashboardSubtitle": "Overview of the site's content state.",
+    "contentVersionsSubtitle": "Export content as JSON files to commit to the repository.",
+    "file": "File",
+    "description": "Description",
+    "comingSoon": "Coming in a later phase.",
+    "media_title": "Media",
+    "media_upload": "Upload",
+    "media_library": "Library",
+    "media_clear": "Clear",
+    "media_urlPlaceholder": "/media/file.png or https://…",
+    "media_uploadUnavailable": "Upload needs the local dev server.",
+    "media_emptyKinds": "No matching media yet. Upload one or add it on the Media page."
+  }
+}

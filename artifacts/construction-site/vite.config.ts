@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { localCms } from "./vite-plugin-local-cms";
 
 const rawPort = process.env.PORT;
 
@@ -30,6 +31,9 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    // Dev-only content write-back / asset upload / publish middleware.
+    // `apply: "serve"` inside the plugin keeps it out of the prod build.
+    localCms(),
   ],
   resolve: {
     alias: {
