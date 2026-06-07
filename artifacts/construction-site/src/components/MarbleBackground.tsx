@@ -93,10 +93,24 @@ export const MarbleBackground: React.FC = () => {
   if (webglFailed) return <CssFallback dark={dark} />;
 
   return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      style={{ ...containerStyle, display: "block" }}
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        style={{ ...containerStyle, display: "block" }}
+      />
+      {/* Readability scrim: sits above the marble, below content. Calms the
+          background and lifts text contrast (darkens in dark mode, lightens
+          in light mode), strongest toward the centre where hero text sits. */}
+      <div
+        aria-hidden="true"
+        style={{
+          ...containerStyle,
+          background: dark
+            ? "radial-gradient(ellipse at 50% 38%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.32) 45%, rgba(0,0,0,0.18) 100%)"
+            : "radial-gradient(ellipse at 50% 38%, rgba(247,243,235,0.7) 0%, rgba(247,243,235,0.45) 45%, rgba(247,243,235,0.25) 100%)",
+        }}
+      />
+    </>
   );
 };

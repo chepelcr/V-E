@@ -63,41 +63,56 @@ float fbm(vec2 p){
   return v;
 }
 
+// thin vein at the zero-crossing of a signed field: bright only on the line
+float veinLine(float field, float width){
+  return 1.0 - smoothstep(0.0, width, abs(field));
+}
+
 void computeMarble(vec2 uv, out vec3 albedo, out float metal, out float rough, out float glow){
   vec2 p = uv;
   p.x *= uAspect;          // keep veins from stretching with the viewport
-  p *= uScale;             // vein density
+  p *= uScale;             // overall feature scale
   // diagonal bias so veins run top-left -> bottom-right like the reference slab
   p = mat2(0.92, -0.38, 0.38, 0.92) * p;
 
-  vec2 flow = vec2(uTime * 0.018, -uTime * 0.013);
+  vec2 flow = vec2(uTime * 0.012, -uTime * 0.009);
 
-  // one domain-warp pass -> organic marble field
-  vec2 q = vec2(fbm(p + flow), fbm(p + vec2(3.1, 1.7) - flow));
-  float marble = fbm(p * 1.4 + 2.6 * q);
-  float mott   = marble * 0.5 + 0.5;
+  // domain warp shared by every layer
+  vec2 w = vec2(fbm(p * 0.8 + flow), fbm(p * 0.8 + vec2(5.2, 1.3) - flow));
 
-  // gold veins: ridged (thin) lines from the warped field + a finer crack net
-  float vein  = pow(1.0 - abs(marble), 7.0);
-  float crack = pow(1.0 - abs(fbm(p * 2.3 + 2.0 * q)), 13.0);
-  float gold  = smoothstep(0.22, 0.62, vein * 1.15 + crack * 0.6);
+  // --- gold veins: SPARSE + THIN (zero-crossings of a warped field) ---
+  float fieldA = fbm(p * 0.9 + 1.8 * w);            // primary long veins
+  float fieldB = fbm(p * 1.9 + 2.2 * w + 3.0);      // finer branching
+  // appear only in broad bands so the surface stays mostly black
+  float band = smoothstep(0.45, 0.95, snoise(p * 0.35 + 12.0) * 0.5 + 0.5);
+  float gold = veinLine(fieldA, 0.05) * mix(0.35, 1.0, band);
+  gold = max(gold, veinLine(fieldB, 0.03) * 0.7 * band);
+  gold = clamp(gold, 0.0, 1.0);
 
-  // neutral hairline cracks (white/grey, not gold)
-  float hair  = pow(1.0 - abs(fbm(p * 3.2 + 7.0)), 18.0);
+  // --- neutral grey/white hairline crackle: denser, very thin, subtle ---
+  float fieldH = fbm(p * 3.4 + 1.5 * w + 20.0);
+  float hair = veinLine(fieldH, 0.02) * 0.45;
 
-  // base recolors per theme; gold stays gold
-  vec3 darkBase  = mix(vec3(0.013, 0.013, 0.018), vec3(0.055, 0.055, 0.065), mott);
-  vec3 lightBase = mix(vec3(0.85, 0.83, 0.79),   vec3(0.965, 0.955, 0.925), mott);
+  // calm the very centre so hero text stays readable
+  vec2 c = uv - 0.5; c.x *= uAspect;
+  float centre = smoothstep(0.0, 0.5, length(c));
+  gold *= mix(0.45, 1.0, centre);
+  hair *= mix(0.5, 1.0, centre);
+
+  // --- base: near-black (dark) / ivory (light), gold stays gold ---
+  float mott = fieldA * 0.5 + 0.5;
+  vec3 darkBase  = mix(vec3(0.010, 0.010, 0.014), vec3(0.030, 0.030, 0.038), mott);
+  vec3 lightBase = mix(vec3(0.855, 0.835, 0.80), vec3(0.955, 0.945, 0.915), mott);
   vec3 base = mix(darkBase, lightBase, uLight);
 
-  vec3 hairCol = mix(vec3(0.42, 0.42, 0.45), vec3(0.58, 0.54, 0.46), uLight);
-  base = mix(base, hairCol, hair * 0.22 * (1.0 - gold));
+  vec3 hairCol = mix(vec3(0.40, 0.40, 0.44), vec3(0.55, 0.52, 0.46), uLight);
+  base = mix(base, hairCol, hair * (1.0 - gold));
 
-  vec3 goldCol = vec3(1.0, 0.78, 0.34);
+  vec3 goldCol = vec3(1.0, 0.76, 0.32);
   albedo = mix(base, goldCol, gold);
-  metal  = gold;
-  rough  = mix(0.72, 0.16, gold);
-  glow   = smoothstep(0.62, 1.0, gold) * 0.2;
+  metal  = gold;                       // ONLY the veins are metallic
+  rough  = mix(0.88, 0.18, gold);      // base is matte; gold is polished
+  glow   = pow(gold, 1.6) * 0.16;
 }
 `;
 
@@ -139,7 +154,7 @@ export function createMarbleScene(
     color: 0xffffff,
     metalness: 1.0,
     roughness: 1.0,
-    envMapIntensity: 1.6,
+    envMapIntensity: 1.2,
     emissive: 0x000000,
   });
 
