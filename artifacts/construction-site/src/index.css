@@ -219,43 +219,7 @@
   }
 }
 
-.marble-bg {
-  background-color: #0f0f0f;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 200px,
-      rgba(201, 168, 76, 0.03) 200px,
-      rgba(201, 168, 76, 0.03) 201px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 300px,
-      rgba(255,255,255,0.015) 300px,
-      rgba(255,255,255,0.015) 301px
-    );
-}
-
-.light .marble-bg {
-  background-color: #f5edd8;
-  background-image:
-    repeating-linear-gradient(
-      47deg,
-      transparent,
-      transparent 180px,
-      rgba(140, 100, 20, 0.04) 180px,
-      rgba(140, 100, 20, 0.04) 181px
-    ),
-    repeating-linear-gradient(
-      -43deg,
-      transparent,
-      transparent 260px,
-      rgba(80, 60, 10, 0.025) 260px,
-      rgba(80, 60, 10, 0.025) 261px
-    );
-}
+/* Marble texture is handled by MarbleBackground.tsx (SVG feTurbulence) */
 
 /**
  * Using the elevate system.
