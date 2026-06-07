@@ -119,6 +119,11 @@
       "loading": "Cargando...",
       "error": "Ocurrió un error.",
       "noResults": "No hay resultados."
+    },
+    "notFound": {
+      "title": "Página no encontrada",
+      "message": "La página que buscas no existe o fue movida.",
+      "home": "Volver al inicio"
     }
   },
   "admin": {

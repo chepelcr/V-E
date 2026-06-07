@@ -62,19 +62,22 @@ function PublicRouter() {
 }
 
 function Router() {
+  // Dev-only admin panel — its own full-screen shell, OUTSIDE the public
+  // Layout. Registered only under the build-time gate, so a production build
+  // (gate === false) does not register it and Rollup tree-shakes the whole
+  // panel + AdminRouter import out of the bundle.
+  const admin =
+    ADMIN_ENABLED && AdminRouter ? (
+      <Suspense fallback={null}>
+        <AdminRouter />
+      </Suspense>
+    ) : null;
   return (
     <Switch>
-      {/* Dev-only admin panel — its own full-screen shell, OUTSIDE the public
-          Layout. Registered only under the build-time gate, so a production
-          build (gate === false) does not register it and Rollup tree-shakes the
-          whole panel + AdminRouter import out of the bundle. */}
-      {ADMIN_ENABLED && AdminRouter && (
-        <Route path="/admin/:rest*">
-          <Suspense fallback={null}>
-            <AdminRouter />
-          </Suspense>
-        </Route>
-      )}
+      {/* Match both bare "/admin" and "/admin/<sub>" so AdminRouter can
+          redirect "/admin" → "/admin/dashboard". */}
+      {admin && <Route path="/admin">{admin}</Route>}
+      {admin && <Route path="/admin/:rest*">{admin}</Route>}
       <Route component={PublicRouter} />
     </Switch>
   );

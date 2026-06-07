@@ -119,6 +119,11 @@
       "loading": "Loading...",
       "error": "An error occurred.",
       "noResults": "No results."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "message": "The page you're looking for doesn't exist or has moved.",
+      "home": "Back to home"
     }
   },
   "admin": {
