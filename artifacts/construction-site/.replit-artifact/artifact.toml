@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Construction & Real Estate Website"
+version = "1.0.0"
+id = "artifacts/construction-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22532
+
+[services.development]
+run = "pnpm --filter @workspace/construction-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/construction-site", "run", "build" ]
+publicDir = "artifacts/construction-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22532"
+BASE_PATH = "/"

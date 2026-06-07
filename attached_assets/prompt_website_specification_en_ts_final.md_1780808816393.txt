@@ -1,0 +1,83 @@
+﻿# Development Prompt: Dynamic Construction & Real Estate Website (JSON-Driven)
+
+
+## Assigned Role
+Act as a **Senior Full-Stack Developer and Software Architect**. Your goal is to design and implement the architecture for a lightweight web application for a **Construction Company**, based on **React (SPA) with TypeScript** that dynamically consumes data from JSON files, along with an administration panel (Dashboard) that will run locally in its first version. The architecture must prioritize minimal execution/hosting costs (Jamstack or static hosting) and complete modularity. **pnpm** must be used as the package manager.
+
+
+---
+
+
+## 1. Context and Architecture Rules
+* **Content Delivery (JSON-Driven):** The frontend must act as an abstract rendering engine. No text, image paths, prices, or geographic configurations should be hardcoded. Everything must be consumed from JSON files.
+* **Tech Stack Constraints:** Use React with **TypeScript** (Strict Mode) to ensure type safety for all JSON data structures. Use **pnpm** for fast, disk-space efficient package management.
+* **Low Operational Cost:** The application must be lightweight, optimized for deployment on low-cost or free static hosting services (e.g., Netlify, Vercel, GitHub Pages) that read local JSON data.
+* **Local Dashboard (V1):** Design a complementary admin panel to run locally (e.g., an interface integrated into the app protected by a local route, or a local Node/Vite environment) that allows reading, modifying, and saving configurations back to the JSON files.
+* **Absolute Modularity:** All text blocks, menus, images, and catalogs must be fully editable from the JSON.
+
+
+---
+
+
+## 2. Design Guidelines (UI/UX)
+* **Background/Theme:** Premium background emulating a black marble wall with gold veins (subtle texture via CSS or optimized image to avoid performance drops).
+* **Brand Identity:** Prominent and elegant positioning for the **Company Logo**. The secondary color palette and typography must contrast perfectly against the dark and gold background (elegant and minimalist style).
+
+
+---
+
+
+## 3. Site Modules and Structure
+
+
+### A. Corporate Section (Configurable)
+* **Mission:** `[Insert mission text here]`
+* **Vision:** `[Insert vision text here]`
+* **About Us:** `[Insert history/about us text here]`
+
+
+### B. Dynamic Navigation Menu
+* The menu is generated from the JSON structure, making it easy to add, rename, or reorder tabs.
+
+
+### C. Houses Catalog (Models)
+* **Model Details:** Each house record must include its name, description, and the **cost of the finished house**.
+* **Mapped and Interactive Galleries:** Model images must be categorized and organized by:
+    * *Location:* Interiors, Exteriors.
+    * *Space Type:* Bedroom, Bathroom, Living Room, Kitchen, Garden, Patio/Backyard, Gates.
+
+
+### D. Lot Inventory and Search Engine
+* **Mapped by Zones:** List of lots organized geographically.
+* **Lot Filter Engine:** A search component allowing filtering by:
+    1.  **Hierarchical Geographic Location:** Nested selection of **Province $\rightarrow$ Canton $\rightarrow$ District** (with parameterized data in the JSON).
+    2.  **Lot Size:** Numerical search for lots of `X` size.
+    3.  **Modifiable Measurement Unit:** The unit (e.g., $m^2$, hectares) must be global and editable from the general configuration.
+
+
+### E. Providers Directory
+* Dedicated tab to list the providers of the construction materials used in the projects, allowing transparency and partner branding.
+
+
+### F. Inquiries Module (Contact)
+* Interactive form for clients to send questions regarding specific lots or models.
+
+
+---
+
+
+## 4. Required Deliverables
+
+
+1.  **JSON Schema Structure & TypeScript Interfaces:**
+    Provide a structured and valid JSON file example (`data.json`) containing nodes for all modules. Crucially, provide the **TypeScript Interfaces/Types** that map exactly to this JSON structure to ensure type safety.
+2.  **Frontend Base Code (React + TypeScript):**
+    Recommended component structure (e.g., `Navbar.tsx`, `Catalog.tsx`, `FilterBar.tsx`, `LocalDashboard.tsx`) and the TypeScript logic to perform the combined filtering of lots (area + hierarchical location).
+3.  **Local Dashboard Logic:**
+    Explanation or script of how the local interface can update the JSON file, including initialization commands using `pnpm` (e.g., `pnpm create vite`, `pnpm install`).
+
+
+---
+
+
+*Please generate clean, modular, and strongly-typed code with detailed comments explaining the integration of the JSON data with the React state.*
