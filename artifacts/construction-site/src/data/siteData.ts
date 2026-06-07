@@ -62,9 +62,19 @@ export interface Provider {
   contact?: string;
 }
 
+export interface CompanyContact {
+  phones: string[];
+  email: string;
+  social: {
+    facebook: string;
+    instagram: string;
+  };
+}
+
 export interface SiteData {
   config: SiteConfig;
   corporate: CorporateSection;
+  contact: CompanyContact;
   navigation: NavItem[];
   houseModels: HouseModel[];
   lots: Lot[];
@@ -80,7 +90,15 @@ export const initialSiteData: SiteData = {
   corporate: {
     mission: "Brindar asesoramiento financiero y constructivo de excelencia para acompañar a cada familia en el proceso de adquisición o construcción de su hogar, de manera segura, clara y eficiente.",
     vision: "Ser el aliado estratégico más confiable de Costa Rica en construcción y financiamiento habitacional, haciendo posible el sueño de la casa propia para más familias.",
-    about: "V&E Asesores en Construcción es una empresa especializada en brindar asesoramiento financiero y constructivo integral. Contamos con Ingeniero Civil, Electricista Certificada, Asesoría Legal y Contable para que tu proyecto esté en las mejores manos. Desde el diseño, los planos y la tramitología, hasta la entrega final con nuestro servicio Llave en Mano 100% personalizado."
+    about: "Somos una empresa especializada en brindar asesoramiento financiero y constructivo para acompañarte en el proceso de adquisición de tu casa de bono de manera segura, clara y eficiente."
+  },
+  contact: {
+    phones: ["8537-2016", "8669-2683"],
+    email: "empresa@constructoravye.com",
+    social: {
+      facebook: "V&E Asesores en Construccion",
+      instagram: "V&E Asesores en Construccion"
+    }
   },
   navigation: [
     { label: "Inicio", path: "/" },

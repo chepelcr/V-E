@@ -11,10 +11,12 @@ const SiteDataContext = createContext<SiteDataContextType | undefined>(undefined
 
 export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [siteData, setSiteData] = useState<SiteData>(() => {
-    const saved = localStorage.getItem('aurea_site_data');
+    const saved = localStorage.getItem('vye_site_data_v2');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved) as SiteData;
+        // Merge with initialSiteData so new fields always have defaults
+        return { ...initialSiteData, ...parsed, contact: parsed.contact ?? initialSiteData.contact };
       } catch (e) {
         console.error("Failed to parse saved site data", e);
       }
@@ -23,7 +25,7 @@ export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   });
 
   useEffect(() => {
-    localStorage.setItem('aurea_site_data', JSON.stringify(siteData));
+    localStorage.setItem('vye_site_data_v2', JSON.stringify(siteData));
   }, [siteData]);
 
   const updateSiteData = (newData: SiteData) => {
