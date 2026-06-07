@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { MarbleBackground } from '@/components/MarbleBackground';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { motion } from 'framer-motion';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -19,6 +20,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         {children}
       </motion.main>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };
