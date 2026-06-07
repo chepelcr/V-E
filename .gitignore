@@ -47,3 +47,6 @@ Thumbs.db
 # Local caches
 .cache/
 .local/
+
+# Local dev server logs
+logs/
