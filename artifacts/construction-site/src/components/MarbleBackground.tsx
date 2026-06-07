@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { createMarbleScene, type MarbleHandle } from "./marble/marbleScene";
 
-const MARBLE_URL = `${import.meta.env.BASE_URL}marble-bg.jpg`;
-
 const containerStyle: React.CSSProperties = {
   position: "fixed",
   inset: 0,
@@ -13,38 +11,28 @@ const containerStyle: React.CSSProperties = {
 };
 
 /**
- * Static CSS fallback (used when WebGL is unavailable). Mirrors the original
- * photo-based marble treatment so the site still looks intentional.
+ * Pure-CSS fallback (no image) used when WebGL is unavailable. Approximates the
+ * procedural marble: deep black + gold sheen in dark, ivory + gold in light.
  */
 const CssFallback: React.FC<{ dark: boolean }> = ({ dark }) => (
-  <div aria-hidden="true" style={containerStyle}>
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        backgroundImage: `url(${MARBLE_URL})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        filter: dark
-          ? "brightness(0.42) contrast(1.15) saturate(1.1)"
-          : "brightness(0.95) contrast(0.9) saturate(0.75) sepia(0.12)",
-      }}
-    />
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        background: dark
-          ? "radial-gradient(ellipse at 50% 35%, transparent 40%, rgba(0,0,0,0.55) 100%)"
-          : "radial-gradient(ellipse at 50% 35%, rgba(245,237,210,0.4) 40%, rgba(180,160,120,0.25) 100%)",
-      }}
-    />
-  </div>
+  <div
+    aria-hidden="true"
+    style={{
+      ...containerStyle,
+      background: dark
+        ? "radial-gradient(ellipse at 30% 20%, rgba(120,90,30,0.18), transparent 55%)," +
+          "radial-gradient(ellipse at 75% 80%, rgba(150,110,40,0.14), transparent 55%)," +
+          "#070708"
+        : "radial-gradient(ellipse at 30% 20%, rgba(200,160,70,0.22), transparent 55%)," +
+          "radial-gradient(ellipse at 75% 80%, rgba(190,150,60,0.16), transparent 55%)," +
+          "#f3efe6",
+    }}
+  />
 );
 
 /**
- * PBR WebGL marble/gold background. Falls back to a CSS rendering when WebGL
- * cannot be initialised, and respects prefers-reduced-motion.
+ * Procedural PBR WebGL marble/gold background. Falls back to CSS when WebGL is
+ * unavailable, and respects prefers-reduced-motion.
  */
 export const MarbleBackground: React.FC = () => {
   const { theme } = useTheme();
@@ -53,7 +41,6 @@ export const MarbleBackground: React.FC = () => {
   const handleRef = useRef<MarbleHandle | null>(null);
   const [webglFailed, setWebglFailed] = useState(false);
 
-  // Initialise the scene once.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -64,11 +51,7 @@ export const MarbleBackground: React.FC = () => {
 
     let handle: MarbleHandle;
     try {
-      handle = createMarbleScene(canvas, {
-        textureUrl: MARBLE_URL,
-        dark,
-        reducedMotion,
-      });
+      handle = createMarbleScene(canvas, { dark, reducedMotion });
     } catch {
       setWebglFailed(true);
       return;
@@ -103,7 +86,6 @@ export const MarbleBackground: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // React to theme changes.
   useEffect(() => {
     handleRef.current?.setTheme(dark);
   }, [dark]);

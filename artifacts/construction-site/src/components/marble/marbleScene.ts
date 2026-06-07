@@ -2,17 +2,16 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 /**
- * High-fidelity PBR marble/gold background (Path 1 — Three.js WebGL).
+ * Fully procedural PBR marble/gold background (Path 1 — Three.js WebGL, no image).
  *
- * The real marble photograph is used as the albedo map. From it we derive a
- * metalness map (gold veins -> 1.0) and a roughness map (gold veins shiny),
- * so the golden veins reflect a procedural environment map (RoomEnvironment)
- * with ACES filmic tone mapping — physically metallic, glowing gold over a
- * deep black polished base.
+ * The marble is generated entirely in GLSL: domain-warped fractal noise builds a
+ * black (dark theme) / ivory (light theme) base, ridged noise carves the golden
+ * veins and fine hairline cracks. The veins drive a MeshStandardMaterial's
+ * metalness + roughness, so they reflect a procedural RoomEnvironment under ACES
+ * tone mapping — physically metallic, glowing gold.
  *
- * Animation is intentionally cheap to hold 60fps: a slow UV noise drift on the
- * albedo plus a pointer-driven camera parallax that makes the gold reflections
- * shimmer. Light/dark theme is a smooth uniform crossfade (no hard cut).
+ * Theme is a single uniform crossfade (uLight 0→1): only the base recolors, the
+ * gold veins stay gold, which keeps light mode clean and text readable.
  */
 
 export interface MarbleHandle {
@@ -24,8 +23,15 @@ export interface MarbleHandle {
   dispose(): void;
 }
 
-// Ashima 2D simplex noise — used for the subtle fluid drift of the marble.
-const SNOISE_GLSL = /* glsl */ `
+// Ashima 2D simplex noise + fbm + the procedural marble field.
+const MARBLE_GLSL = /* glsl */ `
+uniform float uTime;
+uniform vec2  uPointer;
+uniform float uLight;
+uniform float uAspect;
+uniform float uScale;
+varying vec2  vMarbleUv;
+
 vec3 permute(vec3 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
 float snoise(vec2 v){
   const vec4 C = vec4(0.211324865405187, 0.366025403784439,
@@ -50,105 +56,54 @@ float snoise(vec2 v){
   g.yz = a0.yz * x12.xz + h.yz * x12.yw;
   return 130.0 * dot(m, g);
 }
+
+float fbm(vec2 p){
+  float v = 0.0, a = 0.5;
+  for (int i = 0; i < 4; i++) { v += a * snoise(p); p *= 2.0; a *= 0.5; }
+  return v;
+}
+
+void computeMarble(vec2 uv, out vec3 albedo, out float metal, out float rough, out float glow){
+  vec2 p = uv;
+  p.x *= uAspect;          // keep veins from stretching with the viewport
+  p *= uScale;             // vein density
+  // diagonal bias so veins run top-left -> bottom-right like the reference slab
+  p = mat2(0.92, -0.38, 0.38, 0.92) * p;
+
+  vec2 flow = vec2(uTime * 0.018, -uTime * 0.013);
+
+  // one domain-warp pass -> organic marble field
+  vec2 q = vec2(fbm(p + flow), fbm(p + vec2(3.1, 1.7) - flow));
+  float marble = fbm(p * 1.4 + 2.6 * q);
+  float mott   = marble * 0.5 + 0.5;
+
+  // gold veins: ridged (thin) lines from the warped field + a finer crack net
+  float vein  = pow(1.0 - abs(marble), 7.0);
+  float crack = pow(1.0 - abs(fbm(p * 2.3 + 2.0 * q)), 13.0);
+  float gold  = smoothstep(0.22, 0.62, vein * 1.15 + crack * 0.6);
+
+  // neutral hairline cracks (white/grey, not gold)
+  float hair  = pow(1.0 - abs(fbm(p * 3.2 + 7.0)), 18.0);
+
+  // base recolors per theme; gold stays gold
+  vec3 darkBase  = mix(vec3(0.013, 0.013, 0.018), vec3(0.055, 0.055, 0.065), mott);
+  vec3 lightBase = mix(vec3(0.85, 0.83, 0.79),   vec3(0.965, 0.955, 0.925), mott);
+  vec3 base = mix(darkBase, lightBase, uLight);
+
+  vec3 hairCol = mix(vec3(0.42, 0.42, 0.45), vec3(0.58, 0.54, 0.46), uLight);
+  base = mix(base, hairCol, hair * 0.22 * (1.0 - gold));
+
+  vec3 goldCol = vec3(1.0, 0.78, 0.34);
+  albedo = mix(base, goldCol, gold);
+  metal  = gold;
+  rough  = mix(0.72, 0.16, gold);
+  glow   = smoothstep(0.62, 1.0, gold) * 0.2;
+}
 `;
-
-/** Derive metalness + roughness maps from the marble photo by detecting gold. */
-function deriveMaps(image: HTMLImageElement): {
-  metalness: THREE.CanvasTexture;
-  roughness: THREE.CanvasTexture;
-  emissive: THREE.CanvasTexture;
-  aspect: number;
-} {
-  const maxSide = 1024;
-  const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
-  const w = Math.max(1, Math.round(image.width * scale));
-  const h = Math.max(1, Math.round(image.height * scale));
-
-  const src = document.createElement("canvas");
-  src.width = w;
-  src.height = h;
-  const sctx = src.getContext("2d", { willReadFrequently: true })!;
-  sctx.drawImage(image, 0, 0, w, h);
-  const data = sctx.getImageData(0, 0, w, h).data;
-
-  const metalCanvas = document.createElement("canvas");
-  const roughCanvas = document.createElement("canvas");
-  const emisCanvas = document.createElement("canvas");
-  for (const c of [metalCanvas, roughCanvas, emisCanvas]) {
-    c.width = w;
-    c.height = h;
-  }
-  const mImg = sctx.createImageData(w, h);
-  const rImg = sctx.createImageData(w, h);
-  const eImg = sctx.createImageData(w, h);
-
-  for (let i = 0; i < data.length; i += 4) {
-    const r = data[i];
-    const g = data[i + 1];
-    const b = data[i + 2];
-    // "goldness": warm pixels where red & green dominate blue (yellow/gold),
-    // excluding neutral white cracks (where r≈g≈b) and the black base.
-    const warm = Math.min(r, g) - b; // >0 for yellows
-    const lum = 0.299 * r + 0.587 * g + 0.114 * b;
-    let gold = Math.max(0, Math.min(1, warm / 90));
-    if (lum < 28) gold *= 0.2; // very dark -> not reflective gold
-    const goldByte = Math.round(gold * 255);
-
-    // metalness: gold veins fully metallic, base dielectric
-    mImg.data[i] = mImg.data[i + 1] = mImg.data[i + 2] = goldByte;
-    mImg.data[i + 3] = 255;
-
-    // roughness: gold smooth (~0.18), base rougher (~0.78)
-    const rough = Math.round((0.78 - 0.6 * gold) * 255);
-    rImg.data[i] = rImg.data[i + 1] = rImg.data[i + 2] = rough;
-    rImg.data[i + 3] = 255;
-
-    // emissive mask: faint warm glow only on the brightest gold
-    const glow = Math.round(Math.max(0, gold - 0.4) * 255);
-    eImg.data[i] = glow;
-    eImg.data[i + 1] = Math.round(glow * 0.78);
-    eImg.data[i + 2] = Math.round(glow * 0.25);
-    eImg.data[i + 3] = 255;
-  }
-
-  metalCanvas.getContext("2d")!.putImageData(mImg, 0, 0);
-  roughCanvas.getContext("2d")!.putImageData(rImg, 0, 0);
-  emisCanvas.getContext("2d")!.putImageData(eImg, 0, 0);
-
-  const mk = (canvas: HTMLCanvasElement, srgb = false) => {
-    const t = new THREE.CanvasTexture(canvas);
-    t.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
-    t.anisotropy = 4;
-    return t;
-  };
-
-  return {
-    metalness: mk(metalCanvas),
-    roughness: mk(roughCanvas),
-    emissive: mk(emisCanvas, true),
-    aspect: image.width / image.height,
-  };
-}
-
-/** Make a texture "cover" the plane regardless of aspect mismatch. */
-function applyCover(tex: THREE.Texture, imgAspect: number, planeAspect: number) {
-  tex.wrapS = THREE.ClampToEdgeWrapping;
-  tex.wrapT = THREE.ClampToEdgeWrapping;
-  tex.center.set(0.5, 0.5);
-  if (planeAspect > imgAspect) {
-    const s = imgAspect / planeAspect;
-    tex.repeat.set(1, s);
-    tex.offset.set(0, (1 - s) / 2);
-  } else {
-    const s = planeAspect / imgAspect;
-    tex.repeat.set(s, 1);
-    tex.offset.set((1 - s) / 2, 0);
-  }
-}
 
 export function createMarbleScene(
   canvas: HTMLCanvasElement,
-  opts: { textureUrl: string; dark: boolean; reducedMotion: boolean },
+  opts: { dark: boolean; reducedMotion: boolean },
 ): MarbleHandle {
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -156,9 +111,11 @@ export function createMarbleScene(
     alpha: true,
     powerPreference: "high-performance",
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  // Procedural noise is fill-rate bound; cap DPR a little tighter than usual.
+  const dprCap = 1.5;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
+  renderer.toneMappingExposure = opts.dark ? 1.0 : 1.4;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 
   const scene = new THREE.Scene();
@@ -173,7 +130,9 @@ export function createMarbleScene(
   const uniforms = {
     uTime: { value: 0 },
     uPointer: { value: new THREE.Vector2(0, 0) },
-    uLight: { value: opts.dark ? 0 : 1 }, // 0 = dark marble, 1 = light/cream
+    uLight: { value: opts.dark ? 0 : 1 },
+    uAspect: { value: 1 },
+    uScale: { value: 3.0 },
   };
 
   const material = new THREE.MeshStandardMaterial({
@@ -181,90 +140,59 @@ export function createMarbleScene(
     metalness: 1.0,
     roughness: 1.0,
     envMapIntensity: 1.6,
-    emissive: 0xffffff,
-    emissiveIntensity: 0.0,
+    emissive: 0x000000,
   });
 
   material.onBeforeCompile = (shader) => {
-    shader.uniforms.uTime = uniforms.uTime;
-    shader.uniforms.uPointer = uniforms.uPointer;
-    shader.uniforms.uLight = uniforms.uLight;
+    Object.assign(shader.uniforms, uniforms);
 
-    shader.fragmentShader =
-      `uniform float uTime;\nuniform vec2 uPointer;\nuniform float uLight;\n` +
-      SNOISE_GLSL +
-      shader.fragmentShader;
+    // expose vMarbleUv from the plane's local position (always available)
+    shader.vertexShader =
+      "varying vec2 vMarbleUv;\n" +
+      shader.vertexShader.replace(
+        "#include <begin_vertex>",
+        "#include <begin_vertex>\n  vMarbleUv = position.xy + 0.5;",
+      );
 
-    // Subtle fluid drift + pointer parallax on the albedo lookup.
-    shader.fragmentShader = shader.fragmentShader.replace(
-      "#include <map_fragment>",
-      /* glsl */ `
-      #ifdef USE_MAP
-        float nx = snoise(vMapUv * 2.2 + vec2(uTime * 0.045, -uTime * 0.035));
-        float ny = snoise(vMapUv * 2.2 + vec2(7.3 - uTime * 0.032, 2.1));
-        vec2 drift = vec2(nx, ny) * 0.007;
-        vec2 par = uPointer * 0.018;
-        vec4 sampledDiffuseColor = texture2D( map, vMapUv + drift + par );
-        diffuseColor *= sampledDiffuseColor;
-      #endif
-      `,
-    );
+    shader.fragmentShader = MARBLE_GLSL + shader.fragmentShader;
 
-    // Light/dark crossfade as a warm color grade after tone mapping.
-    shader.fragmentShader = shader.fragmentShader.replace(
-      "#include <tonemapping_fragment>",
-      /* glsl */ `
-      #include <tonemapping_fragment>
-      vec3 lifted = gl_FragColor.rgb * 1.45 + vec3(0.24, 0.21, 0.15);
-      gl_FragColor.rgb = mix(gl_FragColor.rgb, lifted, uLight);
-      `,
-    );
+    // compute the marble fields once, feed albedo / metalness / roughness / emissive
+    shader.fragmentShader = shader.fragmentShader
+      .replace(
+        "#include <map_fragment>",
+        /* glsl */ `
+        vec3 mAlbedo; float mMetal; float mRough; float mGlow;
+        computeMarble(vMarbleUv, mAlbedo, mMetal, mRough, mGlow);
+        diffuseColor.rgb = mAlbedo;
+        `,
+      )
+      .replace(
+        "#include <metalnessmap_fragment>",
+        "float metalnessFactor = mMetal;",
+      )
+      .replace(
+        "#include <roughnessmap_fragment>",
+        "float roughnessFactor = mRough;",
+      )
+      .replace(
+        "#include <emissivemap_fragment>",
+        "totalEmissiveRadiance += mGlow * vec3(1.0, 0.72, 0.28);",
+      );
   };
 
   const geometry = new THREE.PlaneGeometry(1, 1);
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
-  let imgAspect = 1;
-  let viewW = 1;
-  let viewH = 1;
-
   function fitPlane() {
     const visH = 2 * Math.tan((camera.fov * Math.PI) / 360) * camDist;
     const visW = visH * camera.aspect;
-    // Overscan so parallax never reveals an edge.
     mesh.scale.set(visW * 1.18, visH * 1.18, 1);
-    if (material.map) applyCover(material.map, imgAspect, visW / visH);
+    uniforms.uAspect.value = visW / visH;
   }
 
-  const loader = new THREE.TextureLoader();
-  loader.load(opts.textureUrl, (albedo) => {
-    albedo.colorSpace = THREE.SRGBColorSpace;
-    albedo.anisotropy = 4;
-    material.map = albedo;
-
-    const img = albedo.image as HTMLImageElement;
-    try {
-      const maps = deriveMaps(img);
-      imgAspect = maps.aspect;
-      material.metalnessMap = maps.metalness;
-      material.roughnessMap = maps.roughness;
-      material.emissiveMap = maps.emissive;
-      material.emissiveIntensity = 0.12;
-    } catch {
-      // Cross-origin / canvas read failure: fall back to a uniform metallic look.
-      imgAspect = img.width / img.height || 1;
-      material.metalness = 0.4;
-      material.roughness = 0.5;
-    }
-    material.needsUpdate = true;
-    fitPlane();
-    renderOnce();
-  });
-
-  // ---- pointer / theme target state ----
   const pointerTarget = new THREE.Vector2(0, 0);
-  let exposureTarget = opts.dark ? 1.0 : 1.45;
+  let exposureTarget = opts.dark ? 1.0 : 1.4;
   let lightTarget = opts.dark ? 0 : 1;
 
   let raf = 0;
@@ -281,16 +209,12 @@ export function createMarbleScene(
     last = t;
     uniforms.uTime.value += dt;
 
-    // ease pointer + theme uniforms
     uniforms.uPointer.value.lerp(pointerTarget, 0.06);
 
-    // Always-on idle motion (a slow orbit) so the gold reflections shimmer even
-    // with no mouse input / on touch devices, plus the pointer parallax on top.
+    // always-on slow orbit so the gold reflections shimmer without mouse input
     const tt = uniforms.uTime.value;
-    const idleX = Math.sin(tt * 0.28) * 0.16;
-    const idleY = Math.cos(tt * 0.21) * 0.1;
-    const targetX = pointerTarget.x * 0.22 + idleX;
-    const targetY = pointerTarget.y * 0.16 + idleY;
+    const targetX = pointerTarget.x * 0.22 + Math.sin(tt * 0.28) * 0.16;
+    const targetY = pointerTarget.y * 0.16 + Math.cos(tt * 0.21) * 0.1;
     camera.position.x += (targetX - camera.position.x) * 0.04;
     camera.position.y += (targetY - camera.position.y) * 0.04;
     camera.lookAt(0, 0, 0);
@@ -299,8 +223,6 @@ export function createMarbleScene(
     renderer.toneMappingExposure +=
       (exposureTarget - renderer.toneMappingExposure) * 0.05;
 
-    material.emissiveIntensity = 0.14 + 0.06 * Math.sin(tt * 0.8);
-
     renderer.render(scene, camera);
     raf = requestAnimationFrame(frame);
   }
@@ -308,9 +230,8 @@ export function createMarbleScene(
   return {
     setTheme(dark: boolean) {
       lightTarget = dark ? 0 : 1;
-      exposureTarget = dark ? 1.0 : 1.45;
+      exposureTarget = dark ? 1.0 : 1.4;
       if (!running) {
-        // reduced-motion: snap + single render
         uniforms.uLight.value = lightTarget;
         renderer.toneMappingExposure = exposureTarget;
         renderOnce();
@@ -320,11 +241,11 @@ export function createMarbleScene(
       pointerTarget.set(nx, ny);
     },
     resize(width: number, height: number) {
-      viewW = Math.max(1, width);
-      viewH = Math.max(1, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(viewW, viewH, false);
-      camera.aspect = viewW / viewH;
+      const w = Math.max(1, width);
+      const h = Math.max(1, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, dprCap));
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
       camera.updateProjectionMatrix();
       fitPlane();
       if (!running) renderOnce();
@@ -343,10 +264,6 @@ export function createMarbleScene(
     dispose() {
       this.stop();
       geometry.dispose();
-      material.map?.dispose();
-      material.metalnessMap?.dispose();
-      material.roughnessMap?.dispose();
-      material.emissiveMap?.dispose();
       material.dispose();
       envRT.dispose();
       pmrem.dispose();
