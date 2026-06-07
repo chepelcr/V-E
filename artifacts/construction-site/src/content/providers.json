@@ -1,0 +1,70 @@
+{
+  "intro": {
+    "title": { "es": "Nuestros Socios", "en": "Our Partners" },
+    "subtitle": {
+      "es": "La excelencia exige materiales excepcionales. Nos asociamos exclusivamente con proveedores líderes de la industria para garantizar una calidad duradera.",
+      "en": "Excellence requires exceptional materials. We partner exclusively with industry-leading providers to ensure lasting quality."
+    }
+  },
+  "items": [
+    {
+      "id": "p-1",
+      "name": "Lumina Glass",
+      "description": {
+        "es": "Sistemas premium de vidrio arquitectónico y aluminio.",
+        "en": "Premium architectural glass and aluminum systems."
+      },
+      "materials": [
+        { "es": "Vidrio", "en": "Glass" },
+        { "es": "Aluminio", "en": "Aluminum" },
+        { "es": "Ventanas", "en": "Windows" }
+      ],
+      "website": "",
+      "contact": "contact@luminaglass.cr"
+    },
+    {
+      "id": "p-2",
+      "name": "Maderas Nobles",
+      "description": {
+        "es": "Maderas tropicales finas de origen ético y alta gama.",
+        "en": "Ethically sourced, high-end tropical hardwoods."
+      },
+      "materials": [
+        { "es": "Madera", "en": "Lumber" },
+        { "es": "Puertas", "en": "Doors" },
+        { "es": "Pisos", "en": "Flooring" }
+      ],
+      "website": "",
+      "contact": "ventas@maderasnobles.cr"
+    },
+    {
+      "id": "p-3",
+      "name": "Cimientos S.A.",
+      "description": {
+        "es": "Cemento de alta calidad y acero estructural.",
+        "en": "High-grade cement and structural steel."
+      },
+      "materials": [
+        { "es": "Cemento", "en": "Cement" },
+        { "es": "Acero", "en": "Steel" },
+        { "es": "Bloque", "en": "Block" }
+      ],
+      "website": "",
+      "contact": ""
+    },
+    {
+      "id": "p-4",
+      "name": "AquaTech",
+      "description": {
+        "es": "Grifería de lujo y sistemas de gestión del agua.",
+        "en": "Luxury plumbing fixtures and water management systems."
+      },
+      "materials": [
+        { "es": "Fontanería", "en": "Plumbing" },
+        { "es": "Grifería", "en": "Fixtures" }
+      ],
+      "website": "",
+      "contact": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "iconName": "alert-circle",
+  "code": "404",
+  "title": {
+    "es": "Página no encontrada",
+    "en": "Page Not Found"
+  },
+  "message": {
+    "es": "La página que buscas no existe o fue movida.",
+    "en": "The page you're looking for doesn't exist or has moved."
+  },
+  "home": {
+    "es": "Volver al inicio",
+    "en": "Back to home"
+  }
+}

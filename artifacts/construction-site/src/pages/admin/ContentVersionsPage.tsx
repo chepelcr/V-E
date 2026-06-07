@@ -3,6 +3,8 @@ import { PageHeader } from "@/components/admin/PageHeader";
 import { useAdminStore, downloadJson } from "@/lib/admin-store";
 import { useT } from "@/lib/admin-i18n";
 import { versionedEntries } from "@/lib/admin-manifest";
+import esChrome from "@/translations/es.json";
+import enChrome from "@/translations/en.json";
 
 /**
  * The ④ "content-versions download" piece for every content entity. Rows are
@@ -14,9 +16,16 @@ export function ContentVersionsPage() {
   const { t, language } = useT();
   const store = useAdminStore();
 
-  // Map a manifest content file to the live store slice that backs it.
+  // Map a manifest content file to the live store slice that backs it. Every
+  // entity is represented so every row downloads its live value.
   const sliceFor: Record<string, unknown> = {
     "home.json": store.home,
+    "catalog.json": store.catalog,
+    "lots.json": store.lots,
+    "providers.json": store.providers,
+    "contactContent.json": store.contactContent,
+    "financiamiento.json": store.financiamiento,
+    "notFound.json": store.notFound,
     "branding.json": store.branding,
     "contact.json": store.contact,
     "media.json": store.media,
@@ -25,7 +34,7 @@ export function ContentVersionsPage() {
     "inventory.json": store.inventory,
   };
 
-  // themes.json lives alongside branding under Site Identity.
+  // Every manifest entity with a file + versions row, mapped to its live slice.
   const files = versionedEntries()
     .filter((e) => e.file && e.file in sliceFor)
     .map((e) => ({
@@ -35,6 +44,10 @@ export function ContentVersionsPage() {
     }));
   // Site Identity edits a second file (themes.json) on the same page.
   files.push({ name: "themes.json", data: store.themes, description: language === "es" ? "Temas de marca" : "Brand themes" });
+  // The two translation key-tables (edited on the Translations page) — local-cms
+  // routes these back to src/translations/.
+  files.push({ name: "es.json", data: esChrome, description: language === "es" ? "Traducciones (español)" : "Translations (Spanish)" });
+  files.push({ name: "en.json", data: enChrome, description: language === "es" ? "Traducciones (inglés)" : "Translations (English)" });
 
   const exportAll = () => {
     files.forEach(({ name, data }, i) => {

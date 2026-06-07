@@ -21,6 +21,12 @@ import {
   MapPin,
   KeyRound,
   Sparkles,
+  Store,
+  BriefcaseBusiness,
+  Trees,
+  Dock,
+  LayoutGrid,
+  Shield,
 } from "lucide-react";
 
 export type IconComponent = ComponentType<{
@@ -58,6 +64,12 @@ export const ICONS: Record<string, IconComponent> = {
   "map-pin": MapPin,
   key: KeyRound,
   sparkles: Sparkles,
+  store: Store,
+  briefcase: BriefcaseBusiness,
+  trees: Trees,
+  dock: Dock,
+  "layout-grid": LayoutGrid,
+  shield: Shield,
 };
 
 /** Valid icon names, handy for admin <select> dropdowns. */

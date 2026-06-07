@@ -1,0 +1,114 @@
+{
+  "title": { "es": "Modelos de Casas", "en": "House Models" },
+  "subtitle": {
+    "es": "Explore nuestra colección de diseños residenciales contemporáneos, cada uno concebido para combinar elegancia, funcionalidad y confort en su futuro hogar.",
+    "en": "Explore our collection of contemporary residential designs, each conceived to blend elegance, functionality and comfort into your future home."
+  },
+  "models": [
+    {
+      "id": "hm-1",
+      "name": "Villa Dorada",
+      "description": {
+        "es": "Una impresionante villa contemporánea con amplios muros de vidrio que integran de forma natural los espacios interiores y exteriores. Diseñada para quienes aprecian el minimalismo moderno con texturas cálidas y naturales.",
+        "en": "A breathtaking contemporary villa featuring expansive glass walls, seamlessly blending indoor and outdoor living spaces. Designed for those who appreciate modern minimalism with warm, natural textures."
+      },
+      "price": 350000,
+      "currency": "USD",
+      "area": 280,
+      "bedrooms": 4,
+      "bathrooms": 4.5,
+      "gallery": [
+        {
+          "ref": "https://picsum.photos/800/600?random=1",
+          "category": "exterior",
+          "room": "facade",
+          "caption": { "es": "Fachada Frontal", "en": "Front Elevation" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=2",
+          "category": "interior",
+          "room": "living_room",
+          "caption": { "es": "Sala de Doble Altura", "en": "Double Height Living Area" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=3",
+          "category": "interior",
+          "room": "kitchen",
+          "caption": { "es": "Cocina Gourmet", "en": "Chef's Kitchen" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=4",
+          "category": "exterior",
+          "room": "garden",
+          "caption": { "es": "Piscina Infinita y Terraza", "en": "Infinity Pool and Deck" }
+        }
+      ]
+    },
+    {
+      "id": "hm-2",
+      "name": "Casa Serena",
+      "description": {
+        "es": "Una elegante residencia de una sola planta inspirada en la arquitectura mediterránea tradicional. Cuenta con patios, acabados en piedra natural y una distribución pensada para recibir invitados.",
+        "en": "An elegant single-story residence inspired by traditional Mediterranean architecture. Features courtyards, natural stone finishes, and a thoughtful layout perfect for entertaining."
+      },
+      "price": 220000,
+      "currency": "USD",
+      "area": 195,
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "gallery": [
+        {
+          "ref": "https://picsum.photos/800/600?random=5",
+          "category": "exterior",
+          "room": "facade",
+          "caption": { "es": "Entrada Principal", "en": "Main Entrance" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=6",
+          "category": "interior",
+          "room": "living_room",
+          "caption": { "es": "Espacio Principal de Estar", "en": "Main Living Space" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=7",
+          "category": "interior",
+          "room": "bedroom",
+          "caption": { "es": "Suite Principal", "en": "Master Suite" }
+        }
+      ]
+    },
+    {
+      "id": "hm-3",
+      "name": "Residencia Altamira",
+      "description": {
+        "es": "Un diseño compacto pero lujoso que maximiza la luz natural y la ventilación. Ideal para lotes en ladera, ofrece vistas panorámicas desde cada habitación.",
+        "en": "A compact yet luxurious design maximizing natural light and ventilation. Ideal for hillside lots, offering panoramic views from every room."
+      },
+      "price": 150000,
+      "currency": "USD",
+      "area": 140,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "gallery": [
+        {
+          "ref": "https://picsum.photos/800/600?random=8",
+          "category": "exterior",
+          "room": "facade",
+          "caption": { "es": "Perfil Moderno", "en": "Modern Profile" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=9",
+          "category": "exterior",
+          "room": "patio",
+          "caption": { "es": "Terraza Mirador", "en": "View Deck" }
+        },
+        {
+          "ref": "https://picsum.photos/800/600?random=10",
+          "category": "interior",
+          "room": "kitchen",
+          "caption": { "es": "Cocina de Planta Abierta", "en": "Open Plan Kitchen" }
+        }
+      ]
+    }
+  ]
+}

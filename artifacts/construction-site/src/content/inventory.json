@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-07T20:22:46.395Z",
+  "generatedAt": "2026-06-07T23:47:48.256Z",
   "counts": {
-    "nodes": 127,
-    "edges": 237
+    "nodes": 152,
+    "edges": 363
   },
   "nodes": [
     {
@@ -503,11 +503,32 @@
       "path": "src/content/branding.json"
     },
     {
+      "id": "content/catalog.json",
+      "label": "catalog.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/catalog.json"
+    },
+    {
       "id": "content/contact.json",
       "label": "contact.json",
       "type": "content",
       "group": "core",
       "path": "src/content/contact.json"
+    },
+    {
+      "id": "content/contactContent.json",
+      "label": "contactContent.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/contactContent.json"
+    },
+    {
+      "id": "content/financiamiento.json",
+      "label": "financiamiento.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/financiamiento.json"
     },
     {
       "id": "content/home.json",
@@ -524,6 +545,13 @@
       "path": "src/content/inventory.json"
     },
     {
+      "id": "content/lots.json",
+      "label": "lots.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/lots.json"
+    },
+    {
       "id": "content/media.json",
       "label": "media.json",
       "type": "content",
@@ -536,6 +564,20 @@
       "type": "content",
       "group": "core",
       "path": "src/content/navigation.json"
+    },
+    {
+      "id": "content/notFound.json",
+      "label": "notFound.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/notFound.json"
+    },
+    {
+      "id": "content/providers.json",
+      "label": "providers.json",
+      "type": "content",
+      "group": "core",
+      "path": "src/content/providers.json"
     },
     {
       "id": "content/seo.json",
@@ -559,25 +601,11 @@
       "path": "src/contexts/LanguageContext.tsx"
     },
     {
-      "id": "contexts/SiteDataContext",
-      "label": "SiteDataContext",
-      "type": "context",
-      "group": "core",
-      "path": "src/contexts/SiteDataContext.tsx"
-    },
-    {
       "id": "contexts/ThemeContext",
       "label": "ThemeContext",
       "type": "context",
       "group": "core",
       "path": "src/contexts/ThemeContext.tsx"
-    },
-    {
-      "id": "data/siteData",
-      "label": "siteData",
-      "type": "lib",
-      "group": "core",
-      "path": "src/data/siteData.ts"
     },
     {
       "id": "hooks/use-mobile",
@@ -692,6 +720,13 @@
       "path": "src/lib/rich-text.tsx"
     },
     {
+      "id": "lib/seo",
+      "label": "seo",
+      "type": "lib",
+      "group": "core",
+      "path": "src/lib/seo.ts"
+    },
+    {
       "id": "lib/utils",
       "label": "utils",
       "type": "lib",
@@ -720,11 +755,32 @@
       "path": "src/pages/admin/BrandingPage.tsx"
     },
     {
+      "id": "pages/admin/CatalogPage",
+      "label": "CatalogPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/CatalogPage.tsx"
+    },
+    {
+      "id": "pages/admin/ContactContentPage",
+      "label": "ContactContentPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/ContactContentPage.tsx"
+    },
+    {
       "id": "pages/admin/ContactInfoPage",
       "label": "ContactInfoPage",
       "type": "page",
       "group": "admin",
       "path": "src/pages/admin/ContactInfoPage.tsx"
+    },
+    {
+      "id": "pages/admin/ContentExplorerPage",
+      "label": "ContentExplorerPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/ContentExplorerPage.tsx"
     },
     {
       "id": "pages/admin/ContentVersionsPage",
@@ -741,11 +797,39 @@
       "path": "src/pages/admin/DashboardPage.tsx"
     },
     {
+      "id": "pages/admin/DiagnosticsPage",
+      "label": "DiagnosticsPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/DiagnosticsPage.tsx"
+    },
+    {
+      "id": "pages/admin/FinanciamientoPage",
+      "label": "FinanciamientoPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/FinanciamientoPage.tsx"
+    },
+    {
       "id": "pages/admin/HomePage",
       "label": "HomePage",
       "type": "page",
       "group": "admin",
       "path": "src/pages/admin/HomePage.tsx"
+    },
+    {
+      "id": "pages/admin/InventoryPage",
+      "label": "InventoryPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/InventoryPage.tsx"
+    },
+    {
+      "id": "pages/admin/LotsPage",
+      "label": "LotsPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/LotsPage.tsx"
     },
     {
       "id": "pages/admin/MediaPage",
@@ -755,11 +839,32 @@
       "path": "src/pages/admin/MediaPage.tsx"
     },
     {
+      "id": "pages/admin/MessagesPage",
+      "label": "MessagesPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/MessagesPage.tsx"
+    },
+    {
       "id": "pages/admin/NavigationPage",
       "label": "NavigationPage",
       "type": "page",
       "group": "admin",
       "path": "src/pages/admin/NavigationPage.tsx"
+    },
+    {
+      "id": "pages/admin/NotFoundPage",
+      "label": "NotFoundPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/NotFoundPage.tsx"
+    },
+    {
+      "id": "pages/admin/ProvidersPage",
+      "label": "ProvidersPage",
+      "type": "page",
+      "group": "admin",
+      "path": "src/pages/admin/ProvidersPage.tsx"
     },
     {
       "id": "pages/admin/SeoPage",
@@ -769,11 +874,11 @@
       "path": "src/pages/admin/SeoPage.tsx"
     },
     {
-      "id": "pages/admin/StubPage",
-      "label": "StubPage",
+      "id": "pages/admin/TranslationsPage",
+      "label": "TranslationsPage",
       "type": "page",
       "group": "admin",
-      "path": "src/pages/admin/StubPage.tsx"
+      "path": "src/pages/admin/TranslationsPage.tsx"
     },
     {
       "id": "pages/Catalog",
@@ -832,11 +937,32 @@
       "path": "src/repositories/branding.repository.ts"
     },
     {
+      "id": "repositories/catalog.repository",
+      "label": "catalog.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/catalog.repository.ts"
+    },
+    {
       "id": "repositories/company.repository",
       "label": "company.repository",
       "type": "repository",
       "group": "core",
       "path": "src/repositories/company.repository.ts"
+    },
+    {
+      "id": "repositories/contact-content.repository",
+      "label": "contact-content.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/contact-content.repository.ts"
+    },
+    {
+      "id": "repositories/financiamiento.repository",
+      "label": "financiamiento.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/financiamiento.repository.ts"
     },
     {
       "id": "repositories/home.repository",
@@ -853,6 +979,13 @@
       "path": "src/repositories/inventory.repository.ts"
     },
     {
+      "id": "repositories/lots.repository",
+      "label": "lots.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/lots.repository.ts"
+    },
+    {
       "id": "repositories/media.repository",
       "label": "media.repository",
       "type": "repository",
@@ -867,6 +1000,20 @@
       "path": "src/repositories/navigation.repository.ts"
     },
     {
+      "id": "repositories/notfound.repository",
+      "label": "notfound.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/notfound.repository.ts"
+    },
+    {
+      "id": "repositories/providers.repository",
+      "label": "providers.repository",
+      "type": "repository",
+      "group": "core",
+      "path": "src/repositories/providers.repository.ts"
+    },
+    {
       "id": "repositories/seo.repository",
       "label": "seo.repository",
       "type": "repository",
@@ -879,6 +1026,34 @@
       "type": "repository",
       "group": "core",
       "path": "src/repositories/themes.repository.ts"
+    },
+    {
+      "id": "services/catalog.service",
+      "label": "catalog.service",
+      "type": "service",
+      "group": "core",
+      "path": "src/services/catalog.service.ts"
+    },
+    {
+      "id": "services/contact.service",
+      "label": "contact.service",
+      "type": "service",
+      "group": "core",
+      "path": "src/services/contact.service.ts"
+    },
+    {
+      "id": "services/home.service",
+      "label": "home.service",
+      "type": "service",
+      "group": "core",
+      "path": "src/services/home.service.ts"
+    },
+    {
+      "id": "services/lots.service",
+      "label": "lots.service",
+      "type": "service",
+      "group": "core",
+      "path": "src/services/lots.service.ts"
     },
     {
       "id": "translations/en.json",
@@ -918,22 +1093,12 @@
     },
     {
       "from": "App",
-      "to": "contexts/SiteDataContext",
-      "kind": "imports"
-    },
-    {
-      "from": "App",
       "to": "contexts/ThemeContext",
       "kind": "imports"
     },
     {
       "from": "App",
       "to": "lib/admin-enabled",
-      "kind": "imports"
-    },
-    {
-      "from": "App",
-      "to": "pages/admin/AdminRouter",
       "kind": "imports"
     },
     {
@@ -1123,12 +1288,12 @@
     },
     {
       "from": "components/layout/Footer",
-      "to": "contexts/SiteDataContext",
+      "to": "lib/admin-enabled",
       "kind": "imports"
     },
     {
       "from": "components/layout/Footer",
-      "to": "lib/admin-enabled",
+      "to": "repositories/company.repository",
       "kind": "imports"
     },
     {
@@ -1158,12 +1323,22 @@
     },
     {
       "from": "components/layout/Navbar",
-      "to": "contexts/SiteDataContext",
+      "to": "contexts/ThemeContext",
       "kind": "imports"
     },
     {
       "from": "components/layout/Navbar",
-      "to": "contexts/ThemeContext",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Navbar",
+      "to": "repositories/branding.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "components/layout/Navbar",
+      "to": "repositories/navigation.repository",
       "kind": "imports"
     },
     {
@@ -1552,11 +1727,6 @@
       "kind": "imports"
     },
     {
-      "from": "contexts/SiteDataContext",
-      "to": "data/siteData",
-      "kind": "imports"
-    },
-    {
       "from": "hooks/use-toast",
       "to": "components/ui/toast",
       "kind": "imports"
@@ -1588,7 +1758,22 @@
     },
     {
       "from": "lib/admin-store",
+      "to": "content/catalog.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
       "to": "content/contact.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/contactContent.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/financiamiento.json",
       "kind": "imports"
     },
     {
@@ -1598,7 +1783,7 @@
     },
     {
       "from": "lib/admin-store",
-      "to": "content/inventory.json",
+      "to": "content/lots.json",
       "kind": "imports"
     },
     {
@@ -1609,6 +1794,16 @@
     {
       "from": "lib/admin-store",
       "to": "content/navigation.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/notFound.json",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "content/providers.json",
       "kind": "imports"
     },
     {
@@ -1629,6 +1824,11 @@
     {
       "from": "lib/admin-store",
       "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/admin-store",
+      "to": "repositories/inventory.repository",
       "kind": "imports"
     },
     {
@@ -1677,6 +1877,21 @@
       "kind": "imports"
     },
     {
+      "from": "lib/seo",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/seo",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "lib/seo",
+      "to": "repositories/seo.repository",
+      "kind": "imports"
+    },
+    {
       "from": "main",
       "to": "App",
       "kind": "imports"
@@ -1703,7 +1918,22 @@
     },
     {
       "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/CatalogPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/ContactContentPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
       "to": "pages/admin/ContactInfoPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/ContentExplorerPage",
       "kind": "imports"
     },
     {
@@ -1718,7 +1948,27 @@
     },
     {
       "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/DiagnosticsPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/FinanciamientoPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
       "to": "pages/admin/HomePage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/InventoryPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/LotsPage",
       "kind": "imports"
     },
     {
@@ -1728,7 +1978,22 @@
     },
     {
       "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/MessagesPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
       "to": "pages/admin/NavigationPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/NotFoundPage",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/AdminRouter",
+      "to": "pages/admin/ProvidersPage",
       "kind": "imports"
     },
     {
@@ -1738,7 +2003,7 @@
     },
     {
       "from": "pages/admin/AdminRouter",
-      "to": "pages/admin/StubPage",
+      "to": "pages/admin/TranslationsPage",
       "kind": "imports"
     },
     {
@@ -1772,6 +2037,61 @@
       "kind": "imports"
     },
     {
+      "from": "pages/admin/CatalogPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "components/admin/MediaPicker",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "repositories/catalog.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/CatalogPage",
+      "to": "services/catalog.service",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactContentPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactContentPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactContentPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContactContentPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
       "from": "pages/admin/ContactInfoPage",
       "to": "components/admin/AdminUI",
       "kind": "imports"
@@ -1789,6 +2109,36 @@
     {
       "from": "pages/admin/ContactInfoPage",
       "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "lib/admin-manifest",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentExplorerPage",
+      "to": "repositories/inventory.repository",
       "kind": "imports"
     },
     {
@@ -1812,6 +2162,16 @@
       "kind": "imports"
     },
     {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "translations/en.json",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ContentVersionsPage",
+      "to": "translations/es.json",
+      "kind": "imports"
+    },
+    {
       "from": "pages/admin/DashboardPage",
       "to": "components/admin/PageHeader",
       "kind": "imports"
@@ -1829,6 +2189,66 @@
     {
       "from": "pages/admin/DashboardPage",
       "to": "lib/admin-ui",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "contexts/ThemeContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/DiagnosticsPage",
+      "to": "lib/local-cms",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/FinanciamientoPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/FinanciamientoPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/FinanciamientoPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/FinanciamientoPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/FinanciamientoPage",
+      "to": "lib/icons",
       "kind": "imports"
     },
     {
@@ -1854,6 +2274,51 @@
     {
       "from": "pages/admin/HomePage",
       "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/InventoryPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/InventoryPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/InventoryPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/InventoryPage",
+      "to": "repositories/inventory.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/LotsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/LotsPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/LotsPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/LotsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/LotsPage",
+      "to": "repositories/lots.repository",
       "kind": "imports"
     },
     {
@@ -1887,6 +2352,26 @@
       "kind": "imports"
     },
     {
+      "from": "pages/admin/MessagesPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MessagesPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MessagesPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/MessagesPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
       "from": "pages/admin/NavigationPage",
       "to": "components/admin/AdminUI",
       "kind": "imports"
@@ -1904,6 +2389,56 @@
     {
       "from": "pages/admin/NavigationPage",
       "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NotFoundPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NotFoundPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NotFoundPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NotFoundPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/NotFoundPage",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ProvidersPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ProvidersPage",
+      "to": "components/admin/PageHeader",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ProvidersPage",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ProvidersPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/ProvidersPage",
+      "to": "repositories/providers.repository",
       "kind": "imports"
     },
     {
@@ -1932,13 +2467,33 @@
       "kind": "imports"
     },
     {
-      "from": "pages/admin/StubPage",
+      "from": "pages/admin/TranslationsPage",
+      "to": "components/admin/AdminUI",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/TranslationsPage",
       "to": "components/admin/PageHeader",
       "kind": "imports"
     },
     {
-      "from": "pages/admin/StubPage",
+      "from": "pages/admin/TranslationsPage",
       "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/TranslationsPage",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/TranslationsPage",
+      "to": "translations/en.json",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/admin/TranslationsPage",
+      "to": "translations/es.json",
       "kind": "imports"
     },
     {
@@ -1953,12 +2508,17 @@
     },
     {
       "from": "pages/Catalog",
-      "to": "contexts/SiteDataContext",
+      "to": "lib/admin-i18n",
       "kind": "imports"
     },
     {
       "from": "pages/Catalog",
-      "to": "data/siteData",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Catalog",
+      "to": "services/catalog.service",
       "kind": "imports"
     },
     {
@@ -1988,7 +2548,7 @@
     },
     {
       "from": "pages/Contact",
-      "to": "contexts/SiteDataContext",
+      "to": "contexts/LanguageContext",
       "kind": "imports"
     },
     {
@@ -1997,18 +2557,93 @@
       "kind": "imports"
     },
     {
+      "from": "pages/Contact",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "lib/admin-store",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Contact",
+      "to": "services/contact.service",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Financiamiento",
       "to": "contexts/LanguageContext",
       "kind": "imports"
     },
     {
+      "from": "pages/Financiamiento",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "lib/motion",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "repositories/company.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Financiamiento",
+      "to": "repositories/financiamiento.repository",
+      "kind": "imports"
+    },
+    {
       "from": "pages/Home",
       "to": "contexts/LanguageContext",
       "kind": "imports"
     },
     {
       "from": "pages/Home",
-      "to": "contexts/SiteDataContext",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "lib/motion",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "repositories/branding.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Home",
+      "to": "services/home.service",
       "kind": "imports"
     },
     {
@@ -2023,17 +2658,72 @@
     },
     {
       "from": "pages/Lots",
-      "to": "contexts/SiteDataContext",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Lots",
+      "to": "services/lots.service",
       "kind": "imports"
     },
     {
       "from": "pages/not-found",
-      "to": "components/ui/card",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/not-found",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/not-found",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/not-found",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/not-found",
+      "to": "repositories/notfound.repository",
       "kind": "imports"
     },
     {
       "from": "pages/Providers",
-      "to": "contexts/SiteDataContext",
+      "to": "contexts/LanguageContext",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Providers",
+      "to": "lib/admin-i18n",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Providers",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Providers",
+      "to": "lib/seo",
+      "kind": "imports"
+    },
+    {
+      "from": "pages/Providers",
+      "to": "repositories/providers.repository",
       "kind": "imports"
     },
     {
@@ -2042,8 +2732,23 @@
       "kind": "imports"
     },
     {
+      "from": "repositories/catalog.repository",
+      "to": "content/catalog.json",
+      "kind": "imports"
+    },
+    {
       "from": "repositories/company.repository",
       "to": "content/contact.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/contact-content.repository",
+      "to": "content/contactContent.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/financiamiento.repository",
+      "to": "content/financiamiento.json",
       "kind": "imports"
     },
     {
@@ -2054,6 +2759,11 @@
     {
       "from": "repositories/inventory.repository",
       "to": "content/inventory.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/lots.repository",
+      "to": "content/lots.json",
       "kind": "imports"
     },
     {
@@ -2072,6 +2782,16 @@
       "kind": "imports"
     },
     {
+      "from": "repositories/notfound.repository",
+      "to": "content/notFound.json",
+      "kind": "imports"
+    },
+    {
+      "from": "repositories/providers.repository",
+      "to": "content/providers.json",
+      "kind": "imports"
+    },
+    {
       "from": "repositories/seo.repository",
       "to": "content/seo.json",
       "kind": "imports"
@@ -2079,6 +2799,91 @@
     {
       "from": "repositories/themes.repository",
       "to": "content/themes.json",
+      "kind": "imports"
+    },
+    {
+      "from": "services/catalog.service",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "services/catalog.service",
+      "to": "lib/media",
+      "kind": "imports"
+    },
+    {
+      "from": "services/catalog.service",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "services/catalog.service",
+      "to": "repositories/catalog.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/contact.service",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "services/contact.service",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "services/contact.service",
+      "to": "repositories/catalog.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/contact.service",
+      "to": "repositories/contact-content.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/contact.service",
+      "to": "repositories/lots.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/home.service",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "services/home.service",
+      "to": "lib/icons",
+      "kind": "imports"
+    },
+    {
+      "from": "services/home.service",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "services/home.service",
+      "to": "repositories/company.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/home.service",
+      "to": "repositories/home.repository",
+      "kind": "imports"
+    },
+    {
+      "from": "services/lots.service",
+      "to": "i18n/translations",
+      "kind": "imports"
+    },
+    {
+      "from": "services/lots.service",
+      "to": "lib/resolveLocalized",
+      "kind": "imports"
+    },
+    {
+      "from": "services/lots.service",
+      "to": "repositories/lots.repository",
       "kind": "imports"
     }
   ]

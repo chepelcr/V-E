@@ -1,26 +1,41 @@
-import React, { useState, useMemo } from 'react';
-import { useSiteData } from '@/contexts/SiteDataContext';
+import { useState, useMemo } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { HouseModel, GalleryImage } from '@/data/siteData';
+import { useT } from '@/lib/admin-i18n';
+import {
+  getCatalogView,
+  filterGallery,
+  availableRooms,
+  type CatalogModelView,
+  type SpaceFilter,
+  type RoomType,
+} from '@/services/catalog.service';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useHeadTags } from '@/lib/seo';
 
-type SpaceFilter = 'all' | 'interior' | 'exterior';
-type RoomType = GalleryImage['room'];
-
-const ROOM_ORDER: RoomType[] = ['facade', 'gate', 'garden', 'patio', 'living_room', 'kitchen', 'bedroom', 'bathroom'];
-
+/**
+ * Public Catalog page. All copy comes from `catalog.json` (resolved through
+ * `catalog.service.ts` → repository + tolerant `resolveLocalized` + the media
+ * resolver); fixed UI chrome (filter chips, room/space labels, beds/baths) comes
+ * from `t("chrome.*")`; the measurement unit comes from `branding`. The gallery
+ * filter/sort logic lives in the service. No bilingual ternaries, no reads from
+ * `siteData`. Visual structure, classes and animations are unchanged.
+ */
 export default function Catalog() {
-  const { siteData } = useSiteData();
-  const { t } = useLanguage();
-  const [selectedModel, setSelectedModel] = useState<HouseModel | null>(null);
+  const { language } = useLanguage();
+  const { t } = useT();
+  useHeadTags('/catalog', language);
+  const catalog = getCatalogView(language);
+  const measurementUnit = t('chrome.fields.measurementUnit');
+
+  const [selectedModel, setSelectedModel] = useState<CatalogModelView | null>(null);
   const [spaceFilter, setSpaceFilter] = useState<SpaceFilter>('all');
   const [roomFilter, setRoomFilter] = useState<RoomType | 'all'>('all');
 
   const formatPrice = (price: number, currency: string) =>
     new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 0 }).format(price);
 
-  const handleModelOpen = (model: HouseModel) => {
+  const handleModelOpen = (model: CatalogModelView) => {
     setSelectedModel(model);
     setSpaceFilter('all');
     setRoomFilter('all');
@@ -31,27 +46,20 @@ export default function Catalog() {
     setRoomFilter('all');
   };
 
-  const filteredGallery = useMemo(() => {
-    if (!selectedModel) return [];
-    let imgs = selectedModel.gallery;
-    if (spaceFilter !== 'all') imgs = imgs.filter(img => img.category === spaceFilter);
-    if (roomFilter !== 'all') imgs = imgs.filter(img => img.room === roomFilter);
-    return imgs;
-  }, [selectedModel, spaceFilter, roomFilter]);
+  const filteredGallery = useMemo(
+    () => (selectedModel ? filterGallery(selectedModel.gallery, spaceFilter, roomFilter) : []),
+    [selectedModel, spaceFilter, roomFilter],
+  );
 
-  const availableRooms = useMemo((): RoomType[] => {
-    if (!selectedModel) return [];
-    const subset = spaceFilter === 'all'
-      ? selectedModel.gallery
-      : selectedModel.gallery.filter(img => img.category === spaceFilter);
-    const roomSet = new Set(subset.map(img => img.room));
-    return ROOM_ORDER.filter(r => roomSet.has(r));
-  }, [selectedModel, spaceFilter]);
+  const rooms = useMemo(
+    () => (selectedModel ? availableRooms(selectedModel.gallery, spaceFilter) : []),
+    [selectedModel, spaceFilter],
+  );
 
   const spaceButtons: { value: SpaceFilter; label: string }[] = [
-    { value: 'all', label: t.catalog.all },
-    { value: 'interior', label: t.catalog.interior },
-    { value: 'exterior', label: t.catalog.exterior },
+    { value: 'all', label: t('chrome.gallery.all') },
+    { value: 'interior', label: t('chrome.gallery.interior') },
+    { value: 'exterior', label: t('chrome.gallery.exterior') },
   ];
 
   return (
@@ -61,13 +69,13 @@ export default function Catalog() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="font-serif text-4xl md:text-5xl text-primary mb-4">{t.catalog.title}</h1>
+        <h1 className="font-serif text-4xl md:text-5xl text-primary mb-4">{catalog.title}</h1>
         <p className="text-muted-foreground font-light mb-12 max-w-2xl">
-          {t.catalog.subtitle}
+          {catalog.subtitle}
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {siteData.houseModels.map((model, index) => (
+          {catalog.models.map((model, index) => (
             <motion.div
               key={model.id}
               initial={{ opacity: 0, y: 20 }}
@@ -93,9 +101,9 @@ export default function Catalog() {
                 <span className="text-primary font-light">{formatPrice(model.price, model.currency)}</span>
               </div>
               <div className="flex gap-4 text-xs text-muted-foreground font-light uppercase tracking-wider mb-3">
-                <span>{model.area} {siteData.config.measurementUnit}</span>
-                <span>{model.bedrooms} {t.catalog.beds}</span>
-                <span>{model.bathrooms} {t.catalog.baths}</span>
+                <span>{model.area} {measurementUnit}</span>
+                <span>{model.bedrooms} {t('chrome.fields.beds')}</span>
+                <span>{model.bathrooms} {t('chrome.fields.baths')}</span>
               </div>
               <p className="text-sm text-muted-foreground/80 line-clamp-2">{model.description}</p>
             </motion.div>
@@ -114,9 +122,9 @@ export default function Catalog() {
                     <div>
                       <DialogTitle className="font-serif text-3xl text-primary">{selectedModel.name}</DialogTitle>
                       <div className="flex gap-4 text-xs text-muted-foreground font-light uppercase tracking-wider mt-2">
-                        <span>{selectedModel.area} {siteData.config.measurementUnit}</span>
-                        <span>{selectedModel.bedrooms} {t.catalog.beds}</span>
-                        <span>{selectedModel.bathrooms} {t.catalog.baths}</span>
+                        <span>{selectedModel.area} {measurementUnit}</span>
+                        <span>{selectedModel.bedrooms} {t('chrome.fields.beds')}</span>
+                        <span>{selectedModel.bathrooms} {t('chrome.fields.baths')}</span>
                       </div>
                     </div>
                     <div className="text-right">
@@ -150,7 +158,7 @@ export default function Catalog() {
 
                   {/* Level 2 — Room type filter (shown when rooms exist) */}
                   <AnimatePresence>
-                    {availableRooms.length > 1 && (
+                    {rooms.length > 1 && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
@@ -167,9 +175,9 @@ export default function Catalog() {
                               : 'border-border/30 text-muted-foreground/70 hover:border-primary/40 hover:text-primary/80'
                           }`}
                         >
-                          {t.catalog.all}
+                          {t('chrome.gallery.all')}
                         </button>
-                        {availableRooms.map(room => (
+                        {rooms.map(room => (
                           <button
                             key={room}
                             onClick={() => setRoomFilter(room)}
@@ -180,7 +188,7 @@ export default function Catalog() {
                                 : 'border-border/30 text-muted-foreground/70 hover:border-primary/40 hover:text-primary/80'
                             }`}
                           >
-                            {t.catalog.rooms[room]}
+                            {t(`chrome.rooms.${room}`)}
                           </button>
                         ))}
                       </motion.div>
@@ -192,7 +200,7 @@ export default function Catalog() {
                 <div className="px-6 pb-6">
                   {filteredGallery.length === 0 ? (
                     <div className="flex items-center justify-center h-40 text-muted-foreground font-light text-sm tracking-wider">
-                      {t.catalog.noImages}
+                      {t('chrome.gallery.noImages')}
                     </div>
                   ) : (
                     <motion.div
@@ -212,7 +220,7 @@ export default function Catalog() {
                           {/* Room label badge */}
                           <div className="absolute top-2 left-2">
                             <span className="text-[10px] tracking-widest uppercase bg-black/70 text-white/80 px-2 py-0.5 font-light">
-                              {t.catalog.rooms[img.room]}
+                              {t(`chrome.rooms.${img.room}`)}
                             </span>
                           </div>
                           {/* Space badge */}
@@ -222,13 +230,13 @@ export default function Catalog() {
                                 ? 'bg-amber-900/70 text-amber-200'
                                 : 'bg-emerald-900/70 text-emerald-200'
                             }`}>
-                              {img.category === 'interior' ? t.catalog.interior : t.catalog.exterior}
+                              {img.category === 'interior' ? t('chrome.gallery.interior') : t('chrome.gallery.exterior')}
                             </span>
                           </div>
                           {/* Caption overlay */}
                           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
                             <span className="font-serif text-sm text-white/90">
-                              {img.caption || t.catalog.rooms[img.room]}
+                              {img.caption || t(`chrome.rooms.${img.room}`)}
                             </span>
                           </div>
                         </div>

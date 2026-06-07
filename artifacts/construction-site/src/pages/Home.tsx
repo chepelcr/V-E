@@ -4,6 +4,7 @@ import { Phone, Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useT } from '@/lib/admin-i18n';
 import { fadeUp } from '@/lib/motion';
+import { useHeadTags } from '@/lib/seo';
 import { getBranding } from '@/repositories/branding.repository';
 import { getHomeView } from '@/services/home.service';
 
@@ -18,6 +19,7 @@ import { getHomeView } from '@/services/home.service';
 export default function Home() {
   const { language } = useLanguage();
   const { t } = useT();
+  useHeadTags('/', language);
   const home = getHomeView(language);
   const branding = getBranding();
 

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'wouter';
-import { useSiteData } from '@/contexts/SiteDataContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getBranding } from '@/repositories/branding.repository';
+import { getNavItems } from '@/repositories/navigation.repository';
+import { resolveAssetUrl } from '@/lib/media';
 
 type NavLink = { path: string; label: string };
 
@@ -85,11 +87,16 @@ const FlagUS = () => (
 );
 
 export const Navbar = () => {
-  const { siteData } = useSiteData();
+  const branding = getBranding();
+  const navItems = getNavItems();
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+
+  const logoSrc = resolveAssetUrl(
+    theme === 'dark' ? branding.logoUrlDark : branding.logoUrl,
+  );
 
   const navLabels: Record<string, string> = {
     '/': t.nav.home,
@@ -105,8 +112,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center" data-testid="link-home-logo">
           <img
-            src={`${import.meta.env.BASE_URL}${theme === 'dark' ? 'nav-dark.png' : 'nav-light.png'}`}
-            alt={siteData.config.companyName}
+            src={logoSrc}
+            alt={branding.companyName}
             className="h-11 sm:h-14 w-auto object-contain"
             data-testid="img-logo"
           />
@@ -114,7 +121,7 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {siteData.navigation.map((item) => {
+          {navItems.map((item) => {
             // Lotes is grouped inside the Catálogo dropdown.
             if (item.path === '/lots') return null;
             if (item.path === '/catalog') {
@@ -136,9 +143,9 @@ export const Navbar = () => {
                 key={item.path}
                 href={item.path}
                 className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
-                data-testid={`link-nav-${item.label.toLowerCase()}`}
+                data-testid={`link-nav-${item.path === '/' ? 'home' : item.path.slice(1)}`}
               >
-                {navLabels[item.path] ?? item.label}
+                {navLabels[item.path] ?? item.path}
               </Link>
             );
           })}
@@ -189,7 +196,7 @@ export const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden absolute top-20 left-0 right-0 bg-background border-b border-border/40 py-4 flex flex-col px-6 gap-4"
           >
-            {siteData.navigation.map((item) => {
+            {navItems.map((item) => {
               if (item.path === '/lots') return null;
               if (item.path === '/catalog') {
                 return (
@@ -220,7 +227,7 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`text-sm tracking-widest uppercase transition-colors hover:text-primary ${location === item.path ? 'text-primary' : 'text-muted-foreground'}`}
                 >
-                  {navLabels[item.path] ?? item.label}
+                  {navLabels[item.path] ?? item.path}
                 </Link>
               );
             })}

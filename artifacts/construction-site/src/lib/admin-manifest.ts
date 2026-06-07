@@ -99,7 +99,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "catalog.json",
     versions: { es: "Modelos de casas", en: "House models" },
     pattern: 2,
-    available: false,
+    available: true,
   },
   {
     key: "lots",
@@ -110,7 +110,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "lots.json",
     versions: { es: "Inventario de lotes", en: "Lot inventory" },
     pattern: 2,
-    available: false,
+    available: true,
   },
   {
     key: "providers",
@@ -121,7 +121,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "providers.json",
     versions: { es: "Directorio de proveedores", en: "Providers directory" },
     pattern: 2,
-    available: false,
+    available: true,
   },
   {
     key: "financiamiento",
@@ -132,7 +132,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "financiamiento.json",
     versions: { es: "Página de financiamiento", en: "Financing page" },
     pattern: 1,
-    available: false,
+    available: true,
   },
   {
     key: "contact-content",
@@ -143,7 +143,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "contactContent.json",
     versions: { es: "Intro de la página de contacto", en: "Contact page intro" },
     pattern: 1,
-    available: false,
+    available: true,
   },
   {
     key: "not-found",
@@ -154,7 +154,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "notFound.json",
     versions: { es: "Página 404", en: "404 page" },
     pattern: 1,
-    available: false,
+    available: true,
   },
   {
     key: "messages",
@@ -163,7 +163,7 @@ export const MANIFEST: AdminEntry[] = [
     icon: Inbox,
     group: "content",
     pattern: 6,
-    available: false,
+    available: true,
   },
 
   // ── CMS (shared entities) ────────────────────────────────────────────────
@@ -230,7 +230,7 @@ export const MANIFEST: AdminEntry[] = [
     icon: Languages,
     group: "cms",
     pattern: 5,
-    available: false,
+    available: true,
   },
   {
     key: "content-versions",
@@ -250,7 +250,7 @@ export const MANIFEST: AdminEntry[] = [
     icon: FileSearch,
     group: "platform",
     pattern: 7,
-    available: false,
+    available: true,
   },
   {
     key: "inventory",
@@ -261,7 +261,7 @@ export const MANIFEST: AdminEntry[] = [
     file: "inventory.json",
     versions: { es: "Mapa de módulos", en: "Module map" },
     pattern: 7,
-    available: false,
+    available: true,
   },
   {
     key: "diagnostics",
@@ -270,7 +270,7 @@ export const MANIFEST: AdminEntry[] = [
     icon: Activity,
     group: "platform",
     pattern: 7,
-    available: false,
+    available: true,
   },
 ];
 

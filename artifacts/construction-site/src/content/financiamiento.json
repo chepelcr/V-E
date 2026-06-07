@@ -1,0 +1,100 @@
+{
+  "title": {
+    "es": "Formas de Financiamiento",
+    "en": "Financing Options"
+  },
+  "subtitle": {
+    "es": "¿Tenés un proyecto en mente pero no sabés cómo financiarlo? En V&E Asesores en Construcción te abrimos las puertas sin importar tu situación financiera.",
+    "en": "Have a project in mind but unsure how to finance it? At V&E Asesores en Construcción, we open doors for you regardless of your financial situation."
+  },
+  "optionsHeading": {
+    "es": "Trabajamos con 5 formas de financiamiento",
+    "en": "We work with 5 financing methods"
+  },
+  "options": [
+    {
+      "iconName": "credit-card",
+      "title": { "es": "Crédito", "en": "Credit" },
+      "description": {
+        "es": "Te asesoramos para que encuentres el crédito que mejor se adapte a tus posibilidades, ya sea personal o hipotecario.",
+        "en": "We advise you to find the credit that best fits your situation, whether personal or mortgage."
+      }
+    },
+    {
+      "iconName": "home",
+      "title": { "es": "Recursos Propios", "en": "Own Resources" },
+      "description": {
+        "es": "Si ya contás con el capital, nosotros lo hacemos rendir al máximo con planificación eficiente y materiales de calidad.",
+        "en": "If you already have the capital, we make it go further with efficient planning and quality materials."
+      }
+    },
+    {
+      "iconName": "gift",
+      "title": { "es": "Bono Ordinario", "en": "Housing Bond" },
+      "description": {
+        "es": "¿Sos beneficiario del bono de vivienda? Te acompañamos en todo el proceso de tramitación para que puedas construir tu hogar propio.",
+        "en": "Are you eligible for a housing bond? We guide you through the entire application process so you can build your own home."
+      }
+    },
+    {
+      "iconName": "wrench",
+      "title": { "es": "Bono de Remodelación", "en": "Renovation Bond" },
+      "description": {
+        "es": "¿Tu casa necesita mejoras? Existen bonos específicos para remodelaciones y nosotros te ayudamos a gestionarlos.",
+        "en": "Does your home need improvements? There are specific bonds for renovations and we help you manage them."
+      }
+    },
+    {
+      "iconName": "layers",
+      "title": { "es": "Credi Bono", "en": "Credi Bond" },
+      "description": {
+        "es": "Una opción que combina crédito y bono para que puedas acceder a un monto mayor y hacer realidad el proyecto que siempre soñaste.",
+        "en": "A hybrid option combining credit and bond so you can access a higher amount and bring your dream project to life."
+      }
+    }
+  ],
+  "projectsDivider": {
+    "es": "Construimos todo tipo de proyectos",
+    "en": "We build all types of projects"
+  },
+  "projectTypes": [
+    { "iconName": "home", "label": { "es": "Viviendas Personalizadas", "en": "Custom Homes" } },
+    { "iconName": "store", "label": { "es": "Locales Comerciales", "en": "Commercial Spaces" } },
+    { "iconName": "briefcase", "label": { "es": "Oficinas", "en": "Offices" } },
+    { "iconName": "building", "label": { "es": "Apartamentos", "en": "Apartments" } },
+    { "iconName": "trees", "label": { "es": "Áreas Abiertas", "en": "Open Areas" } },
+    { "iconName": "dock", "label": { "es": "Decks", "en": "Decks" } },
+    { "iconName": "layout-grid", "label": { "es": "Verjas", "en": "Iron Gates" } },
+    { "iconName": "shield", "label": { "es": "Trabajos en Policarbonato", "en": "Polycarbonate Works" } }
+  ],
+  "turnkey": {
+    "heading": { "es": "Servicio Llave en Mano", "en": "Turnkey Service" },
+    "body": {
+      "es": "Desde el diseño, los planos y la tramitología, hasta la entrega final. Contamos con el equipo completo para que tu proyecto esté en las mejores manos.",
+      "en": "From design, blueprints and permits to final handover. We have the full team so your project is in the best hands."
+    },
+    "bulletIconName": "check-circle",
+    "items": [
+      { "es": "Diseño, planos y tramitología", "en": "Design, blueprints and permits" },
+      { "es": "Entrega Llave en Mano 100% personalizado", "en": "100% personalised Turnkey delivery" },
+      { "es": "Ingeniero Civil certificado", "en": "Certified Civil Engineer" },
+      { "es": "Electricista Certificada", "en": "Certified Electrician" },
+      { "es": "Asesoría Legal y Contable", "en": "Legal and Accounting Advisory" },
+      { "es": "Asesoría gratuita sin compromiso", "en": "Free no-obligation consultation" }
+    ]
+  },
+  "cta": {
+    "heading": {
+      "es": "Hacemos posible tu sueño de tener casa propia",
+      "en": "We make your dream of home ownership possible"
+    },
+    "body": {
+      "es": "Permítenos acompañarte en el camino hacia tu nuevo hogar. Contactanos hoy mismo y recibí asesoría gratuita sin compromiso.",
+      "en": "Let us accompany you on the path to your new home. Contact us today and receive a free, no-obligation consultation."
+    }
+  },
+  "tagline": {
+    "es": "Tu aliado estratégico en cada etapa del proceso para obtener tu casa de bono.",
+    "en": "Your strategic partner at every step of the process to get your housing bond home."
+  }
+}

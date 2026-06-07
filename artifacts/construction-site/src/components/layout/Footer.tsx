@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { useSiteData } from '@/contexts/SiteDataContext';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Phone, Mail } from 'lucide-react';
 import { ADMIN_ENABLED } from '@/lib/admin-enabled';
+import { getCompany } from '@/repositories/company.repository';
 
 const FacebookIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook">
@@ -26,7 +26,7 @@ const WhatsAppIcon = () => (
 );
 
 export const Footer = () => {
-  const { siteData } = useSiteData();
+  const company = getCompany();
   const { language } = useLanguage();
   const es = language === 'es';
 
@@ -60,10 +60,10 @@ export const Footer = () => {
             {es ? 'Contacto' : 'Contact'}
           </p>
           <div className="space-y-4">
-            {siteData.contact.phones.map((phone, i) => (
+            {company.phones.map((phone, i) => (
               <a
                 key={i}
-                href={`https://wa.me/506${phone.replace(/-/g, '')}`}
+                href={`https://wa.me/${company.countryCode}${phone.replace(/-/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light text-sm"
@@ -74,12 +74,12 @@ export const Footer = () => {
               </a>
             ))}
             <a
-              href={`mailto:${siteData.contact.email}`}
+              href={`mailto:${company.email}`}
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light text-sm"
               data-testid="link-footer-email"
             >
               <Mail size={15} />
-              <span>{siteData.contact.email}</span>
+              <span>{company.email}</span>
             </a>
           </div>
         </div>
@@ -91,24 +91,24 @@ export const Footer = () => {
           </p>
           <div className="space-y-3 mb-8">
             <a
-              href={`https://facebook.com/${encodeURIComponent(siteData.contact.social.facebook)}`}
+              href={`https://facebook.com/${encodeURIComponent(company.social.facebook)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light text-sm"
               data-testid="link-footer-facebook"
             >
               <FacebookIcon />
-              <span>{siteData.contact.social.facebook}</span>
+              <span>{company.social.facebook}</span>
             </a>
             <a
-              href={`https://instagram.com/${encodeURIComponent(siteData.contact.social.instagram)}`}
+              href={`https://instagram.com/${encodeURIComponent(company.social.instagram)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors font-light text-sm"
               data-testid="link-footer-instagram"
             >
               <InstagramIcon />
-              <span>{siteData.contact.social.instagram}</span>
+              <span>{company.social.instagram}</span>
             </a>
           </div>
           {ADMIN_ENABLED && (

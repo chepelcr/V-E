@@ -1,3 +1,169 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "media-logo-nav-light",
+      "kind": "image",
+      "source": "local",
+      "path": "/nav-light.png",
+      "filename": "nav-light.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": { "es": "Logo V&E (fondo claro)", "en": "V&E logo (light background)" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-logo-nav-dark",
+      "kind": "image",
+      "source": "local",
+      "path": "/nav-dark.png",
+      "filename": "nav-dark.png",
+      "mime": "image/png",
+      "size": 0,
+      "alt": { "es": "Logo V&E (fondo oscuro)", "en": "V&E logo (dark background)" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-logo-mark",
+      "kind": "image",
+      "source": "local",
+      "path": "/logo.jpg",
+      "filename": "logo.jpg",
+      "mime": "image/jpeg",
+      "size": 0,
+      "alt": { "es": "Marca V&E", "en": "V&E mark" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-favicon",
+      "kind": "image",
+      "source": "local",
+      "path": "/favicon.svg",
+      "filename": "favicon.svg",
+      "mime": "image/svg+xml",
+      "size": 0,
+      "alt": { "es": "Favicon", "en": "Favicon" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-opengraph",
+      "kind": "image",
+      "source": "local",
+      "path": "/opengraph.jpg",
+      "filename": "opengraph.jpg",
+      "mime": "image/jpeg",
+      "size": 0,
+      "alt": { "es": "Imagen para compartir (Open Graph)", "en": "Open Graph share image" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-1",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=1",
+      "filename": "gallery-random-1.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-2",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=2",
+      "filename": "gallery-random-2.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-3",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=3",
+      "filename": "gallery-random-3.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-4",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=4",
+      "filename": "gallery-random-4.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-5",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=5",
+      "filename": "gallery-random-5.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-6",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=6",
+      "filename": "gallery-random-6.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-7",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=7",
+      "filename": "gallery-random-7.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-8",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=8",
+      "filename": "gallery-random-8.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-9",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=9",
+      "filename": "gallery-random-9.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    },
+    {
+      "id": "media-gallery-10",
+      "kind": "image",
+      "source": "external",
+      "url": "https://picsum.photos/800/600?random=10",
+      "filename": "gallery-random-10.jpg",
+      "mime": "",
+      "size": 0,
+      "alt": { "es": "", "en": "" },
+      "createdAt": "2026-06-07T00:00:00.000Z"
+    }
+  ]
 }

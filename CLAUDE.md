@@ -3,7 +3,17 @@
 Guidance for working in the **V-E** repository.
 
 ## Project overview
-V-E is a construction & real estate web platform: a public marketing/sales SPA backed by a small REST API, with a component-preview sandbox for design work. It's a **pnpm monorepo**.
+V-E is a construction & real estate web platform. The deployed product is a
+public marketing/sales SPA built as a **landing DXP**: every user-visible
+string/asset is editable via a **dev-only, tree-shaken admin CMS** backed by
+bundled per-page JSON, and it deploys **100% static** (no runtime backend) to
+GitHub Pages. There is also a small REST API and a component-preview sandbox for
+design work. It's a **pnpm monorepo**.
+
+> **The construction-site is a DXP.** See
+> `artifacts/construction-site/CLAUDE.md` for the content layout, the
+> four-pieces completeness rule, the no-hardcoded-text rule, bilingual admin,
+> save/publish, the tree-shake gate, SEO, and how-to-add-an-entity.
 
 ## Monorepo layout
 ```
@@ -58,12 +68,32 @@ pnpm --filter @workspace/db push
 - `BASE_PATH` — **required** by the Vite apps; the site's base path. `/` for the custom-domain deploy.
 - `DATABASE_URL` — PostgreSQL connection string for `api-server`.
 
-## Frontend conventions (construction-site)
-- **Routing:** wouter (client-side). Pages live in `src/pages/` (Home, Catalog, Lots, Providers, Contact, Admin, Financiamiento).
-- **i18n:** `src/i18n/` with a `LanguageContext` (Spanish/English).
-- **Theme:** `ThemeContext` + next-themes; dark/light toggle is built in.
-- **Content data:** `src/data/` holds JSON-driven site content (landing-DXP pattern) — prefer editing content here over hardcoding copy in components.
-- **UI primitives:** `src/components/ui/` (shadcn/ui style). The `hover-elevate` / `active-elevate-2` utility classes are custom design tokens used by Button/Badge.
+## Frontend conventions (construction-site) — landing DXP
+Full detail in `artifacts/construction-site/CLAUDE.md`. The essentials:
+- **Routing:** wouter (client-side, FLAT routes — no `/es//en` URL prefix).
+  Public pages in `src/pages/` (Home, Catalog, Lots, Providers, Contact,
+  Financiamiento, not-found); admin pages in `src/pages/admin/`.
+- **Content:** one localized `{es,en}` JSON per entity in `src/content/`
+  (home, catalog, lots, providers, contact, contactContent, financiamiento,
+  notFound, branding, themes, media, seo, navigation, inventory), read through
+  `src/repositories/*` (+ `src/services/*` for filter/sort). Edit content via
+  the admin or the JSON — **never hardcode copy in components**. Read localized
+  fields through `src/lib/resolveLocalized.ts`.
+- **i18n / chrome:** SMALL fixed chrome only in `src/translations/{es,en}.json`
+  (`chrome.*` public, `admin.*` panel), read via `useT()` in
+  `src/lib/admin-i18n.ts`. `LanguageContext` holds the active language.
+- **Admin:** dev-only, gated by `ADMIN_ENABLED` (`src/lib/admin-enabled.ts`),
+  tree-shaken from prod. The four-pieces rule is enforced by
+  `src/lib/admin-manifest.ts`. Save → local-CMS Vite plugin (`apply:"serve"`);
+  Publish → git commit+push. **Do not weaken the gate; keep
+  `VITE_ENABLE_ADMIN` unset in the deploy workflow.**
+- **SEO:** `src/lib/seo.ts` runtime head tags + `scripts/prerender.mjs`
+  (per-lang × route HTML + sitemap + noindex 404) wired into the `build` script.
+- **Theme:** `ThemeContext` + next-themes; dark/light toggle built in.
+- **UI primitives:** `src/components/ui/` (shadcn/ui style). The
+  `hover-elevate` / `active-elevate-2` classes are custom design tokens.
+- **Legacy:** `src/data/siteData.ts` was retired into the content JSON — do not
+  reintroduce reads from it.
 
 ## Deployment
 - The **construction-site** SPA deploys to **GitHub Pages** at **https://v-e.jcampos.dev** via `.github/workflows/deploy-gh-pages.yml` (push to `main`).
