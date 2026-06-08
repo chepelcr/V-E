@@ -1,6 +1,9 @@
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
 import { getCompany } from '@/repositories/company.repository';
+import { getBranding } from '@/repositories/branding.repository';
+import { resolveAssetUrl } from '@/lib/media';
 import { useT } from '@/lib/admin-i18n';
 
 const FacebookIcon = () => (
@@ -25,7 +28,13 @@ const WhatsAppIcon = () => (
 
 export const Footer = () => {
   const company = getCompany();
+  const branding = getBranding();
+  const { theme } = useTheme();
   const { t } = useT();
+
+  const logoSrc = resolveAssetUrl(
+    theme === 'dark' ? branding.logoUrlDark : branding.logoUrl,
+  );
 
   return (
     <footer className="border-t border-border/30 mt-16">
@@ -33,17 +42,12 @@ export const Footer = () => {
 
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <img src="/logo.jpg" alt="V&E Logo" className="h-12 w-12 object-cover" />
-            <div>
-              <p className="font-serif text-lg text-foreground tracking-widest uppercase font-semibold">
-                V<span className="text-primary">&</span>E
-              </p>
-              <p className="text-[10px] tracking-[0.2em] text-primary uppercase font-light">
-                {t('chrome.footer.brandSubtitle')}
-              </p>
-            </div>
-          </div>
+          <img
+            src={logoSrc}
+            alt={branding.companyName}
+            className="h-12 sm:h-14 w-auto object-contain mb-5"
+            data-testid="img-footer-logo"
+          />
           <p className="text-muted-foreground text-sm font-light leading-relaxed max-w-xs">
             {t('chrome.footer.brandDescription')}
           </p>

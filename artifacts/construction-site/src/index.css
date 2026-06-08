@@ -233,6 +233,21 @@
   }
 }
 
+/* Smooth theme crossfade — toggled on <html> for ~0.5s during a theme switch
+   by ThemeContext.toggleTheme, then removed (so it never affects normal interactions). */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    fill 0.45s ease,
+    stroke 0.45s ease,
+    box-shadow 0.45s ease !important;
+}
+
 @layer components {
   /* Consistent translucent surfaces over the marble background. Opacity is
      theme-aware (see --panel-alpha / --section-alpha) so the perceived veil

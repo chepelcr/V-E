@@ -153,27 +153,49 @@ export const Navbar = () => {
 
         {/* Controls */}
         <div className="flex items-center gap-3">
-          {/* Theme Toggle */}
+          {/* Theme Toggle (animated sun/moon swap) */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-none border border-border/40 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+            className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-none border border-border/40 text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
             aria-label="Toggle theme"
             data-testid="button-theme-toggle"
           >
-            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={theme}
+                initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+                className="absolute inline-flex"
+              >
+                {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              </motion.span>
+            </AnimatePresence>
           </button>
 
-          {/* Language Toggle */}
+          {/* Language Toggle (animated flag/label swap) */}
           <button
             onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-            className="p-2 rounded-none border border-border/40 hover:border-primary/50 transition-colors flex items-center gap-1.5"
+            className="relative h-9 rounded-none border border-border/40 px-2.5 hover:border-primary/50 transition-colors overflow-hidden"
             aria-label="Toggle language"
             data-testid="button-lang-toggle"
           >
-            {language === 'es' ? <FlagCR /> : <FlagUS />}
-            <span className="text-xs tracking-widest uppercase text-muted-foreground font-light hidden sm:inline">
-              {language === 'es' ? 'ES' : 'EN'}
-            </span>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={language}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="flex items-center gap-1.5"
+              >
+                {language === 'es' ? <FlagCR /> : <FlagUS />}
+                <span className="text-xs tracking-widest uppercase text-muted-foreground font-light hidden sm:inline">
+                  {language === 'es' ? 'ES' : 'EN'}
+                </span>
+              </motion.span>
+            </AnimatePresence>
           </button>
 
           {/* Mobile Toggle */}
