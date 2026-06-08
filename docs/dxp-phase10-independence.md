@@ -1,4 +1,21 @@
-# Phase 10 — Admin Independence (DEFERRED — run last, after Phases 2–9 are done & verified)
+# Phase 10 — Admin Independence ✅ DONE
+
+**Status (done):** Admin extracted to its own app at `E:/dev/V-E/admin` (port 5174),
+pushed to **private** repo `chepelcr/V-E-admin` (user will flip to public after
+adding auth). `admin/` is git-ignored in this repo. All admin-only code removed
+from the public site (pages/admin, components/admin, admin-ui, admin-manifest,
+vite-plugin-local-cms, admin-enabled, the App route + Footer link + vite plugin).
+Public typecheck + prod build pass with ZERO admin code. The admin app reads this
+site's content via `@site` aliases and writes back via its own local-CMS plugin.
+
+**Known limitation:** the contact "Messages" inbox uses `localStorage`, which is
+origin-bound — the separate-origin admin app (`:5174`) won't see submissions made
+on the public site origin. Real message capture needs a backend (out of scope for
+the static site).
+
+---
+
+## Original plan (kept for reference)
 
 **Goal:** Extract the dev-only admin CMS into its **own standalone app on its own port**, tracked in a **separate private GitHub repo**, so the admin source is **not present in the public site repo** that hosts `v-e.jcampos.dev`.
 

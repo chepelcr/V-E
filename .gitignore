@@ -50,3 +50,8 @@ Thumbs.db
 
 # Local dev server logs
 logs/
+
+# Standalone admin app — lives in its own repo (chepelcr/V-E-admin), kept out
+# of the public site repo. Runs as a sibling and reads/writes this site's
+# content via @site aliases + its own local-CMS plugin.
+/admin/

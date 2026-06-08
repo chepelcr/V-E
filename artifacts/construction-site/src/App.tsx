@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -14,24 +14,11 @@ import Lots from "@/pages/Lots";
 import Providers from "@/pages/Providers";
 import Contact from "@/pages/Contact";
 import Financiamiento from "@/pages/Financiamiento";
-import { ADMIN_ENABLED } from "@/lib/admin-enabled";
 
 const queryClient = new QueryClient();
 
-/**
- * The admin panel is loaded via a DYNAMIC import GATED by the build-time
- * constant. In a production build `ADMIN_ENABLED` folds to the literal `false`,
- * so this ternary collapses to `null` — the `import("…/AdminRouter")` call is
- * removed entirely, the whole admin graph (shell, manifest, content store,
- * admin-ui store, media picker) is never reachable, and Rollup emits NO admin
- * chunk. In dev (`ADMIN_ENABLED === true`) it is a normal lazy-loaded route. */
-const AdminRouter = ADMIN_ENABLED
-  ? lazy(() =>
-      import("@/pages/admin/AdminRouter").then((m) => ({
-        default: m.AdminRouter,
-      })),
-    )
-  : null;
+// NOTE: The admin CMS lives in a SEPARATE app/repo (chepelcr/V-E-admin) and is
+// intentionally NOT part of this public site. This bundle ships zero admin code.
 
 /** Reset scroll to the top whenever the route changes. */
 function ScrollToTop() {
@@ -60,28 +47,6 @@ function PublicRouter() {
   );
 }
 
-function Router() {
-  // Dev-only admin panel — its own full-screen shell, OUTSIDE the public
-  // Layout. Registered only under the build-time gate, so a production build
-  // (gate === false) does not register it and Rollup tree-shakes the whole
-  // panel + AdminRouter import out of the bundle.
-  const admin =
-    ADMIN_ENABLED && AdminRouter ? (
-      <Suspense fallback={null}>
-        <AdminRouter />
-      </Suspense>
-    ) : null;
-  return (
-    <Switch>
-      {/* Match both bare "/admin" and "/admin/<sub>" so AdminRouter can
-          redirect "/admin" → "/admin/dashboard". */}
-      {admin && <Route path="/admin">{admin}</Route>}
-      {admin && <Route path="/admin/:rest*">{admin}</Route>}
-      <Route component={PublicRouter} />
-    </Switch>
-  );
-}
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -89,7 +54,7 @@ function App() {
         <LanguageProvider>
           <TooltipProvider>
             <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-              <Router />
+              <PublicRouter />
             </WouterRouter>
             <Toaster />
           </TooltipProvider>

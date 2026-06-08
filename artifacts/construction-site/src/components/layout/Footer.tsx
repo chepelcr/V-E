@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'wouter';
 import { Phone, Mail } from 'lucide-react';
-import { ADMIN_ENABLED } from '@/lib/admin-enabled';
 import { getCompany } from '@/repositories/company.repository';
 import { useT } from '@/lib/admin-i18n';
 
@@ -108,15 +106,6 @@ export const Footer = () => {
               <span>{company.social.instagram}</span>
             </a>
           </div>
-          {ADMIN_ENABLED && (
-            <Link
-              href="/admin/dashboard"
-              className="text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors tracking-widest uppercase"
-              data-testid="link-admin"
-            >
-              {t('chrome.footer.adminPanel')}
-            </Link>
-          )}
         </div>
       </div>
 

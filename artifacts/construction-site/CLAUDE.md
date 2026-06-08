@@ -1,8 +1,19 @@
 # CLAUDE.md — construction-site (Landing DXP)
 
 Guidance for working in the **construction-site** package: the deployed public
-marketing SPA + a dev-only, tree-shaken admin CMS, driven entirely by bundled
-per-page JSON. **No runtime backend — deploys 100% static to GitHub Pages.**
+marketing SPA, driven entirely by bundled per-page JSON. **No runtime backend —
+deploys 100% static to GitHub Pages.**
+
+> **The admin CMS lives in a SEPARATE repo/app — `chepelcr/V-E-admin`** (runs at
+> `http://localhost:5174`). It is intentionally NOT part of this repo: this
+> public bundle ships **zero** admin code. The admin app reads/writes THIS
+> package's content (`src/content/*.json`, `src/translations/*.json`) as the
+> single source of truth, via `@site` path aliases + its own dev-only local-CMS
+> plugin (which writes back here and runs git `publish` from the repo root). To
+> edit content, clone `V-E-admin` as a sibling of this monorepo and run it. The
+> shared libs it imports from here (`resolveLocalized`, `icons`, `rich-text`,
+> `media`, `brand-theme`, `seo`, `admin-i18n`/`useT`, `admin-store`) stay in this
+> package because the public site uses them too.
 
 React 19 · Vite 7 · TypeScript · Tailwind v4 · wouter · bilingual **es/en**.
 Live at https://v-e.jcampos.dev.
@@ -98,24 +109,23 @@ they can't drift: `src/lib/admin-manifest.ts` (a `ContentPage[]` of
 - The local-CMS plugin uses `apply:"serve"` → it exists ONLY on the dev server,
   never in the prod build.
 
-## Admin gate + tree-shake gate (do NOT weaken)
+## No admin code in this repo (it's a separate app)
 
-`src/lib/admin-enabled.ts`:
-`ADMIN_ENABLED = import.meta.env.DEV || import.meta.env.VITE_ENABLE_ADMIN === "true"`.
-No authentication — the gate is the only protection. `App.tsx` lazy-imports
-`AdminRouter` only under the gate; `AdminRouter` redirects to `/` if disabled;
-Navbar/Footer show the admin entry only under the gate. In a normal prod build
-the constant folds to literal `false`, so Rollup tree-shakes the ENTIRE admin
-graph (shell, manifest, content store, admin-ui store, media picker).
+The admin was extracted into `chepelcr/V-E-admin` (its own Vite app on
+`:5174`). This package contains **no** admin pages/shell/gate/local-CMS plugin.
+The public bundle therefore ships zero admin code by construction (nothing to
+tree-shake). Keep it that way — do not re-add admin routes/pages here.
 
-**Tree-shake verification (must stay clean):** a prod build with
-`VITE_ENABLE_ADMIN` unset must ship ZERO admin code:
+**Verification (must stay clean):** a prod build ships no admin code:
 
 ```bash
 BASE_PATH=/ PORT=5000 NODE_ENV=production pnpm --filter @workspace/construction-site build
-grep -lE 'AdminLayout|AdminRouter|/admin/dashboard|admin-ui|publishChanges' dist/public/assets/*.js
+grep -lE 'AdminLayout|AdminRouter|/admin/dashboard|admin-ui|publishChanges|__local' dist/public/assets/*.js
 # → no matches
 ```
+
+To add/edit admin pages, work in the `V-E-admin` repo (it imports this
+package's content + shared libs via `@site` aliases).
 
 ## SEO (two layers)
 
