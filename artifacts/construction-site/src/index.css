@@ -233,6 +233,17 @@
   }
 }
 
+/* Language switch fade — LanguageContext.handleSetLanguage adds `.lang-switching`
+   to <html>, which fades #page-content OUT; the copy is swapped while invisible,
+   then the class is removed to fade it back IN. The content never unmounts, so
+   there is no scroll jump and the text never visibly snaps. */
+#page-content {
+  transition: opacity 0.22s ease;
+}
+html.lang-switching #page-content {
+  opacity: 0;
+}
+
 /* Smooth theme crossfade — toggled on <html> for ~0.5s during a theme switch
    by ThemeContext.toggleTheme, then removed (so it never affects normal interactions). */
 .theme-transition,

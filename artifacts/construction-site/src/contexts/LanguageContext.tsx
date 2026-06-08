@@ -15,8 +15,34 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   });
 
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang);
+    if (lang === language) return;
     localStorage.setItem('aurea_lang', lang);
+
+    const el =
+      typeof document !== 'undefined'
+        ? document.getElementById('page-content')
+        : null;
+    const reduce =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // On the public site (where #page-content exists) fade the content OUT
+    // first, swap the copy while it's invisible, then fade IN — so the text
+    // never visibly snaps and the page never unmounts (no scroll jump). The
+    // admin (no #page-content) and reduced-motion users switch instantly.
+    if (!el || reduce) {
+      setLanguage(lang);
+      return;
+    }
+
+    const root = document.documentElement;
+    root.classList.add('lang-switching'); // -> opacity 0 (see index.css)
+    window.setTimeout(() => {
+      setLanguage(lang); // swap copy while faded out
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => root.classList.remove('lang-switching')),
+      );
+    }, 220);
   };
 
   return (
