@@ -1,7 +1,7 @@
 {
   "title": { "es": "Lotes Premium", "en": "Prime Lots" },
   "subtitle": {
-    "es": "Descubra ubicaciones exclusivas para su futuro hogar. Filtre por región y tamaño para encontrar el lienzo perfecto.",
+    "es": "Descubra ubicaciones exclusivas para su próximo hogar. Filtre por zona y tamaño para encontrar el terreno ideal.",
     "en": "Discover exclusive locations for your future home. Filter by region and size to find the perfect canvas."
   },
   "items": [
@@ -13,7 +13,7 @@
       "price": 120000,
       "currency": "USD",
       "description": {
-        "es": "Lote premium en esquina con vistas despejadas al valle. Listo para construir.",
+        "es": "Lote esquinero premium con vista despejada al valle. Listo para construir.",
         "en": "Premium corner lot with unobstructed valley views. Ready to build."
       },
       "available": true,
@@ -27,7 +27,7 @@
       "price": 95000,
       "currency": "USD",
       "description": {
-        "es": "Lote tranquilo y arbolado en una comunidad cerrada y segura. Pendiente suave.",
+        "es": "Lote tranquilo y arbolado en condominio cerrado con seguridad. Pendiente suave.",
         "en": "Quiet, forested lot in a secure gated community. Gentle slope."
       },
       "available": true,
@@ -41,7 +41,7 @@
       "price": 65000,
       "currency": "USD",
       "description": {
-        "es": "Lote plano y de fácil acceso cerca de las principales autopistas. Perfecto para una casa moderna compacta.",
+        "es": "Lote plano y de fácil acceso, cerca de las principales rutas. Perfecto para una casa moderna compacta.",
         "en": "Flat, easily accessible lot near main highways. Perfect for a compact modern home."
       },
       "available": true,
@@ -55,7 +55,7 @@
       "price": 250000,
       "currency": "USD",
       "description": {
-        "es": "Amplio lote tipo finca que ofrece máxima privacidad y potencial de lujo.",
+        "es": "Amplio lote tipo finca que brinda máxima privacidad y gran potencial para un proyecto de lujo.",
         "en": "Expansive estate lot offering maximum privacy and luxury potential."
       },
       "available": false,

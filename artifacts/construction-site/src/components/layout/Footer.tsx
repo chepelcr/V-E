@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { Phone, Mail } from 'lucide-react';
 import { ADMIN_ENABLED } from '@/lib/admin-enabled';
 import { getCompany } from '@/repositories/company.repository';
+import { useT } from '@/lib/admin-i18n';
 
 const FacebookIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-label="Facebook">
@@ -27,8 +27,7 @@ const WhatsAppIcon = () => (
 
 export const Footer = () => {
   const company = getCompany();
-  const { language } = useLanguage();
-  const es = language === 'es';
+  const { t } = useT();
 
   return (
     <footer className="border-t border-border/30 mt-16">
@@ -43,21 +42,19 @@ export const Footer = () => {
                 V<span className="text-primary">&</span>E
               </p>
               <p className="text-[10px] tracking-[0.2em] text-primary uppercase font-light">
-                Asesores en Construcción
+                {t('chrome.footer.brandSubtitle')}
               </p>
             </div>
           </div>
           <p className="text-muted-foreground text-sm font-light leading-relaxed max-w-xs">
-            {es
-              ? 'Tu aliado estratégico para obtener tu casa de bono de manera segura, clara y eficiente.'
-              : 'Your strategic partner to get your housing bond home safely, clearly and efficiently.'}
+            {t('chrome.footer.brandDescription')}
           </p>
         </div>
 
         {/* Contact */}
         <div>
           <p className="text-xs tracking-widest uppercase text-primary mb-5 font-light">
-            {es ? 'Contacto' : 'Contact'}
+            {t('chrome.footer.contactHeading')}
           </p>
           <div className="space-y-4">
             {company.phones.map((phone, i) => (
@@ -87,7 +84,7 @@ export const Footer = () => {
         {/* Social & Links */}
         <div>
           <p className="text-xs tracking-widest uppercase text-primary mb-5 font-light">
-            {es ? 'Redes Sociales' : 'Social Media'}
+            {t('chrome.footer.socialHeading')}
           </p>
           <div className="space-y-3 mb-8">
             <a
@@ -117,7 +114,7 @@ export const Footer = () => {
               className="text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors tracking-widest uppercase"
               data-testid="link-admin"
             >
-              {es ? 'Panel Admin' : 'Admin Panel'}
+              {t('chrome.footer.adminPanel')}
             </Link>
           )}
         </div>
@@ -125,8 +122,8 @@ export const Footer = () => {
 
       <div className="border-t border-border/20 py-5 text-center">
         <p className="text-xs text-muted-foreground/40 font-light tracking-wider">
-          &copy; {new Date().getFullYear()} V&amp;E Asesores en Construcción.{' '}
-          {es ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+          &copy; {new Date().getFullYear()} V&amp;E {t('chrome.footer.brandSubtitle')}.{' '}
+          {t('chrome.footer.rights')}
         </p>
       </div>
     </footer>

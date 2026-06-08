@@ -2,7 +2,7 @@
   "intro": {
     "title": { "es": "Nuestros Socios", "en": "Our Partners" },
     "subtitle": {
-      "es": "La excelencia exige materiales excepcionales. Nos asociamos exclusivamente con proveedores líderes de la industria para garantizar una calidad duradera.",
+      "es": "La excelencia exige materiales excepcionales. Trabajamos únicamente con proveedores líderes del sector para garantizar una calidad que perdura.",
       "en": "Excellence requires exceptional materials. We partner exclusively with industry-leading providers to ensure lasting quality."
     }
   },
@@ -11,7 +11,7 @@
       "id": "p-1",
       "name": "Lumina Glass",
       "description": {
-        "es": "Sistemas premium de vidrio arquitectónico y aluminio.",
+        "es": "Sistemas de vidrio arquitectónico y aluminio de alta gama.",
         "en": "Premium architectural glass and aluminum systems."
       },
       "materials": [
@@ -26,7 +26,7 @@
       "id": "p-2",
       "name": "Maderas Nobles",
       "description": {
-        "es": "Maderas tropicales finas de origen ético y alta gama.",
+        "es": "Maderas tropicales finas de alta gama, de origen responsable.",
         "en": "Ethically sourced, high-end tropical hardwoods."
       },
       "materials": [
@@ -41,7 +41,7 @@
       "id": "p-3",
       "name": "Cimientos S.A.",
       "description": {
-        "es": "Cemento de alta calidad y acero estructural.",
+        "es": "Cemento de primera calidad y acero estructural.",
         "en": "High-grade cement and structural steel."
       },
       "materials": [
@@ -56,7 +56,7 @@
       "id": "p-4",
       "name": "AquaTech",
       "description": {
-        "es": "Grifería de lujo y sistemas de gestión del agua.",
+        "es": "Grifería de lujo y sistemas de manejo del agua.",
         "en": "Luxury plumbing fixtures and water management systems."
       },
       "materials": [

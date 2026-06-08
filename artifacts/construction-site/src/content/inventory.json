@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-07T23:47:48.256Z",
+  "generatedAt": "2026-06-08T00:03:22.952Z",
   "counts": {
     "nodes": 152,
     "edges": 363
@@ -1283,12 +1283,12 @@
     },
     {
       "from": "components/layout/Footer",
-      "to": "contexts/LanguageContext",
+      "to": "lib/admin-enabled",
       "kind": "imports"
     },
     {
       "from": "components/layout/Footer",
-      "to": "lib/admin-enabled",
+      "to": "lib/admin-i18n",
       "kind": "imports"
     },
     {

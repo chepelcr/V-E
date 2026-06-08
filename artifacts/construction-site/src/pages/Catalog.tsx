@@ -18,8 +18,9 @@ import { useHeadTags } from '@/lib/seo';
  * `catalog.service.ts` → repository + tolerant `resolveLocalized` + the media
  * resolver); fixed UI chrome (filter chips, room/space labels, beds/baths) comes
  * from `t("chrome.*")`; the measurement unit comes from `branding`. The gallery
- * filter/sort logic lives in the service. No bilingual ternaries, no reads from
- * `siteData`. Visual structure, classes and animations are unchanged.
+ * filter/sort logic lives in the service. No bilingual ternaries; copy is read
+ * only through the content JSON. Visual structure, classes and animations are
+ * unchanged.
  */
 export default function Catalog() {
   const { language } = useLanguage();

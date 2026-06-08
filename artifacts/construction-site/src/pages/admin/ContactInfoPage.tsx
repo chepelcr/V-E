@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { PageHeader } from "@/components/admin/PageHeader";
-import { AdminCard, BilingualField, BilingualTextArea, TextField } from "@/components/admin/AdminUI";
+import { AdminCard, TextField } from "@/components/admin/AdminUI";
 import { useAdminStore, downloadJson } from "@/lib/admin-store";
 import { useT } from "@/lib/admin-i18n";
 
 /**
  * Company / Contact Info editor (Pattern 1). Edits `contact.json`: phones,
- * email, country code, social handles, and the contact-page intro copy. This is
- * the shared source consumed by Footer / Home / Financiamiento (kills the
- * hardcoded phone/email drift).
+ * email, country code and social handles. This is the shared source consumed by
+ * Footer / Home / Financiamiento (kills the hardcoded phone/email drift). The
+ * contact-page intro copy lives in `contactContent.json` (ContactContentPage).
  */
 export function ContactInfoPage() {
   const { t } = useT();
@@ -66,11 +66,6 @@ export function ContactInfoPage() {
         <AdminCard title={t("chrome.footer.socialHeading")}>
           <TextField label={t("chrome.social.facebook")} value={draft.social.facebook} onChange={(v) => update((d) => { d.social.facebook = v; })} />
           <TextField label={t("chrome.social.instagram")} value={draft.social.instagram} onChange={(v) => update((d) => { d.social.instagram = v; })} />
-        </AdminCard>
-
-        <AdminCard title={t("chrome.nav.contact")}>
-          <BilingualField label="Intro title" es={draft.intro.title.es} en={draft.intro.title.en} onChange={(l, v) => update((d) => { d.intro.title[l] = v; })} />
-          <BilingualTextArea label="Intro subtitle" es={draft.intro.subtitle.es} en={draft.intro.subtitle.en} onChange={(l, v) => update((d) => { d.intro.subtitle[l] = v; })} />
         </AdminCard>
       </div>
     </div>

@@ -9,7 +9,7 @@ import type { Language } from "@/i18n/translations";
  * `contactContent.json`, and derives the model/lot dropdown options from the
  * shared catalog + lots content so the contact form's reference selectors stay
  * in sync with what's actually published. The public `Contact.tsx` consumes this
- * read-only view-model — it never reads the raw JSON shapes or `siteData`.
+ * read-only view-model — it never reads the raw content JSON shapes directly.
  */
 
 export interface ReferenceOption {

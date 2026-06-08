@@ -11,8 +11,8 @@ import { useHeadTags } from '@/lib/seo';
  * the repository + tolerant `resolveLocalized`); fixed UI chrome (the Materials/
  * Website/Contact field labels) comes from `t("chrome.fields.*")`. Provider
  * `name` is a brand proper noun (plain); `description` and per-item `materials`
- * are localized `{es,en}`. No bilingual ternaries, no reads from `siteData`.
- * Visual structure, classes and animations are unchanged.
+ * are localized `{es,en}`. No bilingual ternaries; copy is read only through the
+ * content JSON. Visual structure, classes and animations are unchanged.
  */
 export default function Providers() {
   const { language } = useLanguage();
